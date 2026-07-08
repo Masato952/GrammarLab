@@ -280,14 +280,12 @@ TODAY = date.today().isoformat()
 st.title("🈶 Grammar Lab — N2 真题文法特训")
 
 (
-    tab_today,
-    tab_search, tab_compare, tab_quiz, tab_add_q, tab_add_g, tab_stats,
-    tab_bluebook, tab_add_bluebook, tab_bluebook_quiz,
+    tab_today, tab_bluebook, tab_bluebook_quiz, tab_quiz,
+    tab_search, tab_compare, tab_stats,
 ) = st.tabs(
     [
-        "📅 今日任务",
-        "🔍 検索", "⚖️ 混同比較", "📝 真题小テスト", "📄 添加真题", "➕ 添加文法点", "📊 我的进度",
-        "📘 蓝宝书文法", "➕ 记录蓝宝书", "🎯 蓝宝书测试",
+        "📅 今日任务", "📘 蓝宝书文法", "🎯 蓝宝书测试", "📝 真题小テスト",
+        "🔍 検索", "⚖️ 混同比較", "📊 我的进度",
     ]
 )
 
@@ -738,147 +736,6 @@ with tab_quiz:
                 new_question(filtered)
                 st.rerun()
 
-# ---------------- 添加真题 ----------------
-with tab_add_q:
-    st.write("把做过的真题（题干、选项、正确答案、解析）录进来，之后小测验会从这里抽题。")
-    with st.form("add_question_form", clear_on_submit=True):
-        year = st.text_input("年份（例：2010-12）")
-        question_no = st.text_input("题号（例：33）")
-        existing_categories = sorted({q.get("category", "文法") for q in exam_data["questions"]}) or ["文法"]
-        category_options = existing_categories + ["自定义…"]
-        category_choice = st.selectbox("分类（文法/词汇/读解……）", category_options)
-        custom_category = ""
-        if category_choice == "自定义…":
-            custom_category = st.text_input("新分类名称", "")
-        sentence = st.text_area("题干（空格处用 （　　） 表示）")
-        opt1 = st.text_input("选项1")
-        opt2 = st.text_input("选项2")
-        opt3 = st.text_input("选项3")
-        opt4 = st.text_input("选项4")
-        answer_no = st.selectbox("正确答案是第几个选项", [1, 2, 3, 4])
-        gram_options = ["（新建一个文法点）"] + [e["id"] for e in data["grammar"]]
-        gram_choice = st.selectbox(
-            "这题考查的文法点", options=gram_options,
-            format_func=lambda x: x if x == "（新建一个文法点）" else f"{by_id[x]['pattern']} — {by_id[x]['meaning']}",
-        )
-        new_pattern = new_meaning = new_distinguish = ""
-        if gram_choice == "（新建一个文法点）":
-            new_pattern = st.text_input("新文法点：形式（例：〜わけではない）")
-            new_meaning = st.text_input("新文法点：中文意思")
-            new_distinguish = st.text_area("新文法点：区分要点（中文）", "")
-        explanation_zh = st.text_area("解析（中文）")
-        translation_zh = st.text_area("译文（中文）")
-        submitted = st.form_submit_button("保存真题")
-
-        if submitted:
-            options = [opt1, opt2, opt3, opt4]
-            if not sentence or not all(options) or not year or not question_no:
-                st.warning("题干、年份、题号、四个选项都要填。")
-            elif gram_choice == "（新建一个文法点）" and not new_pattern:
-                st.warning("要么选一个已有文法点，要么至少填新文法点的形式。")
-            else:
-                if gram_choice == "（新建一个文法点）":
-                    gid = f"user_g{len(data['grammar']) + 1}"
-                    data["grammar"].append({
-                        "id": gid,
-                        "pattern": new_pattern,
-                        "meaning": new_meaning,
-                        "connection": "",
-                        "formality": "",
-                        "family": "uncategorized",
-                        "confusable": [],
-                        "distinguish_zh": new_distinguish,
-                        "frequency": 3,
-                        "examples": [],
-                        "source": year,
-                    })
-                    if not any(f["id"] == "uncategorized" for f in data["families"]):
-                        data["families"].append({"id": "uncategorized", "name": "未分类", "members": []})
-                    for fam in data["families"]:
-                        if fam["id"] == "uncategorized":
-                            fam["members"].append(gid)
-                    save_grammar(data)
-                else:
-                    gid = gram_choice
-
-                qid = f"{year}-q{question_no}"
-                category = custom_category.strip() if category_choice == "自定义…" else category_choice
-                exam_data["questions"].append({
-                    "id": qid,
-                    "year": year,
-                    "question_no": int(question_no),
-                    "category": category or "文法",
-                    "sentence": sentence,
-                    "options": options,
-                    "answer_index": answer_no - 1,
-                    "grammar_id": gid,
-                    "explanation_zh": explanation_zh,
-                    "translation_zh": translation_zh,
-                })
-                save_exam_questions(exam_data)
-                st.success(f"已添加第 {question_no} 题")
-                st.rerun()
-
-# ---------------- 添加文法点 ----------------
-with tab_add_g:
-    st.write("只想先记一个文法点、还没配真题原题时，可以在这里单独加。")
-    with st.form("add_grammar_form", clear_on_submit=True):
-        pattern = st.text_input("文法形式（例：〜てからというもの）")
-        meaning = st.text_input("中文意思")
-        connection = st.text_input("接续")
-        formality = st.text_input("语体 / 使用场景", "")
-        fam_choice = st.selectbox(
-            "所属家族（找不到相近的可以选'未分类'）",
-            options=["未分类"] + [fam["id"] for fam in data["families"]],
-            format_func=lambda x: x if x == "未分类" else family_name(data, x),
-        )
-        new_family_name = ""
-        if fam_choice == "未分类":
-            new_family_name = st.text_input("或者新建一个家族名称（可留空）", "")
-        distinguish = st.text_area("区分要点 / 真题里为什么会做错", "")
-        example_jp = st.text_input("例句（日语）", "")
-        example_zh = st.text_input("例句翻译（中文）", "")
-        submitted = st.form_submit_button("保存")
-
-        if submitted:
-            if not pattern or not meaning:
-                st.warning("至少填写文法形式和中文意思。")
-            else:
-                new_id = f"user_{len(data['grammar']) + 1}"
-                family_id = fam_choice
-                if fam_choice == "未分类" and new_family_name:
-                    family_id = f"custom_{len(data['families']) + 1}"
-                    data["families"].append(
-                        {"id": family_id, "name": new_family_name, "members": []}
-                    )
-                elif fam_choice == "未分类":
-                    family_id = "uncategorized"
-                    if not any(f["id"] == "uncategorized" for f in data["families"]):
-                        data["families"].append(
-                            {"id": "uncategorized", "name": "未分类", "members": []}
-                        )
-
-                entry = {
-                    "id": new_id,
-                    "pattern": pattern,
-                    "meaning": meaning,
-                    "connection": connection,
-                    "formality": formality,
-                    "family": family_id,
-                    "confusable": [],
-                    "distinguish_zh": distinguish,
-                    "frequency": 3,
-                    "examples": [{"jp": example_jp, "zh": example_zh}] if example_jp else [],
-                    "source": "user",
-                }
-                data["grammar"].append(entry)
-                for fam in data["families"]:
-                    if fam["id"] == family_id:
-                        fam["members"].append(new_id)
-                save_grammar(data)
-                st.success(f"已添加：{pattern}")
-                st.rerun()
-
 # ---------------- 我的进度 ----------------
 with tab_stats:
     total_correct = sum(stats["correct"] for stats in log.values())
@@ -947,60 +804,6 @@ with tab_bluebook:
             acc = accuracy(bluebook_log, e["id"])
             if acc is not None:
                 st.progress(acc, text=f"测验正确率 {acc:.0%}")
-
-# ---------------- 记录蓝宝书 ----------------
-with tab_add_bluebook:
-    st.write("按蓝宝书上的条目录入：编号、文法形式、接续、说明，以及若干条例句。")
-    with st.form("add_bluebook_form", clear_on_submit=True):
-        no = st.number_input(
-            "编号", min_value=1, step=1,
-            value=(max((e.get("no", 0) for e in bluebook_data["entries"]), default=0) + 1),
-        )
-        pattern = st.text_input("文法形式（例：〜あげく（に））")
-        connection = st.text_input("接续（例：動た形／名－の＋あげく（に））")
-        meaning_zh = st.text_area("说明（中文）")
-        st.caption("例句（最多3条，日语留空则不保存该条）")
-        ex_jp1 = st.text_area("例句1 · 日语", "")
-        ex_zh1 = st.text_input("例句1 · 中文翻译", "")
-        ex_src1 = st.text_input("例句1 · 来源（可留空，例：2011年7月真题）", "")
-        ex_jp2 = st.text_area("例句2 · 日语", "")
-        ex_zh2 = st.text_input("例句2 · 中文翻译", "")
-        ex_src2 = st.text_input("例句2 · 来源", "")
-        ex_jp3 = st.text_area("例句3 · 日语", "")
-        ex_zh3 = st.text_input("例句3 · 中文翻译", "")
-        ex_src3 = st.text_input("例句3 · 来源", "")
-        note = st.text_area("注意（用法提醒、易混淆点等）", "")
-        submitted = st.form_submit_button("保存到蓝宝书")
-
-        if submitted:
-            if not pattern or not meaning_zh:
-                st.warning("至少要填文法形式和说明。")
-            else:
-                examples = []
-                for jp, zh, src in [
-                    (ex_jp1, ex_zh1, ex_src1),
-                    (ex_jp2, ex_zh2, ex_src2),
-                    (ex_jp3, ex_zh3, ex_src3),
-                ]:
-                    if jp.strip():
-                        examples.append({"jp": jp.strip(), "zh": zh.strip(), "source": src.strip()})
-
-                new_id = f"bb_{len(bluebook_data['entries']) + 1}"
-                bluebook_data["entries"].append({
-                    "id": new_id,
-                    "no": int(no),
-                    "pattern": pattern,
-                    "connection": connection,
-                    "meaning_zh": meaning_zh,
-                    "examples": examples,
-                    "note": note,
-                    "added_date": date.today().isoformat(),
-                    "box": 0,
-                    "next_review": date.today().isoformat(),
-                })
-                save_bluebook(bluebook_data)
-                st.success(f"已添加第 {no} 条：{pattern}")
-                st.rerun()
 
 # ---------------- 蓝宝书测试 ----------------
 with tab_bluebook_quiz:
