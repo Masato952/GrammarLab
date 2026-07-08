@@ -76,12 +76,54 @@
       "box": 1,
       "attempted": true,
       "next_review": "2026-07-10"
+    },
+    "2010-12-q44": {
+      "correct": 0,
+      "wrong": 1,
+      "box": 0,
+      "attempted": true,
+      "next_review": "2026-07-09"
+    },
+    "2010-12-q45": {
+      "correct": 1,
+      "wrong": 0,
+      "box": 1,
+      "attempted": true,
+      "next_review": "2026-07-10"
+    },
+    "2010-12-q46": {
+      "correct": 1,
+      "wrong": 0,
+      "box": 1,
+      "attempted": true,
+      "next_review": "2026-07-10"
+    },
+    "2010-12-q47": {
+      "correct": 0,
+      "wrong": 1,
+      "box": 0,
+      "attempted": true,
+      "next_review": "2026-07-09"
+    },
+    "2010-12-q48": {
+      "correct": 1,
+      "wrong": 0,
+      "box": 1,
+      "attempted": true,
+      "next_review": "2026-07-10"
+    },
+    "2010-12-q49": {
+      "correct": 1,
+      "wrong": 0,
+      "box": 1,
+      "attempted": true,
+      "next_review": "2026-07-10"
     }
   },
   "daily": {
     "2026-07-08": {
       "year": "2010-12",
-      "done": false,
+      "done": true,
       "queue": [
         "2010-12-q33",
         "2010-12-q34",
@@ -101,7 +143,7 @@
         "2010-12-q48",
         "2010-12-q49"
       ],
-      "pos": 10
+      "pos": 17
     }
   }
 }

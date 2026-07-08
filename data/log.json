@@ -42,5 +42,29 @@
   "bakari_da_to_iu_noni": {
     "correct": 1,
     "wrong": 0
+  },
+  "no_ka_douka": {
+    "correct": 0,
+    "wrong": 1
+  },
+  "janaika_suisoku": {
+    "correct": 1,
+    "wrong": 0
+  },
+  "nai_uchi_ni": {
+    "correct": 1,
+    "wrong": 0
+  },
+  "youtoshitemo": {
+    "correct": 0,
+    "wrong": 1
+  },
+  "hazu_da": {
+    "correct": 1,
+    "wrong": 0
+  },
+  "karakoso": {
+    "correct": 1,
+    "wrong": 0
   }
 }

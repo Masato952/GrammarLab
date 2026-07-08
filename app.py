@@ -81,7 +81,7 @@ def load_grammar():
 
 
 def save_grammar(data):
-    with open(GRAMMAR_FILE, "w", encoding="utf-8") as f:
+    with open(GRAMMAR_FILE, "w", encoding="utf-8", newline="\n") as f:
         json.dump(data, f, ensure_ascii=False, indent=2)
     github_commit_file(GRAMMAR_FILE, "data/grammar.json", "更新 grammar.json")
 
@@ -92,7 +92,7 @@ def load_exam_questions():
 
 
 def save_exam_questions(data):
-    with open(EXAM_FILE, "w", encoding="utf-8") as f:
+    with open(EXAM_FILE, "w", encoding="utf-8", newline="\n") as f:
         json.dump(data, f, ensure_ascii=False, indent=2)
     github_commit_file(EXAM_FILE, "data/exam_questions.json", "更新 exam_questions.json")
 
@@ -105,7 +105,7 @@ def load_log():
 
 
 def save_log(log):
-    with open(LOG_FILE, "w", encoding="utf-8") as f:
+    with open(LOG_FILE, "w", encoding="utf-8", newline="\n") as f:
         json.dump(log, f, ensure_ascii=False, indent=2)
     github_commit_file(LOG_FILE, "data/log.json", "更新 log.json")
 
@@ -118,7 +118,7 @@ def load_bluebook():
 
 
 def save_bluebook(data):
-    with open(BLUEBOOK_FILE, "w", encoding="utf-8") as f:
+    with open(BLUEBOOK_FILE, "w", encoding="utf-8", newline="\n") as f:
         json.dump(data, f, ensure_ascii=False, indent=2)
     github_commit_file(BLUEBOOK_FILE, "data/bluebook.json", "更新 bluebook.json")
 
@@ -131,7 +131,7 @@ def load_bluebook_log():
 
 
 def save_bluebook_log(log):
-    with open(BLUEBOOK_LOG_FILE, "w", encoding="utf-8") as f:
+    with open(BLUEBOOK_LOG_FILE, "w", encoding="utf-8", newline="\n") as f:
         json.dump(log, f, ensure_ascii=False, indent=2)
     github_commit_file(BLUEBOOK_LOG_FILE, "data/bluebook_log.json", "更新 bluebook_log.json")
 
@@ -148,7 +148,7 @@ def load_exam_progress():
 
 
 def save_exam_progress(data):
-    with open(EXAM_PROGRESS_FILE, "w", encoding="utf-8") as f:
+    with open(EXAM_PROGRESS_FILE, "w", encoding="utf-8", newline="\n") as f:
         json.dump(data, f, ensure_ascii=False, indent=2)
     github_commit_file(EXAM_PROGRESS_FILE, "data/exam_progress.json", "更新 exam_progress.json")
 
