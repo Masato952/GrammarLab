@@ -1,0 +1,46 @@
+{
+  "no_ue_de": {
+    "correct": 1,
+    "wrong": 0
+  },
+  "nagara_mo": {
+    "correct": 1,
+    "wrong": 0
+  },
+  "mitaida": {
+    "correct": 1,
+    "wrong": 0
+  },
+  "totemo_nai": {
+    "correct": 0,
+    "wrong": 1
+  },
+  "wakedewanai": {
+    "correct": 1,
+    "wrong": 0
+  },
+  "youganai": {
+    "correct": 1,
+    "wrong": 0
+  },
+  "o_moushiageru": {
+    "correct": 1,
+    "wrong": 0
+  },
+  "tewa_inai_deshouka": {
+    "correct": 1,
+    "wrong": 0
+  },
+  "sasete_kureru": {
+    "correct": 1,
+    "wrong": 0
+  },
+  "tehoshikunai": {
+    "correct": 1,
+    "wrong": 0
+  },
+  "bakari_da_to_iu_noni": {
+    "correct": 1,
+    "wrong": 0
+  }
+}
