@@ -1,4 +1,5 @@
 import base64
+import io
 import json
 import os
 import random
@@ -8,6 +9,7 @@ from pathlib import Path
 
 import requests
 import streamlit as st
+from gtts import gTTS
 
 DATA_DIR = Path(__file__).parent / "data"
 GRAMMAR_FILE = DATA_DIR / "grammar.json"
@@ -232,6 +234,24 @@ def build_bb_card(entry, pool):
     options = distractors + [answer_text]
     random.shuffle(options)
     return {"example": example, "blanked": blanked, "answer_text": answer_text, "options": options}
+
+
+def recite_sentence(entry):
+    """取一条蓝宝书文法的背诵句：优先用手动填的 recite_jp/recite_zh，
+    没填就自动挑例句里日语最短的一条（背诵起来负担最小）。"""
+    if entry.get("recite_jp"):
+        return entry["recite_jp"], entry.get("recite_zh", "")
+    if not entry.get("examples"):
+        return "", ""
+    shortest = min(entry["examples"], key=lambda ex: len(ex["jp"]))
+    return shortest["jp"], shortest["zh"]
+
+
+@st.cache_data(show_spinner="生成语音中…")
+def synthesize_ja(text):
+    buf = io.BytesIO()
+    gTTS(text=text, lang="ja").write_to_fp(buf)
+    return buf.getvalue()
 
 
 def entries_by_id(data):
@@ -925,6 +945,18 @@ with tab_bluebook:
                 st.caption(ex["zh"])
             if e.get("note"):
                 st.write(f"**注意**：{e['note']}")
+
+            recite_jp, recite_zh = recite_sentence(e)
+            if recite_jp:
+                st.divider()
+                st.write(f"**🔊 背诵句**：{recite_jp}")
+                st.caption(recite_zh)
+                audio_key = f"tts_audio_{e['id']}"
+                if st.button("🔊 播放", key=f"tts_btn_{e['id']}"):
+                    st.session_state[audio_key] = synthesize_ja(recite_jp)
+                if audio_key in st.session_state:
+                    st.audio(st.session_state[audio_key], format="audio/mp3")
+
             st.caption(f"添加日期：{e.get('added_date', '')}")
             acc = accuracy(bluebook_log, e["id"])
             if acc is not None:
@@ -952,6 +984,9 @@ with tab_add_bluebook:
         ex_zh3 = st.text_input("例句3 · 中文翻译", "")
         ex_src3 = st.text_input("例句3 · 来源", "")
         note = st.text_area("注意（用法提醒、易混淆点等）", "")
+        st.caption("背诵句（可选）：跟读背诵用的短句，留空的话自动选例句里日语最短的一条")
+        recite_jp = st.text_area("背诵句 · 日语", "")
+        recite_zh = st.text_input("背诵句 · 中文翻译", "")
         submitted = st.form_submit_button("保存到蓝宝书")
 
         if submitted:
@@ -976,6 +1011,8 @@ with tab_add_bluebook:
                     "meaning_zh": meaning_zh,
                     "examples": examples,
                     "note": note,
+                    "recite_jp": recite_jp.strip(),
+                    "recite_zh": recite_zh.strip(),
                     "added_date": date.today().isoformat(),
                     "box": 0,
                     "next_review": date.today().isoformat(),
