@@ -680,98 +680,179 @@ with tab_compare:
 # ---------------- 真题小テスト ----------------
 with tab_quiz:
     questions = exam_data["questions"]
+    exam_progress.setdefault("set_attempts", {})
 
     if not questions:
-        st.write("真题库还是空的，先去「📄 添加真题」加几题吧。")
+        st.write("真题库还是空的。")
     else:
-        years = ["全部"] + sorted({q["year"] for q in questions})
-        categories = ["全部"] + sorted({q.get("category", "文法") for q in questions})
-        col_year, col_cat = st.columns(2)
-        with col_year:
-            year_filter = st.selectbox("按年份/试卷筛选", years, key="filter_year")
-        with col_cat:
-            cat_filter = st.selectbox("按分类筛选（文法/词汇……）", categories, key="filter_category")
+        exam_sets = exam_sets_by_year(questions)
+        set_years = sorted(exam_sets.keys())
 
-        filtered = [
-            q for q in questions
-            if (year_filter == "全部" or q["year"] == year_filter)
-            and (cat_filter == "全部" or q.get("category", "文法") == cat_filter)
+        def render_quiz_question(q, key_prefix):
+            """渲染一道真题的做题UI（题干/选项/提交/解析）。
+            返回 (just_answered, next_clicked)：just_answered 只在刚提交的那次 rerun 是 True/False，
+            其余时候是 None；next_clicked 表示这次 rerun 里点了"下一题"。"""
+            gid = q["grammar_id"]
+            grammar_entry = by_id.get(gid)
+            is_reorder = q.get("type") == "reorder"
+            st.caption(f"{q['year']}　問題{q['question_no']}" + ("　排序题" if is_reorder else ""))
+            if is_reorder:
+                st.caption("四个选项按顺序能拼成一句完整的话，请判断 ★ 处应该填哪个选项")
+            st.write(f"### {q['sentence']}")
+
+            option_labels = [f"{i + 1}. {opt}" for i, opt in enumerate(q["options"])]
+            answered_key = f"{key_prefix}_answered"
+            picked_key = f"{key_prefix}_picked"
+            picked = st.radio(
+                "选择最合适的选项", option_labels, index=None, key=f"{key_prefix}_radio",
+                disabled=st.session_state.get(answered_key, False),
+            )
+
+            just_answered = None
+            if (
+                st.button("提交答案", key=f"{key_prefix}_submit")
+                and picked is not None
+                and not st.session_state.get(answered_key, False)
+            ):
+                picked_index = option_labels.index(picked)
+                correct = picked_index == q["answer_index"]
+                st.session_state[answered_key] = True
+                st.session_state[picked_key] = picked_index
+                just_answered = correct
+                record_exam_answer(exam_progress, log, q["id"], gid, correct)
+
+            next_clicked = False
+            if st.session_state.get(answered_key):
+                picked_index = st.session_state[picked_key]
+                correct_option = q["options"][q["answer_index"]]
+                if picked_index == q["answer_index"]:
+                    st.success(f"✅ 回答正确！正确答案是 {q['answer_index'] + 1}. {correct_option}")
+                else:
+                    st.error(
+                        f"❌ 回答错误。你选的是 {picked_index + 1}. {q['options'][picked_index]}，"
+                        f"正确答案是 {q['answer_index'] + 1}. {correct_option}"
+                    )
+                if is_reorder and q.get("full_order"):
+                    full_sentence = "".join(q["options"][n - 1] for n in q["full_order"])
+                    st.markdown(f"**完整语序**：{full_sentence}")
+                st.markdown(f"**解析**：{q['explanation_zh']}")
+                st.markdown(f"**译文**：{q['translation_zh']}")
+                if grammar_entry:
+                    st.caption(f"涉及文法点：「{grammar_entry['pattern']}」— {grammar_entry['meaning']}")
+                next_clicked = st.button("下一题", key=f"{key_prefix}_next")
+
+            return just_answered, next_clicked
+
+        # ---- 常错题提醒（错2次以上） ----
+        weak = [
+            (qid, prog) for qid, prog in exam_progress["questions"].items()
+            if prog.get("wrong", 0) >= 2 and any(item["id"] == qid for item in questions)
         ]
+        if weak:
+            weak.sort(key=lambda x: x[1]["wrong"], reverse=True)
+            with st.expander(f"⚠️ 常错题提醒（{len(weak)} 题错过2次以上，建议多练习）"):
+                for qid, prog in weak:
+                    wq = next(item for item in questions if item["id"] == qid)
+                    st.write(
+                        f"- {wq['year']} 問題{wq['question_no']}："
+                        f"错 {prog['wrong']} 次 / 对 {prog.get('correct', 0)} 次 — {wq['sentence'][:30]}…"
+                    )
 
-    if questions and not filtered:
-        st.warning("这个筛选条件下还没有题目。")
-    elif questions:
-        if "quiz_qid" not in st.session_state:
-            st.session_state.quiz_qid = None
-            st.session_state.answered = False
-            st.session_state.picked_index = None
-            st.session_state.quiz_filter = None
+        mode = st.radio("练习模式", ["按套刷题", "错题复习"], horizontal=True, key="quiz_mode")
 
-        def new_question(pool):
-            weights = [
-                1.0 if accuracy(log, q["grammar_id"]) is None
-                else (1.1 - accuracy(log, q["grammar_id"]))
-                for q in pool
-            ]
-            q = random.choices(pool, weights=weights, k=1)[0]
-            st.session_state.quiz_qid = q["id"]
-            st.session_state.answered = False
-            st.session_state.picked_index = None
-            st.session_state.quiz_filter = (year_filter, cat_filter)
+        if mode == "按套刷题":
+            selected_year = st.selectbox("选择一套真题", set_years, key="quiz_set_year")
+            set_qs = exam_sets[selected_year]
+            attempts = exam_progress["set_attempts"].get(selected_year, 0)
+            st.caption(f"这一套目前完整做过 {attempts} 次" if attempts else "这一套还没完整做过")
 
-        current_filter = (year_filter, cat_filter)
-        need_new = (
-            st.session_state.quiz_qid is None
-            or st.session_state.quiz_filter != current_filter
-            or not any(q["id"] == st.session_state.quiz_qid for q in filtered)
-        )
-        if need_new:
-            new_question(filtered)
+            if st.session_state.get("quiz_set_year_active") != selected_year:
+                st.session_state.quiz_set_year_active = selected_year
+                st.session_state.quiz_set_queue = [q["id"] for q in set_qs]
+                st.session_state.quiz_set_pos = 0
+                st.session_state.quiz_set_wrong = []
+                st.session_state.quiz_set_correct_count = 0
+                st.session_state.quiz_set_counted = False
 
-        q = next(item for item in questions if item["id"] == st.session_state.quiz_qid)
-        gid = q["grammar_id"]
-        grammar_entry = by_id.get(gid)
+            queue = st.session_state.quiz_set_queue
+            pos = st.session_state.quiz_set_pos
 
-        is_reorder = q.get("type") == "reorder"
-        st.caption(f"{q['year']}　問題{q['question_no']}" + ("　排序题" if is_reorder else ""))
-        if is_reorder:
-            st.caption("四个选项按顺序能拼成一句完整的话，请判断 ★ 处应该填哪个选项")
-        st.write(f"### {q['sentence']}")
+            if pos >= len(queue):
+                if not st.session_state.quiz_set_counted:
+                    exam_progress["set_attempts"][selected_year] = (
+                        exam_progress["set_attempts"].get(selected_year, 0) + 1
+                    )
+                    save_exam_progress(exam_progress)
+                    st.session_state.quiz_set_counted = True
 
-        option_labels = [f"{i + 1}. {opt}" for i, opt in enumerate(q["options"])]
-        picked = st.radio(
-            "选择最合适的选项", option_labels, index=None, key="quiz_radio",
-            disabled=st.session_state.answered,
-        )
-
-        if st.button("提交答案") and picked is not None and not st.session_state.answered:
-            st.session_state.answered = True
-            st.session_state.picked_index = option_labels.index(picked)
-            correct = st.session_state.picked_index == q["answer_index"]
-            record_exam_answer(exam_progress, log, q["id"], gid, correct)
-            st.rerun()
-
-        if st.session_state.answered:
-            picked_index = st.session_state.picked_index
-            correct_option = q["options"][q["answer_index"]]
-            if picked_index == q["answer_index"]:
-                st.success(f"✅ 回答正确！正确答案是 {q['answer_index'] + 1}. {correct_option}")
+                total = len(queue)
+                correct_n = st.session_state.quiz_set_correct_count
+                st.success(f"这套（{selected_year}）完整做完了：共 {total} 题，答对 {correct_n}，答错 {total - correct_n}。")
+                if st.session_state.quiz_set_wrong:
+                    st.write("**这次答错的题**：")
+                    for qid in st.session_state.quiz_set_wrong:
+                        wq = next(item for item in questions if item["id"] == qid)
+                        st.write(f"- {wq['year']} 問題{wq['question_no']}：{wq['sentence']}")
+                if st.button("再做一遍这一套", key="quiz_set_restart"):
+                    st.session_state.quiz_set_queue = [q["id"] for q in set_qs]
+                    st.session_state.quiz_set_pos = 0
+                    st.session_state.quiz_set_wrong = []
+                    st.session_state.quiz_set_correct_count = 0
+                    st.session_state.quiz_set_counted = False
+                    st.rerun()
             else:
-                st.error(
-                    f"❌ 回答错误。你选的是 {picked_index + 1}. {q['options'][picked_index]}，"
-                    f"正确答案是 {q['answer_index'] + 1}. {correct_option}"
-                )
-            if is_reorder and q.get("full_order"):
-                full_sentence = "".join(q["options"][n - 1] for n in q["full_order"])
-                st.markdown(f"**完整语序**：{full_sentence}")
-            st.markdown(f"**解析**：{q['explanation_zh']}")
-            st.markdown(f"**译文**：{q['translation_zh']}")
-            if grammar_entry:
-                st.caption(f"涉及文法点：「{grammar_entry['pattern']}」— {grammar_entry['meaning']}")
+                st.caption(f"第 {pos + 1} / {len(queue)} 题")
+                qid = queue[pos]
+                q = next(item for item in set_qs if item["id"] == qid)
+                correct, next_clicked = render_quiz_question(q, key_prefix=f"quiz_set_{qid}")
+                if correct is not None:
+                    if correct:
+                        st.session_state.quiz_set_correct_count += 1
+                    else:
+                        st.session_state.quiz_set_wrong.append(qid)
+                if next_clicked:
+                    st.session_state.quiz_set_pos += 1
+                    st.rerun()
 
-            if st.button("下一题"):
-                new_question(filtered)
-                st.rerun()
+        else:  # 错题复习
+            wrong_qids = [
+                qid for qid, prog in exam_progress["questions"].items()
+                if prog.get("wrong", 0) > 0 and any(item["id"] == qid for item in questions)
+            ]
+
+            if not wrong_qids:
+                st.success("目前没有错题记录，太棒了。")
+            elif st.session_state.get("quiz_review_queue") is None:
+                st.write(f"目前累计有 **{len(wrong_qids)}** 道错题（按错的次数从多到少排列）。")
+                if st.button("开始复习错题", key="quiz_review_start"):
+                    wrong_qids_sorted = sorted(
+                        wrong_qids,
+                        key=lambda qid: exam_progress["questions"][qid].get("wrong", 0),
+                        reverse=True,
+                    )
+                    st.session_state.quiz_review_queue = wrong_qids_sorted
+                    st.session_state.quiz_review_pos = 0
+                    st.session_state.quiz_review_correct = 0
+                    st.rerun()
+            else:
+                rqueue = st.session_state.quiz_review_queue
+                rpos = st.session_state.quiz_review_pos
+
+                if rpos >= len(rqueue):
+                    st.success(f"错题复习完成：共 {len(rqueue)} 题，答对 {st.session_state.quiz_review_correct} 题。")
+                    if st.button("关闭本轮复习", key="quiz_review_close"):
+                        st.session_state.quiz_review_queue = None
+                        st.rerun()
+                else:
+                    st.caption(f"复习第 {rpos + 1} / {len(rqueue)} 题")
+                    rqid = rqueue[rpos]
+                    rq = next(item for item in questions if item["id"] == rqid)
+                    correct, next_clicked = render_quiz_question(rq, key_prefix=f"quiz_review_{rqid}")
+                    if correct is not None and correct:
+                        st.session_state.quiz_review_correct += 1
+                    if next_clicked:
+                        st.session_state.quiz_review_pos += 1
+                        st.rerun()
 
 # ---------------- 我的进度 ----------------
 with tab_stats:
