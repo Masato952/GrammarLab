@@ -1,3 +1,5 @@
+from pathlib import Path
+
 import streamlit as st
 
 from common import (
@@ -13,6 +15,7 @@ from common import (
     load_exam_progress,
     load_exam_questions,
     load_grammar,
+    load_listening_questions,
     load_log,
     record_bluebook_answer,
     record_exam_answer,
@@ -29,17 +32,18 @@ exam_progress = load_exam_progress()
 bluebook_data = load_bluebook()
 bluebook_log = load_bluebook_log()
 bluebook_group_stats = load_bluebook_group_stats()
+listening_data = load_listening_questions()
 by_id = entries_by_id(data)
 bb_by_id = {e["id"]: e for e in bluebook_data["entries"]}
 
 st.title("🈶 N2特训 — 真题 / 蓝宝书")
 
 (
-    tab_quiz, tab_bb_quiz,
+    tab_quiz, tab_bb_quiz, tab_listening,
     tab_bb_browse, tab_search, tab_compare, tab_stats,
 ) = st.tabs(
     [
-        "📝 真题练习", "🎯 蓝宝书测试",
+        "📝 真题练习", "🎯 蓝宝书测试", "🎧 听力练习",
         "📖 蓝宝书文法", "🔍 検索", "⚖️ 混同比較", "📊 我的进度",
     ]
 )
@@ -430,6 +434,55 @@ with tab_bb_quiz:
                     st.session_state.bbq_pos += 1
                     st.session_state.bbq_card = None
                     st.rerun()
+
+# ---------------- 听力练习 ----------------
+with tab_listening:
+    sets = listening_data.get("sets", [])
+    if not sets:
+        st.write("听力题库还是空的。")
+    else:
+        set_labels = [f"{s['year']} 問題{s['mondai']}" for s in sets]
+        selected_idx = st.selectbox(
+            "选择一套听力", range(len(sets)), format_func=lambda i: set_labels[i], key="listening_set"
+        )
+        lset = sets[selected_idx]
+
+        st.caption(lset.get("instruction", ""))
+        audio_path = Path(__file__).parent / lset["audio_file"]
+        if audio_path.exists():
+            st.audio(str(audio_path), format="audio/mp3")
+        else:
+            st.warning(f"找不到音频文件：{lset['audio_file']}")
+
+        has_answers = all(q.get("answer_index") is not None for q in lset["questions"])
+        if not has_answers:
+            st.info("这一套还没有录入正确答案，选完之后点提交只会记录你选的，不会判断对错。")
+
+        picks = {}
+        for q in lset["questions"]:
+            option_labels = [f"{i + 1}. {opt}" for i, opt in enumerate(q["options"])]
+            picks[q["no"]] = st.radio(
+                f"{q['no']}番", option_labels, index=None, key=f"listening_{lset['id']}_{q['no']}",
+            )
+
+        if st.button("提交答案", key=f"listening_{lset['id']}_submit"):
+            if any(v is None for v in picks.values()):
+                st.warning("还有题目没选。")
+            elif not has_answers:
+                st.success("已记录你的选择（正确答案还没录入，暂时无法判分）。")
+                for q in lset["questions"]:
+                    st.write(f"- {q['no']}番：你选的是 {picks[q['no']]}")
+            else:
+                correct_n = 0
+                for q in lset["questions"]:
+                    picked_index = int(picks[q["no"]].split(".")[0]) - 1
+                    correct = picked_index == q["answer_index"]
+                    if correct:
+                        correct_n += 1
+                        st.success(f"{q['no']}番：✅ 正确")
+                    else:
+                        st.error(f"{q['no']}番：❌ 正确答案是 {q['answer_index'] + 1}. {q['options'][q['answer_index']]}")
+                st.info(f"共 {len(lset['questions'])} 题，答对 {correct_n} 题。")
 
 # ---------------- 蓝宝书文法（浏览） ----------------
 with tab_bb_browse:

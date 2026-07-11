@@ -18,6 +18,7 @@ BLUEBOOK_FILE = DATA_DIR / "bluebook.json"
 BLUEBOOK_LOG_FILE = DATA_DIR / "bluebook_log.json"
 BLUEBOOK_GROUP_FILE = DATA_DIR / "bluebook_group_stats.json"
 EXAM_PROGRESS_FILE = DATA_DIR / "exam_progress.json"
+LISTENING_FILE = DATA_DIR / "listening_questions.json"
 
 # 简化版莱特纳盒子：答对进下一箱（复习间隔变长），答错打回第0箱（明天重考）
 LEITNER_INTERVALS = [1, 2, 4, 7, 15, 30]
@@ -131,6 +132,10 @@ def _safe_json_load(path, default, repo_relative_path=None):
 
 def load_grammar():
     return _safe_json_load(GRAMMAR_FILE, {"families": [], "grammar": []}, "data/grammar.json")
+
+
+def load_listening_questions():
+    return _safe_json_load(LISTENING_FILE, {"sets": []}, "data/listening_questions.json")
 
 
 def save_grammar(data):
