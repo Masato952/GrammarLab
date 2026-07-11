@@ -1,129 +1,9 @@
 {
-  "questions": {
-    "2010-12-q33": {
-      "correct": 1,
-      "wrong": 0,
-      "box": 1,
-      "attempted": true,
-      "next_review": "2026-07-10"
-    },
-    "2010-12-q34": {
-      "correct": 1,
-      "wrong": 0,
-      "box": 1,
-      "attempted": true,
-      "next_review": "2026-07-10"
-    },
-    "2010-12-q35": {
-      "correct": 1,
-      "wrong": 0,
-      "box": 1,
-      "attempted": true,
-      "next_review": "2026-07-10"
-    },
-    "2010-12-q36": {
-      "correct": 0,
-      "wrong": 1,
-      "box": 0,
-      "attempted": true,
-      "next_review": "2026-07-09"
-    },
-    "2010-12-q37": {
-      "correct": 1,
-      "wrong": 0,
-      "box": 1,
-      "attempted": true,
-      "next_review": "2026-07-10"
-    },
-    "2010-12-q38": {
-      "correct": 1,
-      "wrong": 0,
-      "box": 1,
-      "attempted": true,
-      "next_review": "2026-07-10"
-    },
-    "2010-12-q39": {
-      "correct": 1,
-      "wrong": 0,
-      "box": 1,
-      "attempted": true,
-      "next_review": "2026-07-10"
-    },
-    "2010-12-q40": {
-      "correct": 1,
-      "wrong": 0,
-      "box": 1,
-      "attempted": true,
-      "next_review": "2026-07-10"
-    },
-    "2010-12-q41": {
-      "correct": 1,
-      "wrong": 0,
-      "box": 1,
-      "attempted": true,
-      "next_review": "2026-07-10"
-    },
-    "2010-12-q42": {
-      "correct": 1,
-      "wrong": 0,
-      "box": 1,
-      "attempted": true,
-      "next_review": "2026-07-10"
-    },
-    "2010-12-q43": {
-      "correct": 1,
-      "wrong": 0,
-      "box": 1,
-      "attempted": true,
-      "next_review": "2026-07-10"
-    },
-    "2010-12-q44": {
-      "correct": 0,
-      "wrong": 1,
-      "box": 0,
-      "attempted": true,
-      "next_review": "2026-07-09"
-    },
-    "2010-12-q45": {
-      "correct": 1,
-      "wrong": 0,
-      "box": 1,
-      "attempted": true,
-      "next_review": "2026-07-10"
-    },
-    "2010-12-q46": {
-      "correct": 1,
-      "wrong": 0,
-      "box": 1,
-      "attempted": true,
-      "next_review": "2026-07-10"
-    },
-    "2010-12-q47": {
-      "correct": 0,
-      "wrong": 1,
-      "box": 0,
-      "attempted": true,
-      "next_review": "2026-07-09"
-    },
-    "2010-12-q48": {
-      "correct": 1,
-      "wrong": 0,
-      "box": 1,
-      "attempted": true,
-      "next_review": "2026-07-10"
-    },
-    "2010-12-q49": {
-      "correct": 1,
-      "wrong": 0,
-      "box": 1,
-      "attempted": true,
-      "next_review": "2026-07-10"
-    }
-  },
+  "questions": {},
   "daily": {
-    "2026-07-08": {
+    "2026-07-11": {
       "year": "2010-12",
-      "done": true,
+      "done": false,
       "queue": [
         "2010-12-q33",
         "2010-12-q34",
@@ -142,25 +22,6 @@
         "2010-12-q47",
         "2010-12-q48",
         "2010-12-q49"
-      ],
-      "pos": 17
-    },
-    "2026-07-11": {
-      "year": "2011-07",
-      "done": false,
-      "queue": [
-        "2011-07-q33",
-        "2011-07-q34",
-        "2011-07-q35",
-        "2011-07-q36",
-        "2011-07-q37",
-        "2011-07-q38",
-        "2011-07-q39",
-        "2011-07-q40",
-        "2011-07-q41",
-        "2011-07-q42",
-        "2011-07-q43",
-        "2011-07-q44"
       ],
       "pos": 0
     }
