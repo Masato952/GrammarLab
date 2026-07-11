@@ -16,6 +16,7 @@ EXAM_FILE = DATA_DIR / "exam_questions.json"
 LOG_FILE = DATA_DIR / "log.json"
 BLUEBOOK_FILE = DATA_DIR / "bluebook.json"
 BLUEBOOK_LOG_FILE = DATA_DIR / "bluebook_log.json"
+BLUEBOOK_GROUP_FILE = DATA_DIR / "bluebook_group_stats.json"
 EXAM_PROGRESS_FILE = DATA_DIR / "exam_progress.json"
 
 # 简化版莱特纳盒子：答对进下一箱（复习间隔变长），答错打回第0箱（明天重考）
@@ -178,11 +179,22 @@ def save_bluebook_log(log):
     github_commit_file(BLUEBOOK_LOG_FILE, "data/bluebook_log.json", "更新 bluebook_log.json")
 
 
+def load_bluebook_group_stats():
+    return _safe_json_load(BLUEBOOK_GROUP_FILE, {}, "data/bluebook_group_stats.json")
+
+
+def save_bluebook_group_stats(stats):
+    with open(BLUEBOOK_GROUP_FILE, "w", encoding="utf-8", newline="\n") as f:
+        json.dump(stats, f, ensure_ascii=False, indent=2)
+    github_commit_file(BLUEBOOK_GROUP_FILE, "data/bluebook_group_stats.json", "更新 bluebook_group_stats.json")
+
+
 def load_exam_progress():
     data = _safe_json_load(EXAM_PROGRESS_FILE, {}, "data/exam_progress.json")
     data.setdefault("questions", {})
     data.setdefault("daily", {})
     data.setdefault("set_attempts", {})
+    data.setdefault("set_last_accuracy", {})
     return data
 
 

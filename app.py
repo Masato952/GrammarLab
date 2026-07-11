@@ -1,5 +1,3 @@
-from datetime import date
-
 import streamlit as st
 
 from common import (
@@ -10,6 +8,7 @@ from common import (
     exam_sets_by_year,
     family_name,
     load_bluebook,
+    load_bluebook_group_stats,
     load_bluebook_log,
     load_exam_progress,
     load_exam_questions,
@@ -17,6 +16,7 @@ from common import (
     load_log,
     record_bluebook_answer,
     record_exam_answer,
+    save_bluebook_group_stats,
     save_exam_progress,
     synthesize_ja,
 )
@@ -28,121 +28,23 @@ log = load_log()
 exam_progress = load_exam_progress()
 bluebook_data = load_bluebook()
 bluebook_log = load_bluebook_log()
+bluebook_group_stats = load_bluebook_group_stats()
 by_id = entries_by_id(data)
 bb_by_id = {e["id"]: e for e in bluebook_data["entries"]}
-TODAY = date.today().isoformat()
-DAILY_NEW_TARGET = 5
-DAILY_REVIEW_TARGET = 5
 
 st.title("🈶 N2特训 — 真题 / 蓝宝书")
 
 (
-    tab_today_exam, tab_today_bb, tab_quiz, tab_bb_quiz,
+    tab_quiz, tab_bb_quiz,
     tab_bb_browse, tab_search, tab_compare, tab_stats,
 ) = st.tabs(
     [
-        "📅 今日真题", "📅 今日蓝宝书", "📝 真题练习", "🎯 蓝宝书测试",
+        "📝 真题练习", "🎯 蓝宝书测试",
         "📖 蓝宝书文法", "🔍 検索", "⚖️ 混同比較", "📊 我的进度",
     ]
 )
 
 # ==================== 真题部分 ====================
-
-# ---------------- 今日真题 ----------------
-with tab_today_exam:
-    st.caption("每天固定一套：顺序做完一整套才算完成，答错的会按遗忘曲线安排更早重考。")
-
-    all_questions = exam_data["questions"]
-    exam_sets = exam_sets_by_year(all_questions)
-
-    if not all_questions:
-        st.write("真题库还是空的。")
-    else:
-        day_info = exam_progress["daily"].get(TODAY)
-        if day_info is None:
-            target_year = None
-            for y, qs in exam_sets.items():
-                if any(not exam_progress["questions"].get(q["id"], {}).get("attempted") for q in qs):
-                    target_year = y
-                    break
-            if target_year:
-                day_info = {
-                    "year": target_year, "done": False,
-                    "queue": [q["id"] for q in exam_sets[target_year]], "pos": 0,
-                }
-            else:
-                day_info = {"year": None, "done": True, "queue": [], "pos": 0}
-            exam_progress["daily"][TODAY] = day_info
-            save_exam_progress(exam_progress)
-
-        target_year = day_info["year"]
-
-        if target_year and not day_info["done"]:
-            year_qs = exam_sets[target_year]
-            queue = day_info["queue"]
-            pos = day_info["pos"]
-            if pos >= len(queue):
-                day_info["done"] = True
-                save_exam_progress(exam_progress)
-                st.rerun()
-            else:
-                qid = queue[pos]
-                q = next(item for item in year_qs if item["id"] == qid)
-                gid = q["grammar_id"]
-                grammar_entry = by_id.get(gid)
-                key_prefix = f"td_exam_{qid}"
-
-                st.caption(f"今天这一套：{target_year}　第 {pos + 1} / {len(queue)} 题")
-                st.write(f"### {q['sentence']}")
-
-                option_labels = [f"{i + 1}. {opt}" for i, opt in enumerate(q["options"])]
-                picked = st.radio(
-                    "选择最合适的选项", option_labels, index=None, key=f"{key_prefix}_radio",
-                    disabled=st.session_state.get(f"{key_prefix}_answered", False),
-                )
-
-                if (
-                    st.button("提交答案", key=f"{key_prefix}_submit")
-                    and picked is not None
-                    and not st.session_state.get(f"{key_prefix}_answered", False)
-                ):
-                    picked_index = option_labels.index(picked)
-                    correct = picked_index == q["answer_index"]
-                    record_exam_answer(exam_progress, log, q["id"], gid, correct)
-                    st.session_state[f"{key_prefix}_answered"] = True
-                    st.session_state[f"{key_prefix}_picked"] = picked_index
-                    st.rerun()
-
-                if st.session_state.get(f"{key_prefix}_answered"):
-                    picked_index = st.session_state[f"{key_prefix}_picked"]
-                    correct_option = q["options"][q["answer_index"]]
-                    if picked_index == q["answer_index"]:
-                        st.success(f"✅ 回答正确！正确答案是 {q['answer_index'] + 1}. {correct_option}")
-                    else:
-                        st.error(
-                            f"❌ 回答错误。你选的是 {picked_index + 1}. {q['options'][picked_index]}，"
-                            f"正确答案是 {q['answer_index'] + 1}. {correct_option}"
-                        )
-                    st.markdown(f"**解析**：{q['explanation_zh']}")
-                    st.markdown(f"**译文**：{q['translation_zh']}")
-                    if grammar_entry:
-                        st.caption(f"涉及文法点：「{grammar_entry['pattern']}」— {grammar_entry['meaning']}")
-                    if st.button("下一题", key=f"{key_prefix}_next"):
-                        day_info["pos"] += 1
-                        save_exam_progress(exam_progress)
-                        st.rerun()
-
-        elif target_year and day_info["done"]:
-            year_qs = exam_sets[target_year]
-            correct_count = sum(
-                1 for q in year_qs
-                if exam_progress["questions"].get(q["id"], {}).get("correct", 0) >= 1
-            )
-            st.success(f"今天这一套（{target_year}）已经做完：{len(year_qs)} 题，答对 {correct_count} 题。明天继续下一套。")
-            st.caption("想再练可以去「📝 真题练习」按套重做，或者复习错题。")
-
-        else:
-            st.success("真题库里的每一套都至少做过一遍了。去「📝 真题练习」的错题复习模式继续巩固吧。")
 
 # ---------------- 真题练习 ----------------
 with tab_quiz:
@@ -153,6 +55,16 @@ with tab_quiz:
     else:
         exam_sets = exam_sets_by_year(questions)
         set_years = sorted(exam_sets.keys())
+
+        st.subheader("各年份最近一次完整练习正确率")
+        for y in set_years:
+            acc = exam_progress["set_last_accuracy"].get(y)
+            attempts = exam_progress["set_attempts"].get(y, 0)
+            if acc is None:
+                st.write(f"- **{y}**：还没完整做过（0%）")
+            else:
+                st.write(f"- **{y}**：{acc:.0%}（完整做过 {attempts} 次）")
+        st.divider()
 
         def render_quiz_question(q, key_prefix):
             """渲染一道真题的做题UI（题干/选项/提交/解析）。
@@ -230,7 +142,11 @@ with tab_quiz:
             selected_year = st.selectbox("选择一套真题", set_years, key="quiz_set_year")
             set_qs = exam_sets[selected_year]
             attempts = exam_progress["set_attempts"].get(selected_year, 0)
-            st.caption(f"这一套目前完整做过 {attempts} 次" if attempts else "这一套还没完整做过")
+            last_acc = exam_progress["set_last_accuracy"].get(selected_year)
+            if attempts:
+                st.caption(f"这一套完整做过 {attempts} 次，上次正确率 {last_acc:.0%}")
+            else:
+                st.caption("这一套还没完整做过")
 
             if st.session_state.get("quiz_set_year_active") != selected_year:
                 st.session_state.quiz_set_year_active = selected_year
@@ -244,15 +160,16 @@ with tab_quiz:
             pos = st.session_state.quiz_set_pos
 
             if pos >= len(queue):
+                total = len(queue)
+                correct_n = st.session_state.quiz_set_correct_count
                 if not st.session_state.quiz_set_counted:
                     exam_progress["set_attempts"][selected_year] = (
                         exam_progress["set_attempts"].get(selected_year, 0) + 1
                     )
+                    exam_progress["set_last_accuracy"][selected_year] = correct_n / total if total else 0
                     save_exam_progress(exam_progress)
                     st.session_state.quiz_set_counted = True
 
-                total = len(queue)
-                correct_n = st.session_state.quiz_set_correct_count
                 st.success(f"这套（{selected_year}）完整做完了：共 {total} 题，答对 {correct_n}，答错 {total - correct_n}。")
                 if st.session_state.quiz_set_wrong:
                     st.write("**这次答错的题**：")
@@ -394,186 +311,127 @@ with tab_stats:
 
 # ==================== 蓝宝书部分 ====================
 
-# ---------------- 今日蓝宝书 ----------------
-with tab_today_bb:
-    st.caption(f"每天固定：{DAILY_NEW_TARGET} 条新文法 + {DAILY_REVIEW_TARGET} 条到期复习（按遗忘曲线优先挑最该复习的）。")
-
-    st.subheader("① 今日新记录")
-    today_added = sum(1 for e in bluebook_data["entries"] if e.get("added_date") == TODAY)
-    st.progress(min(today_added / DAILY_NEW_TARGET, 1.0), text=f"今天已记录 {today_added} / {DAILY_NEW_TARGET} 条新文法")
-
-    st.divider()
-
-    st.subheader("② 今日复习")
-    bb_pool = [e for e in bluebook_data["entries"] if e["examples"]]
-    due_bb = [e for e in bb_pool if e.get("next_review", TODAY) <= TODAY]
-    due_bb.sort(key=lambda e: (e.get("box", 0), e.get("next_review", TODAY)))
-    due_today = due_bb[:DAILY_REVIEW_TARGET]
-
-    if len(bb_pool) < 4:
-        st.write("蓝宝书条目（带例句的）还不够4条，先去多记几条。")
-    elif st.session_state.get("td_bb_queue") is None:
-        if not due_today:
-            st.success("今天没有到期需要复习的文法，太棒了。")
-        else:
-            st.write(f"今天有 **{len(due_bb)}** 条到期，优先挑 **{len(due_today)}** 条最该复习的。")
-            if st.button("开始复习", key="td_bb_start"):
-                st.session_state.td_bb_queue = [e["id"] for e in due_today]
-                st.session_state.td_bb_pos = 0
-                st.session_state.td_bb_correct = 0
-                st.session_state.td_bb_wrong_list = []
-                st.session_state.td_bb_card = None
-                st.session_state.td_bb_answered = False
-                st.rerun()
-    else:
-        bb_queue = st.session_state.td_bb_queue
-        bb_pos = st.session_state.td_bb_pos
-        if bb_pos >= len(bb_queue):
-            total = len(bb_queue)
-            st.success(
-                f"今日复习完成：{total} 张，答对 {st.session_state.td_bb_correct}，"
-                f"答错 {total - st.session_state.td_bb_correct}。"
-            )
-            if st.session_state.td_bb_wrong_list:
-                st.write("**答错的**：")
-                for w in st.session_state.td_bb_wrong_list:
-                    st.write(f"- {w['pattern']} — {w['meaning_zh']}")
-            if st.button("关闭本轮复习", key="td_bb_close"):
-                st.session_state.td_bb_queue = None
-                st.rerun()
-        else:
-            bb_entry_id = bb_queue[bb_pos]
-            bb_entry = bb_by_id[bb_entry_id]
-            if st.session_state.td_bb_card is None:
-                st.session_state.td_bb_card = build_bb_card(bb_entry, bb_pool)
-                st.session_state.td_bb_answered = False
-
-            bb_card = st.session_state.td_bb_card
-            st.caption(f"第 {bb_pos + 1} / {len(bb_queue)} 张 · 第 {bb_entry.get('no', '')} 条")
-            st.write(f"### {bb_card['blanked'] if bb_card['blanked'] else bb_card['example']['jp']}")
-            st.caption(bb_card["example"]["zh"])
-
-            bb_option_labels = [f"{i + 1}. {opt}" for i, opt in enumerate(bb_card["options"])]
-            bb_picked = st.radio(
-                "选择最合适的选项" if bb_card["blanked"] else "这句话考查的文法点是？",
-                bb_option_labels, index=None, key=f"td_bb_radio_{bb_pos}",
-                disabled=st.session_state.td_bb_answered,
-            )
-            bb_answer_index = bb_card["options"].index(bb_card["answer_text"])
-
-            if (
-                st.button("提交", key=f"td_bb_submit_{bb_pos}")
-                and bb_picked is not None
-                and not st.session_state.td_bb_answered
-            ):
-                bb_picked_index = bb_option_labels.index(bb_picked)
-                bb_correct = bb_picked_index == bb_answer_index
-                record_bluebook_answer(bluebook_data, bluebook_log, bb_entry, bb_correct)
-                st.session_state.td_bb_answered = True
-                st.session_state.td_bb_picked_index = bb_picked_index
-                if bb_correct:
-                    st.session_state.td_bb_correct += 1
-                else:
-                    st.session_state.td_bb_wrong_list.append(bb_entry)
-                st.rerun()
-
-            if st.session_state.td_bb_answered:
-                bb_picked_index = st.session_state.td_bb_picked_index
-                if bb_picked_index == bb_answer_index:
-                    st.success(f"✅ 正确答案：{bb_card['options'][bb_answer_index]}")
-                else:
-                    st.error(
-                        f"❌ 你选的是 {bb_card['options'][bb_picked_index]}，"
-                        f"正确答案是 {bb_card['options'][bb_answer_index]}"
-                    )
-                if bb_card["blanked"]:
-                    st.markdown(f"**完整例句**：{bb_card['example']['jp']}")
-                st.markdown(f"**说明**：{bb_entry['meaning_zh']}")
-                if bb_entry.get("note"):
-                    st.markdown(f"**注意**：{bb_entry['note']}")
-                if st.button("下一张", key=f"td_bb_next_{bb_pos}"):
-                    st.session_state.td_bb_pos += 1
-                    st.session_state.td_bb_card = None
-                    st.rerun()
-
-# ---------------- 蓝宝书测试 ----------------
+# ---------------- 蓝宝书测试（按5条一组） ----------------
 with tab_bb_quiz:
-    bb_entries = [e for e in bluebook_data["entries"] if e["examples"]]
+    bb_pool_all = [e for e in bluebook_data["entries"] if e["examples"]]
 
-    if len(bb_entries) < 4:
+    if len(bb_pool_all) < 4:
         st.write("蓝宝书条目（带例句的）还不够4条，没法生成选择题，先多记几条吧。")
     else:
-        if "bb_quiz_id" not in st.session_state:
-            st.session_state.bb_quiz_id = None
-            st.session_state.bb_answered = False
-            st.session_state.bb_picked_index = None
-            st.session_state.bb_options = None
-            st.session_state.bb_example = None
-            st.session_state.bb_blanked = None
-            st.session_state.bb_answer_text = None
+        GROUP_SIZE = 5
+        groups = {}
+        for e in sorted(bb_pool_all, key=lambda e: e.get("no", 0)):
+            no = e.get("no", 0)
+            start = ((max(no, 1) - 1) // GROUP_SIZE) * GROUP_SIZE + 1
+            label = f"{start}-{start + GROUP_SIZE - 1}"
+            groups.setdefault(label, []).append(e)
+        group_labels = sorted(groups.keys(), key=lambda l: int(l.split("-")[0]))
 
-        def bb_new_question():
-            import random
-            weights = [
-                1.0 if accuracy(bluebook_log, e["id"]) is None
-                else (1.1 - accuracy(bluebook_log, e["id"]))
-                for e in bb_entries
-            ]
-            e = random.choices(bb_entries, weights=weights, k=1)[0]
-            card = build_bb_card(e, bb_entries)
-            st.session_state.bb_quiz_id = e["id"]
-            st.session_state.bb_answered = False
-            st.session_state.bb_picked_index = None
-            st.session_state.bb_options = card["options"]
-            st.session_state.bb_example = card["example"]
-            st.session_state.bb_blanked = card["blanked"]
-            st.session_state.bb_answer_text = card["answer_text"]
-
-        if st.session_state.bb_quiz_id is None or st.session_state.bb_quiz_id not in bb_by_id:
-            bb_new_question()
-
-        e = bb_by_id[st.session_state.bb_quiz_id]
-        example = st.session_state.bb_example
-        options = st.session_state.bb_options
-        answer_index = options.index(st.session_state.bb_answer_text)
-        is_blanked = st.session_state.bb_blanked is not None
-
-        st.caption(f"第 {e.get('no', '')} 条 · 蓝宝书文法测试" + ("" if is_blanked else "（未能自动挖空）"))
-        st.write(f"### {st.session_state.bb_blanked if is_blanked else example['jp']}")
-        st.caption(example["zh"])
-
-        option_labels = [f"{i + 1}. {opt}" for i, opt in enumerate(options)]
-        picked = st.radio(
-            "选择最合适的选项" if is_blanked else "这句话考查的文法点是？",
-            option_labels, index=None, key="bb_quiz_radio",
-            disabled=st.session_state.bb_answered,
-        )
-
-        if st.button("提交答案", key="bb_submit") and picked is not None and not st.session_state.bb_answered:
-            st.session_state.bb_answered = True
-            st.session_state.bb_picked_index = option_labels.index(picked)
-            correct = st.session_state.bb_picked_index == answer_index
-            record_bluebook_answer(bluebook_data, bluebook_log, e, correct)
-            st.rerun()
-
-        if st.session_state.bb_answered:
-            picked_index = st.session_state.bb_picked_index
-            if picked_index == answer_index:
-                st.success(f"✅ 回答正确！正确答案是 {answer_index + 1}. {options[answer_index]}")
+        st.subheader("各组最近一次完整练习正确率")
+        for label in group_labels:
+            stat = bluebook_group_stats.get(label)
+            if stat is None:
+                st.write(f"- **{label}**：还没完整做过（0%）")
             else:
-                st.error(
-                    f"❌ 回答错误。你选的是 {picked_index + 1}. {options[picked_index]}，"
-                    f"正确答案是 {answer_index + 1}. {options[answer_index]}"
-                )
-            if is_blanked:
-                st.markdown(f"**完整例句**：{example['jp']}")
-            st.markdown(f"**说明**：{e['meaning_zh']}")
-            if e.get("note"):
-                st.markdown(f"**注意**：{e['note']}")
+                st.write(f"- **{label}**：{stat['last_accuracy']:.0%}（完整做过 {stat['attempts']} 次）")
+        st.divider()
 
-            if st.button("下一题", key="bb_next"):
-                bb_new_question()
+        selected_group = st.selectbox("选择一组蓝宝书文法", group_labels, key="bbq_group")
+        group_entries = groups[selected_group]
+
+        if st.session_state.get("bbq_group_active") != selected_group:
+            st.session_state.bbq_group_active = selected_group
+            st.session_state.bbq_queue = [e["id"] for e in group_entries]
+            st.session_state.bbq_pos = 0
+            st.session_state.bbq_correct = 0
+            st.session_state.bbq_wrong = []
+            st.session_state.bbq_counted = False
+            st.session_state.bbq_card = None
+
+        queue = st.session_state.bbq_queue
+        pos = st.session_state.bbq_pos
+
+        if pos >= len(queue):
+            if not st.session_state.bbq_counted:
+                prev = bluebook_group_stats.get(selected_group, {"attempts": 0})
+                bluebook_group_stats[selected_group] = {
+                    "attempts": prev.get("attempts", 0) + 1,
+                    "last_accuracy": (st.session_state.bbq_correct / len(queue)) if queue else 0,
+                }
+                save_bluebook_group_stats(bluebook_group_stats)
+                st.session_state.bbq_counted = True
+
+            total = len(queue)
+            st.success(
+                f"这组（{selected_group}）完整做完了：共 {total} 条，"
+                f"答对 {st.session_state.bbq_correct}，答错 {total - st.session_state.bbq_correct}。"
+            )
+            if st.session_state.bbq_wrong:
+                st.write("**这次答错的**：")
+                for w in st.session_state.bbq_wrong:
+                    st.write(f"- {w['pattern']} — {w['meaning_zh']}")
+            if st.button("再做一遍这一组", key="bbq_restart"):
+                st.session_state.bbq_queue = [e["id"] for e in group_entries]
+                st.session_state.bbq_pos = 0
+                st.session_state.bbq_correct = 0
+                st.session_state.bbq_wrong = []
+                st.session_state.bbq_counted = False
+                st.session_state.bbq_card = None
                 st.rerun()
+        else:
+            entry_id = queue[pos]
+            entry = bb_by_id[entry_id]
+            if st.session_state.bbq_card is None:
+                st.session_state.bbq_card = build_bb_card(entry, bb_pool_all)
+                st.session_state.bbq_answered = False
+
+            card = st.session_state.bbq_card
+            st.caption(f"第 {pos + 1} / {len(queue)} 条 · {selected_group} 组 · 第 {entry.get('no', '')} 条")
+            st.write(f"### {card['blanked'] if card['blanked'] else card['example']['jp']}")
+            st.caption(card["example"]["zh"])
+
+            option_labels = [f"{i + 1}. {opt}" for i, opt in enumerate(card["options"])]
+            picked = st.radio(
+                "选择最合适的选项" if card["blanked"] else "这句话考查的文法点是？",
+                option_labels, index=None, key=f"bbq_radio_{pos}",
+                disabled=st.session_state.bbq_answered,
+            )
+            answer_index = card["options"].index(card["answer_text"])
+
+            if (
+                st.button("提交", key=f"bbq_submit_{pos}")
+                and picked is not None
+                and not st.session_state.bbq_answered
+            ):
+                picked_index = option_labels.index(picked)
+                correct = picked_index == answer_index
+                record_bluebook_answer(bluebook_data, bluebook_log, entry, correct)
+                st.session_state.bbq_answered = True
+                st.session_state.bbq_picked_index = picked_index
+                if correct:
+                    st.session_state.bbq_correct += 1
+                else:
+                    st.session_state.bbq_wrong.append(entry)
+                st.rerun()
+
+            if st.session_state.bbq_answered:
+                picked_index = st.session_state.bbq_picked_index
+                if picked_index == answer_index:
+                    st.success(f"✅ 正确答案：{card['options'][answer_index]}")
+                else:
+                    st.error(
+                        f"❌ 你选的是 {card['options'][picked_index]}，"
+                        f"正确答案是 {card['options'][answer_index]}"
+                    )
+                if card["blanked"]:
+                    st.markdown(f"**完整例句**：{card['example']['jp']}")
+                st.markdown(f"**说明**：{entry['meaning_zh']}")
+                if entry.get("note"):
+                    st.markdown(f"**注意**：{entry['note']}")
+                if st.button("下一条", key=f"bbq_next_{pos}"):
+                    st.session_state.bbq_pos += 1
+                    st.session_state.bbq_card = None
+                    st.rerun()
 
 # ---------------- 蓝宝书文法（浏览） ----------------
 with tab_bb_browse:
