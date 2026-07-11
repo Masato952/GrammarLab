@@ -77,9 +77,60 @@ def github_commit_file(local_path, repo_relative_path, message):
         st.warning(f"同步到 GitHub 出错：{exc}，这次修改先只留在本地。")
 
 
+def github_fetch_file(repo_relative_path):
+    """从 GitHub 仓库拉取这个文件的最新内容。Streamlit Cloud 容器可能长时间不重启，
+    本地 clone 会跟仓库脱节；如果每次都只信本地文件，容器自己保存时就会用旧数据覆盖掉
+    仓库里更新的内容。拿不到（没配密钥/网络问题/文件还不存在）就返回 None，调用方回退到本地文件。"""
+    config = _github_config()
+    if not config:
+        return None
+    try:
+        api_url = f"https://api.github.com/repos/{config['repo']}/contents/{repo_relative_path}"
+        headers = {
+            "Authorization": f"Bearer {config['token']}",
+            "Accept": "application/vnd.github.raw+json",
+        }
+        resp = requests.get(api_url, headers=headers, params={"ref": config["branch"]}, timeout=10)
+        if resp.status_code == 200 and resp.text.strip():
+            return resp.text
+    except Exception:
+        pass
+    return None
+
+
+def _safe_json_load(path, default, repo_relative_path=None):
+    """读取一个数据文件。如果配置了 GitHub 同步，这个浏览器 session 里第一次读取该文件时，
+    会先尝试从 GitHub 拉最新版本覆盖本地文件（只做一次，避免每次点击都请求 API），
+    保证不会因为容器长时间没重启、本地缓存脱节而用旧数据覆盖仓库。
+    文件不存在、为空或损坏时不让整个应用崩掉，退回默认值并提示一下。"""
+    if repo_relative_path:
+        session_key = f"_synced_{repo_relative_path}"
+        if not st.session_state.get(session_key):
+            remote_content = github_fetch_file(repo_relative_path)
+            if remote_content is not None:
+                try:
+                    with open(path, "w", encoding="utf-8", newline="\n") as f:
+                        f.write(remote_content)
+                except Exception:
+                    pass
+            st.session_state[session_key] = True
+
+    if not path.exists():
+        return default
+    try:
+        with open(path, encoding="utf-8") as f:
+            content = f.read()
+        if not content.strip():
+            st.warning(f"{path.name} 是空的，先用默认数据启动，请稍后刷新页面。")
+            return default
+        return json.loads(content)
+    except json.JSONDecodeError:
+        st.warning(f"{path.name} 内容损坏，先用默认数据启动，请稍后刷新页面。")
+        return default
+
+
 def load_grammar():
-    with open(GRAMMAR_FILE, encoding="utf-8") as f:
-        return json.load(f)
+    return _safe_json_load(GRAMMAR_FILE, {"families": [], "grammar": []}, "data/grammar.json")
 
 
 def save_grammar(data):
@@ -89,8 +140,7 @@ def save_grammar(data):
 
 
 def load_exam_questions():
-    with open(EXAM_FILE, encoding="utf-8") as f:
-        return json.load(f)
+    return _safe_json_load(EXAM_FILE, {"questions": []}, "data/exam_questions.json")
 
 
 def save_exam_questions(data):
@@ -100,10 +150,7 @@ def save_exam_questions(data):
 
 
 def load_log():
-    if LOG_FILE.exists():
-        with open(LOG_FILE, encoding="utf-8") as f:
-            return json.load(f)
-    return {}
+    return _safe_json_load(LOG_FILE, {}, "data/log.json")
 
 
 def save_log(log):
@@ -113,10 +160,7 @@ def save_log(log):
 
 
 def load_bluebook():
-    if BLUEBOOK_FILE.exists():
-        with open(BLUEBOOK_FILE, encoding="utf-8") as f:
-            return json.load(f)
-    return {"entries": []}
+    return _safe_json_load(BLUEBOOK_FILE, {"entries": []}, "data/bluebook.json")
 
 
 def save_bluebook(data):
@@ -126,10 +170,7 @@ def save_bluebook(data):
 
 
 def load_bluebook_log():
-    if BLUEBOOK_LOG_FILE.exists():
-        with open(BLUEBOOK_LOG_FILE, encoding="utf-8") as f:
-            return json.load(f)
-    return {}
+    return _safe_json_load(BLUEBOOK_LOG_FILE, {}, "data/bluebook_log.json")
 
 
 def save_bluebook_log(log):
@@ -139,11 +180,7 @@ def save_bluebook_log(log):
 
 
 def load_exam_progress():
-    if EXAM_PROGRESS_FILE.exists():
-        with open(EXAM_PROGRESS_FILE, encoding="utf-8") as f:
-            data = json.load(f)
-    else:
-        data = {}
+    data = _safe_json_load(EXAM_PROGRESS_FILE, {}, "data/exam_progress.json")
     data.setdefault("questions", {})
     data.setdefault("daily", {})
     return data
