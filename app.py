@@ -56,15 +56,14 @@ with tab_quiz:
         exam_sets = exam_sets_by_year(questions)
         set_years = sorted(exam_sets.keys())
 
-        st.subheader("各年份最近一次完整练习正确率")
-        for y in set_years:
-            acc = exam_progress["set_last_accuracy"].get(y)
-            attempts = exam_progress["set_attempts"].get(y, 0)
-            if acc is None:
-                st.write(f"- **{y}**：还没完整做过（0%）")
-            else:
-                st.write(f"- **{y}**：{acc:.0%}（完整做过 {attempts} 次）")
-        st.divider()
+        with st.expander("各年份最近一次完整练习正确率"):
+            for y in set_years:
+                acc = exam_progress["set_last_accuracy"].get(y)
+                attempts = exam_progress["set_attempts"].get(y, 0)
+                if acc is None:
+                    st.write(f"- **{y}**：还没完整做过（0%）")
+                else:
+                    st.write(f"- **{y}**：{acc:.0%}（完整做过 {attempts} 次）")
 
         def render_quiz_question(q, key_prefix):
             """渲染一道真题的做题UI（题干/选项/提交/解析）。
@@ -327,14 +326,13 @@ with tab_bb_quiz:
             groups.setdefault(label, []).append(e)
         group_labels = sorted(groups.keys(), key=lambda l: int(l.split("-")[0]))
 
-        st.subheader("各组最近一次完整练习正确率")
-        for label in group_labels:
-            stat = bluebook_group_stats.get(label)
-            if stat is None:
-                st.write(f"- **{label}**：还没完整做过（0%）")
-            else:
-                st.write(f"- **{label}**：{stat['last_accuracy']:.0%}（完整做过 {stat['attempts']} 次）")
-        st.divider()
+        with st.expander("各组最近一次完整练习正确率"):
+            for label in group_labels:
+                stat = bluebook_group_stats.get(label)
+                if stat is None:
+                    st.write(f"- **{label}**：还没完整做过（0%）")
+                else:
+                    st.write(f"- **{label}**：{stat['last_accuracy']:.0%}（完整做过 {stat['attempts']} 次）")
 
         selected_group = st.selectbox("选择一组蓝宝书文法", group_labels, key="bbq_group")
         group_entries = groups[selected_group]
