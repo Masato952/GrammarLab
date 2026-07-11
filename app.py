@@ -454,6 +454,10 @@ with tab_listening:
         else:
             st.warning(f"找不到音频文件：{lset['audio_file']}")
 
+        if lset.get("transcript"):
+            with st.expander("📄 查看听力原文（建议先自己做完再看）"):
+                st.markdown(lset["transcript"].replace("\n", "  \n"))
+
         has_answers = all(q.get("answer_index") is not None for q in lset["questions"])
         if not has_answers:
             st.info("这一套还没有录入正确答案，选完之后点提交只会记录你选的，不会判断对错。")
