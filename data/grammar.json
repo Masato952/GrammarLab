@@ -51,7 +51,8 @@
       "name": "敬语・自谦语",
       "members": [
         "o_moushiageru",
-        "mairu_kenjougo"
+        "mairu_kenjougo",
+        "o_mochi_desuka"
       ]
     },
     {
@@ -178,6 +179,118 @@
       "name": "夸张程度表达（ぐらい系）",
       "members": [
         "toittemoii_gurai"
+      ]
+    },
+    {
+      "id": "emphasis_quantity",
+      "name": "强调数量多",
+      "members": [
+        "mo_suryo"
+      ]
+    },
+    {
+      "id": "extreme_example",
+      "name": "举极端例子类推",
+      "members": [
+        "sura"
+      ]
+    },
+    {
+      "id": "degree_dismissive",
+      "name": "轻视程度",
+      "members": [
+        "kurai_keishi"
+      ]
+    },
+    {
+      "id": "vague_conjecture",
+      "name": "含糊推测",
+      "members": [
+        "doumo_suisoku"
+      ]
+    },
+    {
+      "id": "response_to",
+      "name": "响应・根据",
+      "members": [
+        "ni_kotaete"
+      ]
+    },
+    {
+      "id": "change_while",
+      "name": "在...期间发生变化",
+      "members": [
+        "uchi_ni_henka"
+      ]
+    },
+    {
+      "id": "regardless_of",
+      "name": "不论・与...无关",
+      "members": [
+        "ni_yorazu"
+      ]
+    },
+    {
+      "id": "double_negation",
+      "name": "双重否定（部分肯定）",
+      "members": [
+        "shinaidemonai"
+      ]
+    },
+    {
+      "id": "colloquial_must",
+      "name": "口语必须做（缩略形）",
+      "members": [
+        "shitokanakucha"
+      ]
+    },
+    {
+      "id": "repeat_verb_result",
+      "name": "重复动词表两难结果",
+      "members": [
+        "tara_de"
+      ]
+    },
+    {
+      "id": "forced_no_choice",
+      "name": "不得不・被迫",
+      "members": [
+        "zaru_wo_enai"
+      ]
+    },
+    {
+      "id": "metaphor_marude",
+      "name": "比喻（まるで系）",
+      "members": [
+        "marude_ka_no_you"
+      ]
+    },
+    {
+      "id": "condition_sae_ba",
+      "name": "只要...就...",
+      "members": [
+        "sae_ba"
+      ]
+    },
+    {
+      "id": "concessive_toshitemo",
+      "name": "让步（としても系）",
+      "members": [
+        "toshitemo_even_if"
+      ]
+    },
+    {
+      "id": "donna_datte",
+      "name": "无论多么...（どんな〜だって）",
+      "members": [
+        "donna_datte"
+      ]
+    },
+    {
+      "id": "thanks_to",
+      "name": "多亏了...（おかげ系）",
+      "members": [
+        "okage_da"
       ]
     }
   ],
@@ -734,6 +847,318 @@
         }
       ],
       "source": "2011-07"
+    },
+    {
+      "id": "mo_suryo",
+      "pattern": "〜も",
+      "meaning": "表示数量之多，强调超出预期，“……之多”",
+      "connection": "数量詞＋も",
+      "formality": "口语、书面都可用",
+      "family": "emphasis_quantity",
+      "confusable": [],
+      "distinguish_zh": "表示数量之多，强调超出预期，语气比单纯的数量描述更强调“居然有这么多”。",
+      "frequency": 4,
+      "examples": [
+        {
+          "jp": "今まで何人もの人に成功の理由を聞かれましたが、決して特別なことをしてきたのではありません。",
+          "zh": "迄今为止已经有很多人问过我成功的原因，但我绝不是因为做了什么特别的事情才成功的。"
+        }
+      ],
+      "source": "2011-12"
+    },
+    {
+      "id": "sura",
+      "pattern": "〜すら",
+      "meaning": "连……都、甚至连……",
+      "connection": "名詞＋すら",
+      "formality": "书面语，较正式",
+      "family": "extreme_example",
+      "confusable": [],
+      "distinguish_zh": "举出一个极端的例子，类推其他情况，与「さえ」类似但更书面。",
+      "frequency": 3,
+      "examples": [
+        {
+          "jp": "野党の追及に対し、大臣は満足な回答ができなかったどころか、質問の内容すら理解できていなかった。",
+          "zh": "对于在野党的追究，大臣不仅没能给出令人满意的回答，甚至连质问的内容都没能理解。"
+        }
+      ],
+      "source": "2011-12"
+    },
+    {
+      "id": "kurai_keishi",
+      "pattern": "〜くらい（に）",
+      "meaning": "表示轻视，“不过是……、只不过是……”",
+      "connection": "名詞＋くらい（に）",
+      "formality": "口语",
+      "family": "degree_dismissive",
+      "confusable": [],
+      "distinguish_zh": "表示对某事物“不那么重要、很简单、没意思”，带有轻视的语气。",
+      "frequency": 3,
+      "examples": [
+        {
+          "jp": "テレビゲームなんて子供の遊びくらいに思っていたのだが、やってみたら、面白くて夢中になってしまった。",
+          "zh": "我一直以为电视游戏什么的不过是小孩玩的游戏，实际玩了一下，因为非常有趣，很快就沉迷其中了。"
+        }
+      ],
+      "source": "2011-12"
+    },
+    {
+      "id": "doumo_suisoku",
+      "pattern": "どうも〜（ようだ／らしい）",
+      "meaning": "总觉得、总有些……（后多接推测语气）",
+      "connection": "どうも＋推测表达",
+      "formality": "口语、书面都可用",
+      "family": "vague_conjecture",
+      "confusable": [],
+      "distinguish_zh": "表示总觉得、有种说不清楚的感觉，后面多接表示推测、猜测的语气。",
+      "frequency": 4,
+      "examples": [
+        {
+          "jp": "山田「課長、先ほど出した報告書なのですが、表の数字がどうも間違っていたようなんです、申し訳ありません」課長「そうか、じゃ、もう一度計算して出して」",
+          "zh": "山田：“课长，关于刚才交给您的报告，图表上的数字我总觉得有错误，十分抱歉。”课长：“是吗，那么就再计算一次交上来吧。”"
+        }
+      ],
+      "source": "2011-12"
+    },
+    {
+      "id": "ni_kotaete",
+      "pattern": "〜にこたえて",
+      "meaning": "响应……、根据……、应……",
+      "connection": "名詞＋にこたえて",
+      "formality": "书面语，较正式",
+      "family": "response_to",
+      "confusable": [],
+      "distinguish_zh": "前面一般是“期待、要求、声音”等名词，表示响应对方的呼声或要求。",
+      "frequency": 3,
+      "examples": [
+        {
+          "jp": "この美術館では、利用者の声にこたえて、夏期の開館時間を1時間延長することにします。",
+          "zh": "这间美术馆，应参观者的呼声，决定把暑期的开馆时间延长1小时。"
+        }
+      ],
+      "source": "2011-12"
+    },
+    {
+      "id": "uchi_ni_henka",
+      "pattern": "〜（ている）うちに",
+      "meaning": "在……期间（不知不觉发生了变化）",
+      "connection": "動詞ている形＋うちに",
+      "formality": "口语、书面都可用",
+      "family": "change_while",
+      "confusable": [
+        "nai_uchi_ni"
+      ],
+      "distinguish_zh": "表示在做某事的期间，发生了后项的变化，常带有“不知不觉、渐渐”的语感；和「〜ないうちに」（趁着还没）方向相反，那个强调前项还没发生前赶紧做后项，这个强调前项持续发生的过程中后项自然产生了变化。",
+      "frequency": 4,
+      "examples": [
+        {
+          "jp": "この曲は、最初はあまり好きではなかったが、何度も聞いているうちにだんだん好きになってきた。",
+          "zh": "我开始的时候不是很喜欢这首曲子，但是听的次数多了之后，渐渐就喜欢上了。"
+        }
+      ],
+      "source": "2011-12"
+    },
+    {
+      "id": "ni_yorazu",
+      "pattern": "〜によらず",
+      "meaning": "不论……、不按……（与……无关）",
+      "connection": "名詞＋によらず",
+      "formality": "书面语",
+      "family": "regardless_of",
+      "confusable": [],
+      "distinguish_zh": "表示“不论、不按……”，即“与……无关”的意思，常与「数量／年齢／方法」等词搭配。",
+      "frequency": 3,
+      "examples": [
+        {
+          "jp": "このサイトでは、ご自宅からインターネットで本が注文できます。午後4時以前にご注文いただければ数量や合計によらず、翌日中にお届けします。",
+          "zh": "在这个网站，可以在自己家中通过网络订购书籍。只要在下午4点以前下单，不论数量和总金额是多少，我们都会在第二天之内送达。"
+        }
+      ],
+      "source": "2011-12"
+    },
+    {
+      "id": "shinaidemonai",
+      "pattern": "〜ないでもない",
+      "meaning": "并非不……、也不是不……（双重否定）",
+      "connection": "動詞ない形＋でもない",
+      "formality": "口语、书面都可用",
+      "family": "double_negation",
+      "confusable": [
+        "wakedewanai"
+      ],
+      "distinguish_zh": "双重否定，表示“并非不……、也不是不……”，比如「気がしないでもない」即“有这样的感觉，并不是不觉得”，语气比直接肯定更委婉、留有余地。",
+      "frequency": 3,
+      "examples": [
+        {
+          "jp": "彼の論文は、構成にはまだ少し問題がある気がしないでもないが、内容自体はだいぶ良くなったと思う。",
+          "zh": "虽然感觉他的论文在结构上还有一些问题，但是我认为内容本身已经好多了。"
+        }
+      ],
+      "source": "2011-12"
+    },
+    {
+      "id": "shitokanakucha",
+      "pattern": "〜（し）とかなくちゃ",
+      "meaning": "必须先做好……（「〜ておかなくては」的口语缩略形式）",
+      "connection": "動詞て形＋おかなくては→口语音变为「とかなくちゃ」",
+      "formality": "口语，较随意",
+      "family": "colloquial_must",
+      "confusable": [],
+      "distinguish_zh": "是「〜ておかなくてはだめだ」（不……的话就不行）的口语缩略形式，「〜ておく」表示为某个特定目的提前做准备。",
+      "frequency": 3,
+      "examples": [
+        {
+          "jp": "A「このレストラン、すごく人気があるから、予約して行ったほうがいいね」B「うん、かなり早めに、予約しとかなくちゃだめかもしれないね」",
+          "zh": "A：“这家餐馆非常受欢迎，所以最好先预约好再去。”B：“嗯，如果不提前很久预约的话估计不行呢。”"
+        }
+      ],
+      "source": "2011-12"
+    },
+    {
+      "id": "tara_de",
+      "pattern": "〜たら〜で",
+      "meaning": "就是……也……（前后重复用同一动词，表示如果是这种情况，就会有后项的结果）",
+      "connection": "動詞た形＋ら＋動詞た形＋で",
+      "formality": "口语",
+      "family": "repeat_verb_result",
+      "confusable": [],
+      "distinguish_zh": "前后重复使用同一动词，表示“如果是这种情况，就会有后项的结果”，常用来表达一种两难、进退都会被挑理的矛盾语境。",
+      "frequency": 2,
+      "examples": [
+        {
+          "jp": "母によく「部屋を片付けなさい」としかられるのだが、片づけたら今度は、「片付けられるなら、どうして普段から片付けないの」と、またしかられる。",
+          "zh": "经常被妈妈教训“快收拾房间！”，但我收拾了吧，妈妈接着又会责备我“既然自己能收拾的话，为什么平时不收拾呢？”"
+        }
+      ],
+      "source": "2011-12"
+    },
+    {
+      "id": "zaru_wo_enai",
+      "pattern": "〜ざるを得ない",
+      "meaning": "不得不……、被迫……",
+      "connection": "動詞ない形（する→せざるを得ない）＋ざるを得ない",
+      "formality": "书面语，较正式",
+      "family": "forced_no_choice",
+      "confusable": [],
+      "distinguish_zh": "表示不得不、被迫做某事，含有“虽然不想做，但情况所迫”的语感。",
+      "frequency": 4,
+      "examples": [
+        {
+          "jp": "台風が近づいているので、明日からの旅行は、残念だが延期せざるを得ない。",
+          "zh": "因为台风正在逼近，所以很遗憾，从明天开始的旅行不得不延期了。"
+        }
+      ],
+      "source": "2011-12"
+    },
+    {
+      "id": "o_mochi_desuka",
+      "pattern": "お＋動詞ます形＋ですか",
+      "meaning": "（尊敬语）您有……吗、您是……吗",
+      "connection": "お＋動詞ます形＋ですか",
+      "formality": "书面语，正式敬语场合",
+      "family": "keigo",
+      "confusable": [],
+      "distinguish_zh": "尊敬语，用于询问对方的状况，比如「お持ちですか」＝“您拥有……吗”，注意区分自谦语「お～いたします」（用于自己一方的动作）。",
+      "frequency": 3,
+      "examples": [
+        {
+          "jp": "面接官：恐れ入りますが、この仕事に向ける資格はお持ちですか。応募者：はい、電力エンジニアの資格をお持ちしています。",
+          "zh": "面试官：“请问你拥有和我们公司提供职位相关的资格吗？”应聘者：“嗯，我有电力工程师的资格。”"
+        }
+      ],
+      "source": "2011-12"
+    },
+    {
+      "id": "marude_ka_no_you",
+      "pattern": "まるで〜（か）のようだ",
+      "meaning": "就好像……似的",
+      "connection": "まるで＋動詞普通形（か）のようだ／で・に",
+      "formality": "口语、书面都可用",
+      "family": "metaphor_marude",
+      "confusable": [],
+      "distinguish_zh": "表示比喻，“就好像……一样”，「まるで」加强比喻的夸张程度。",
+      "frequency": 3,
+      "examples": [
+        {
+          "jp": "もう秋になるのに、今日の暑さはまるで真夏に戻ったかのようで、エアコンをつけた家も多かったらしい。",
+          "zh": "明明已经秋天了，但是今天热得就跟回到了盛夏似的，好像开了空调的家庭也有很多。"
+        }
+      ],
+      "source": "2011-12"
+    },
+    {
+      "id": "sae_ba",
+      "pattern": "〜さえ〜ば",
+      "meaning": "只要……就……",
+      "connection": "名詞／動詞ます形＋さえ＋仮定形＋ば",
+      "formality": "口语、书面都可用",
+      "family": "condition_sae_ba",
+      "confusable": [],
+      "distinguish_zh": "表示只要满足前项条件，就能实现或避免后项，“只要……就……”。",
+      "frequency": 4,
+      "examples": [
+        {
+          "jp": "（ホテルで）支配人「お客様を間違った部屋に案内してしまったそうだね」従業員「はい。事前にリストをしっかり確認さえしておけば防げるミスでしたのに申し訳ありません」",
+          "zh": "（在酒店）经理：“你好像把客人带错了房间，是吧。”服务员：“是的。要是我事前仔细确认名单的话，明明就可以避免这样的错误了，实在是对不起。”"
+        }
+      ],
+      "source": "2011-12"
+    },
+    {
+      "id": "toshitemo_even_if",
+      "pattern": "〜としても",
+      "meaning": "即使……也……、尽管……也……",
+      "connection": "動詞普通形＋としても",
+      "formality": "口语、书面都可用",
+      "family": "concessive_toshitemo",
+      "confusable": [
+        "youtoshitemo"
+      ],
+      "distinguish_zh": "表示让步，“即使……也……”，前项即便成立，也不影响后项的主张或愿望。",
+      "frequency": 4,
+      "examples": [
+        {
+          "jp": "今回失敗したのはしかたないとしても、今後必ずこの経験を生かしてほしい。",
+          "zh": "尽管这次失败是没有办法的事，但希望你下次一定要吸取这次的教训。"
+        }
+      ],
+      "source": "2011-12"
+    },
+    {
+      "id": "donna_datte",
+      "pattern": "どんな〜だって",
+      "meaning": "不管多么……、无论多么……",
+      "connection": "どんな＋名詞＋だって",
+      "formality": "口语",
+      "family": "donna_datte",
+      "confusable": [],
+      "distinguish_zh": "「どんな〜だって」表示“不管是多么的……、无论多么……”，这里的「だって」相当于「でも」，语气比书面语更口语化。",
+      "frequency": 3,
+      "examples": [
+        {
+          "jp": "試合に負けて本当に悔しかったので、もっと強くなるためならどんな厳しい練習にだって耐えようと思う。",
+          "zh": "这次比赛输了真的非常懊悔，因此为了变得更强，不管多么艰苦的训练我都愿意忍受。"
+        }
+      ],
+      "source": "2011-12"
+    },
+    {
+      "id": "okage_da",
+      "pattern": "〜のは〜のおかげだ",
+      "meaning": "……是多亏了……",
+      "connection": "名詞／動詞普通形＋のおかげだ",
+      "formality": "口语、书面都可用",
+      "family": "thanks_to",
+      "confusable": [],
+      "distinguish_zh": "表示“……之所以……，是多亏了……”，用于表达对某个原因/帮助的感谢，正面语境。",
+      "frequency": 3,
+      "examples": [
+        {
+          "jp": "母は「風邪をひかないのは、毎朝しているジョギングのおかげだ」とよく言っている。",
+          "zh": "母亲经常说“不感冒是多亏了每天早晨坚持慢跑。”"
+        }
+      ],
+      "source": "2011-12"
     }
   ]
 }
