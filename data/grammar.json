@@ -292,6 +292,41 @@
       "members": [
         "okage_da"
       ]
+    },
+    {
+      "id": "perspective_nishitara",
+      "name": "站在他人立场（にしたら系）",
+      "members": [
+        "ni_shitara"
+      ]
+    },
+    {
+      "id": "quoted_reluctant",
+      "name": "引用不希望的说法（なんていう）",
+      "members": [
+        "nante_iu"
+      ]
+    },
+    {
+      "id": "trigger_emotion",
+      "name": "一想到就……（と思うと系）",
+      "members": [
+        "to_omou_to"
+      ]
+    },
+    {
+      "id": "juju_saseteyaru",
+      "name": "使役+授受（させてやる系）",
+      "members": [
+        "saseteyaru"
+      ]
+    },
+    {
+      "id": "confident_only_after",
+      "name": "只有……才……（てはじめて系）",
+      "members": [
+        "ni_taisuru_shinrai"
+      ]
     }
   ],
   "grammar": [
@@ -1159,6 +1194,102 @@
         }
       ],
       "source": "2011-12"
+    },
+    {
+      "id": "ni_shitara",
+      "pattern": "〜にしたら",
+      "meaning": "对于……来说（站在别人的角度推测其人的想法）",
+      "connection": "名詞＋にしたら",
+      "formality": "口语、书面都可用",
+      "family": "perspective_nishitara",
+      "confusable": [
+        "youtoshitemo"
+      ],
+      "distinguish_zh": "站在他人的立场，推测其人的想法或感受，“对……来说”。",
+      "frequency": 3,
+      "examples": [
+        {
+          "jp": "不調だった山中選手がついにゴールを決めた。彼に「もし、またミスをしたら」というプレッシャーは相当あったはずだ。",
+          "zh": "一度身体不适的山中选手终于取得了胜利。他肯定曾有过非常大的压力吧，总是想“我不能再出差错了”。"
+        }
+      ],
+      "source": "2011-07"
+    },
+    {
+      "id": "nante_iu",
+      "pattern": "〜なんていう",
+      "meaning": "用来修饰后面的名词，带有说话人不希望有这种说法的语气",
+      "connection": "普通形＋なんていう＋名詞",
+      "formality": "口语",
+      "family": "quoted_reluctant",
+      "confusable": [],
+      "distinguish_zh": "“〜なんていう”用来修饰后面的名词，相当于“という”的含义，但额外带有说话人不希望有这样说法/情况的不满或意外语气。",
+      "frequency": 2,
+      "examples": [
+        {
+          "jp": "「これは地元ではよく知られた料理で、このすっぱさがおいしい。ただ、残念なのはすっぱいのが苦手だなんていう若者が最近増えていることだね。」と田中さんは語る。",
+          "zh": "田中先生说：“这是当地非常有名的菜肴，这种酸味很好吃。但是让人遗憾的是，说吃不了酸味儿的年轻人最近多起来了啊。”"
+        }
+      ],
+      "source": "2011-07"
+    },
+    {
+      "id": "to_omou_to",
+      "pattern": "〜と思うと",
+      "meaning": "一想到……就……",
+      "connection": "普通形＋と思うと",
+      "formality": "口语、书面都可用",
+      "family": "trigger_emotion",
+      "confusable": [],
+      "distinguish_zh": "表示一想到前项内容，就自然而然产生后项的情绪反应，常搭配“それだけで”（光是……就……）加强语气。",
+      "frequency": 3,
+      "examples": [
+        {
+          "jp": "忘れられないプレゼントは、小学生のときに両親が買ってくれた自転車です。苦しい生活の中、どんな思いで買ってくれたのかと思うと、それだけで涙が出ます。",
+          "zh": "我至今也无法忘怀的礼物是父母在我上小学时买给我的一辆自行车。在那么艰苦的条件下，父母是什么样的心境下买给我的啊。光是想想，我就会潸然泪下。"
+        }
+      ],
+      "source": "2011-07"
+    },
+    {
+      "id": "saseteyaru",
+      "pattern": "〜させてやる",
+      "meaning": "让（允许）孩子做……（使役形+てやる，表示施恩于对方）",
+      "connection": "動詞使役形＋てやる",
+      "formality": "口语、书面都可用",
+      "family": "juju_saseteyaru",
+      "confusable": [
+        "sasete_kureru"
+      ],
+      "distinguish_zh": "使役形「させる」（让……做）加授受动词「〜てやる」（施恩于地位较低/亲近的对象），表示“允许并且带着善意让对方做某事”，常用于父母对孩子等场景。注意区分“したい”是动作者自己想做，这里是说话人想“让别人”去做他们自己想做的事。",
+      "frequency": 3,
+      "examples": [
+        {
+          "jp": "最近、子どもがピアノを習いたいと言いだした。わたしは、子どもがしたいと思うことはやらせてやりたいと思っている。",
+          "zh": "最近，孩子说想学钢琴。我想让孩子做他想做的事情。"
+        }
+      ],
+      "source": "2011-07"
+    },
+    {
+      "id": "ni_taisuru_shinrai",
+      "pattern": "〜に対する〜があって（は）じめて",
+      "meaning": "只有对……有……，才……",
+      "connection": "名詞＋に対する＋名詞＋があって＋はじめて",
+      "formality": "书面语，较正式",
+      "family": "confident_only_after",
+      "confusable": [
+        "tehajimete"
+      ],
+      "distinguish_zh": "「に対する」表示情感/态度指向的对象（对……）；「〜があってはじめて」＝「〜があって、はじめて」，强调“只有先具备前项条件，才能实现后项”。",
+      "frequency": 3,
+      "examples": [
+        {
+          "jp": "国民の、政治に対する信頼があって初めて政治家は指導力を発揮できるのだ。",
+          "zh": "只有国民对政治有信赖感，政治家才能发挥其指导能力。"
+        }
+      ],
+      "source": "2011-07"
     }
   ]
 }
