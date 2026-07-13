@@ -63,7 +63,9 @@
         "oide_ni_naru_form",
         "okiki_shitemo_yoroshii",
         "okoshi_ni_naru_keigo",
-        "osagashi_shitara_kenjougo"
+        "osagashi_shitara_kenjougo",
+        "gozaimasu_keigo",
+        "shite_kudasaimashita_keigo"
       ]
     },
     {
@@ -1391,6 +1393,76 @@
       "name": "所谓……就是……（のは〜だ强调句系）",
       "members": [
         "nowa_da_emphasis"
+      ]
+    },
+    {
+      "id": "means_wotoshite",
+      "name": "通过……（を通して系）",
+      "members": [
+        "wo_toshite_means"
+      ]
+    },
+    {
+      "id": "topic_pickup_nara",
+      "name": "要说……的话（体言+なら系）",
+      "members": [
+        "nara_topic_pickup"
+      ]
+    },
+    {
+      "id": "unexpected_masaka",
+      "name": "万万没想到……（まさか系）",
+      "members": [
+        "masaka_unexpected"
+      ]
+    },
+    {
+      "id": "conclusion_toiukotoda",
+      "name": "也就是说……（ということだ系）",
+      "members": [
+        "toiukotoda_conclusion"
+      ]
+    },
+    {
+      "id": "embedded_question_ka",
+      "name": "以怎样的方式……（疑问词+か系）",
+      "members": [
+        "gimonshi_ka_meiji"
+      ]
+    },
+    {
+      "id": "avoid_attempt_toshinaide",
+      "name": "不要试图……而是（うとしないで系）",
+      "members": [
+        "you_to_shinaide"
+      ]
+    },
+    {
+      "id": "request_accept_morattekureru",
+      "name": "你能收下吗？（もらってくれない系）",
+      "members": [
+        "moratte_kurenai"
+      ]
+    },
+    {
+      "id": "self_reflection_houga_yokatta",
+      "name": "是不是……更好呢（たほうがよかったかな系）",
+      "members": [
+        "hou_ga_yokatta_kana"
+      ]
+    },
+    {
+      "id": "strong_negation_kesshite",
+      "name": "绝不是……而是……（決して〜ではなく系）",
+      "members": [
+        "kesshite_dewanaku"
+      ]
+    },
+    {
+      "id": "denial_wakedemonai",
+      "name": "并非会……（わけでもない系）",
+      "members": [
+        "wake_demo_nai"
       ]
     }
   ],
@@ -5559,6 +5631,239 @@
         }
       ],
       "source": "2017-07"
+    },
+    {
+      "id": "wo_toshite_means",
+      "pattern": "〜を通して",
+      "meaning": "通过……（表示手段、途径，或跨越的时间/空间范围）",
+      "connection": "名詞＋を通して",
+      "formality": "书面语，较正式",
+      "family": "means_wotoshite",
+      "confusable": [
+        "niyotte_means",
+        "ni_watatte"
+      ],
+      "distinguish_zh": "「〜を通して」表示通过某种媒介、手段、方式来实现后项，“通过……”，也可表示在某段时间、范围内始终如一，与表示纯粹手段方法的「によって」相比，「を通して」更强调“作为渠道、媒介”的过程性。",
+      "frequency": 4,
+      "examples": [
+        {
+          "jp": "（大学のホームページで）ABC大学の法学部には、六つのゼミがあります。ゼミでの活動を通して、物事を論理的に考える力を身につけることができます。",
+          "zh": "（在大学的官网上）ABC大学的法学部共有6个研究会。通过研究会的活动，可以掌握逻辑思考事物的能力。"
+        }
+      ],
+      "source": "2017-12"
+    },
+    {
+      "id": "nara_topic_pickup",
+      "pattern": "〜なら",
+      "meaning": "要说……的话（承接对方提到的话题，引出相关说明）",
+      "connection": "名詞＋なら",
+      "formality": "口语、书面都可用",
+      "family": "topic_pickup_nara",
+      "confusable": [
+        "n_nara"
+      ],
+      "distinguish_zh": "名词+「なら」承接前面对方提出的话题，表示“要说到……的话（我来告诉你/我的看法是）”，是「なら」众多用法中“话题承接”这一用法，与表示假定条件、口语缩约的「んなら」（のなら）不同。",
+      "frequency": 4,
+      "examples": [
+        {
+          "jp": "（会社で）A「ねえ、昨日できたパンフレットってどこにある?」B「えっと、どこだろう。」C「ああ、パンフレットなら、あの棚の中にあるよ。」",
+          "zh": "（在公司里）A：“昨天做好的小册子，在哪里？”B：“恩，在哪儿来着。”C：“啊，小册子的话，在那个架子上哦。”"
+        }
+      ],
+      "source": "2017-12"
+    },
+    {
+      "id": "masaka_unexpected",
+      "pattern": "まさか〜とは思わなかった",
+      "meaning": "万万没想到……，想不到……（表示完全出乎意料）",
+      "connection": "まさか＋普通形＋とは思わなかった",
+      "formality": "口语、书面都可用",
+      "family": "unexpected_masaka",
+      "confusable": [],
+      "distinguish_zh": "副词「まさか」表示说话人认为绝不可能发生的事情，常与「とは思わなかった」等呼应，“万万没想到……”，此题中省略了とは思わなかった部分，直接用「まさか受賞できるとは思わなかった」的省略形式表达同样的意外感。",
+      "frequency": 4,
+      "examples": [
+        {
+          "jp": "（テレビ番組で）司会「森さん、第五回X文学賞受賞おめでとうございます。今のお気持ちはいかがですか。」森「ありがとうございます。まさか受賞できるとは思わなかったので、すごくうれしいです。」",
+          "zh": "（电视节目中）主持人：“森女士，恭喜您获得了第五届X文学奖，现在的心情是怎样的呢？”森：“谢谢。因为没有想到我能拿奖，所以现在非常开心。”"
+        }
+      ],
+      "source": "2017-12"
+    },
+    {
+      "id": "toiukotoda_conclusion",
+      "pattern": "〜ということだ",
+      "meaning": "也就是说……（根据某个事实，得出的结论）",
+      "connection": "普通形＋ということだ",
+      "formality": "书面语，较正式",
+      "family": "conclusion_toiukotoda",
+      "confusable": [
+        "tonokotodesu"
+      ],
+      "distinguish_zh": "「〜ということだ」接在陈述某个事实、现象的句子后，表示由此可以得出的结论或换一种说法的解释，“也就是说……”，与表示转述传闻的「とのことだ」形式相近但意义不同，需结合上下文判断是“转述”还是“下结论”。",
+      "frequency": 4,
+      "examples": [
+        {
+          "jp": "政府の発表によると、景気は回復しつつあるということだが、そうした実感はない。",
+          "zh": "据政府发布的公告，经济正在回暖，但是（市民）并没有这种实感。"
+        }
+      ],
+      "source": "2017-12"
+    },
+    {
+      "id": "gimonshi_ka_meiji",
+      "pattern": "疑問詞〜＋動詞た形＋か",
+      "meaning": "以怎样的方式……（疑问词构成的内容作宾语从句）",
+      "connection": "疑問詞＋動詞た形＋か",
+      "formality": "口语、书面都可用",
+      "family": "embedded_question_ka",
+      "confusable": [],
+      "distinguish_zh": "当句中出现「どうやって」等疑问词，且这部分内容整体要作为宾语从句嵌入到后面的动词（如「説明する」）之前时，从句末尾需要加终助词「か」，“……的方式（是怎样的）”，是疑问词从句的固定接续方式。",
+      "frequency": 3,
+      "examples": [
+        {
+          "jp": "先生「田中さん、この問題をどうやって解いたか、みんなの前で説明してください。」田中「はい、わかりました。」",
+          "zh": "老师：“田中，这个问题是如何解答的，请给大家说明一下。”田中：“好的。”"
+        }
+      ],
+      "source": "2017-12"
+    },
+    {
+      "id": "you_to_shinaide",
+      "pattern": "〜（よ）うとしないで",
+      "meaning": "不要试图……，不勉强……而是（做后项）",
+      "connection": "動詞意向形＋うとしないで",
+      "formality": "口语、书面都可用",
+      "family": "avoid_attempt_toshinaide",
+      "confusable": [
+        "you_to_shiteiru_uchini"
+      ],
+      "distinguish_zh": "「〜（よ）うとする」表示打算做某动作，加上否定的中顿形「〜ないで」，组合表示“不要试图做……（而是做后面的事）”，常用于给出建议或指示，劝阻对方不要采取某种（危险或无效的）行动。",
+      "frequency": 3,
+      "examples": [
+        {
+          "jp": "先生「皆さん、海や川に落ちてしまったときは、無理に泳ごうとしないで、仰向けになって、浮かんで助けを待つことが大切です。」",
+          "zh": "老师：“各位，如果你掉到海里或者河里的话，不要挣扎着试图去游泳，仰面向上保持漂浮状态等待救援是非常重要的。”"
+        }
+      ],
+      "source": "2017-12"
+    },
+    {
+      "id": "moratte_kurenai",
+      "pattern": "〜もらってくれない？",
+      "meaning": "你能收下吗？（もらう的てくれる形式，用于请求对方接受自己给予的东西）",
+      "connection": "動詞（もらう）＋てくれない",
+      "formality": "口语",
+      "family": "request_accept_morattekureru",
+      "confusable": [
+        "tekureru_basic"
+      ],
+      "distinguish_zh": "「もらう」原意为“（我）得到”，接上「〜てくれる」（对方为我做……）的请求形式，组合表示“你能不能替我收下（这个东西）”，即请求对方接受自己给予的好处，是比较特殊的授受动词活用方式。",
+      "frequency": 3,
+      "examples": [
+        {
+          "jp": "春子「えりちゃん、みかん、好き?」えり「うん、好きだけど。なんで?」春子「親戚がたくさん送ってきてくれたんだけど、一人じゃ食べ切れなくて。よかったら、少しもらってくれない?」えり「いいの?ありがとう。」",
+          "zh": "春子：“绘理，你喜欢桔子吗？”绘理：“嗯，喜欢的，不过怎么了？”春子：“亲戚送来了很多，可我一个人吃不完，如果可以的话你收下一点吧？”绘理：“可以吗？谢谢！”"
+        }
+      ],
+      "source": "2017-12"
+    },
+    {
+      "id": "hou_ga_yokatta_kana",
+      "pattern": "〜たほうがよかったかな",
+      "meaning": "是不是……更好呢（事后自我反思、带不确定语气的疑问）",
+      "connection": "動詞た形＋ほうがよかったかな",
+      "formality": "口语",
+      "family": "self_reflection_houga_yokatta",
+      "confusable": [
+        "yori_hou_ga"
+      ],
+      "distinguish_zh": "「〜たほうがよかった」表示事后判断“做……更好”，加上终助词「かな」，使语气变得不确定、自问自答，“是不是……更好呢”，常用于对自己已完成的行动进行反思、征求对方意见。",
+      "frequency": 3,
+      "examples": [
+        {
+          "jp": "（夕食時に）妻「ねえ、このスープ、レシピ通りに作ったんだけど、どう?味、薄くない?もう少し塩を入れたほうがよかったかな。」夫「ううん、ちょうどいいよ。」",
+          "zh": "（吃晚饭时）妻子：“那个，这个汤我是按照菜谱做的，怎么样？味道，是不是淡了？是不是再多放点盐比较好？”丈夫：“没啊，现在正好呢。”"
+        }
+      ],
+      "source": "2017-12"
+    },
+    {
+      "id": "gozaimasu_keigo",
+      "pattern": "〜ございます",
+      "meaning": "有（“ある”的礼貌语）",
+      "connection": "「ある」的礼貌语活用",
+      "formality": "正式、服务业常用",
+      "family": "keigo",
+      "confusable": [],
+      "distinguish_zh": "「ございます」是「あります」更礼貌、郑重的表达，是「ある」的礼貌语（丁重语），用于郑重地陈述某物的存在，主语通常是物而非人，常见于服务业场合。",
+      "frequency": 4,
+      "examples": [
+        {
+          "jp": "客「すみません、『山の中で』っていう本を探しているんですけど。」店員「はい、新刊コーナーにございます。ご案内します。」",
+          "zh": "客人：“不好意思，我在找《在山里》这本书……”店员：“嗯！放在新刊专栏那边啦，请跟我来。”"
+        }
+      ],
+      "source": "2017-12"
+    },
+    {
+      "id": "shite_kudasaimashita_keigo",
+      "pattern": "〜してくださいました",
+      "meaning": "（对方）为我做了……（“してくれる”的尊敬语表达）",
+      "connection": "〜してくれる的尊敬语活用",
+      "formality": "正式、书面语常用",
+      "family": "keigo",
+      "confusable": [
+        "tekureru_basic"
+      ],
+      "distinguish_zh": "「してくださる」是「してくれる」（别人为我做……）的尊他敬语形式，用于尊敬地描述地位较高的对方为自己一方做了某事，比自谦的「していただく」更直接地尊敬对方的行为本身。",
+      "frequency": 4,
+      "examples": [
+        {
+          "jp": "高校野球全国大会を前に、X高校野球部の南豊選手は「監督やコーチが私たち一人一人に毎日熱心に指導をしてくださいました。監督やコーチのためにも、優勝したいです。」と決意を述べた。",
+          "zh": "高中棒球全国大赛前夕，X高中棒球部的南丰选手表达了决心：“领队和教练每天都对我们每个人进行了热心的指导，因此我想为了他们也要获胜。”"
+        }
+      ],
+      "source": "2017-12"
+    },
+    {
+      "id": "kesshite_dewanaku",
+      "pattern": "〜決して〜ではなく",
+      "meaning": "绝不是……而是（只是）……",
+      "connection": "決して＋名詞＋ではなく",
+      "formality": "口语、书面都可用",
+      "family": "strong_negation_kesshite",
+      "confusable": [],
+      "distinguish_zh": "副词「決して」与否定形式呼应，表示强烈地否定某种看法，“決して〜ではなく”＝“绝不是……”，常用于先否定一种常见的误解，再给出真正的原因，起到强调、澄清的作用。",
+      "frequency": 4,
+      "examples": [
+        {
+          "jp": "講師「片付けが苦手という話をよく聞きますが、それは決して性格や能力の問題ではなくやり方を知らないだけなので、やり方を身につければ必ず片付けられるようになります。」",
+          "zh": "讲师：“虽然常听有人说不善于收拾整理，其实那绝不是性格或能力的问题，只是不知道方法而已，只要掌握了方法，一定可以学会收拾的。”"
+        }
+      ],
+      "source": "2017-12"
+    },
+    {
+      "id": "wake_demo_nai",
+      "pattern": "〜わけでもないのに",
+      "meaning": "明明并不是……，却……（否定想当然的推测，并转折）",
+      "connection": "普通形＋わけでもないのに",
+      "formality": "口语、书面都可用",
+      "family": "denial_wakedemonai",
+      "confusable": [
+        "dake_nara_only_if"
+      ],
+      "distinguish_zh": "「〜わけでもない」用于否定一种基于常理的想当然推测，“并不是……”，加上表示转折、意外的「〜のに」，组合表示“明明并非如此，却……”，常用于对不合常理现象的疑惑。",
+      "frequency": 3,
+      "examples": [
+        {
+          "jp": "おなかがすいているわけでもないのに、おなかが鳴るのはどうしてだろう。",
+          "zh": "明明不饿，为什么肚子会叫呢？"
+        }
+      ],
+      "source": "2017-12"
     }
   ]
 }
