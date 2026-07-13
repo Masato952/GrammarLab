@@ -61,7 +61,8 @@
         "miemashita_keigo",
         "okoshi_itadaku",
         "oide_ni_naru_form",
-        "okiki_shitemo_yoroshii"
+        "okiki_shitemo_yoroshii",
+        "okoshi_ni_naru_keigo"
       ]
     },
     {
@@ -1114,7 +1115,8 @@
       "id": "in_progress_kakeru",
       "name": "快要……了，……到一半（かけていた系）",
       "members": [
-        "kaketeita_almost"
+        "kaketeita_almost",
+        "akiramekaketa"
       ]
     },
     {
@@ -1213,6 +1215,97 @@
       "name": "不……就可以（ないで済む系）",
       "members": [
         "naide_sumu"
+      ]
+    },
+    {
+      "id": "subject_marker_no",
+      "name": "从句主语の代替が系",
+      "members": [
+        "no_as_ga_subject"
+      ]
+    },
+    {
+      "id": "near_future_sonouchi",
+      "name": "不久，过一阵子（そのうち系）",
+      "members": [
+        "sonouchi_soon"
+      ]
+    },
+    {
+      "id": "as_long_as_ijou",
+      "name": "既然……就……（以上系）",
+      "members": [
+        "ijou_since"
+      ]
+    },
+    {
+      "id": "hypothetical_toshimasu",
+      "name": "假设……（とします系）",
+      "members": [
+        "toshimasu_hypothetical"
+      ]
+    },
+    {
+      "id": "conditional_dake_nara",
+      "name": "如果仅仅是……的话（だけなら系）",
+      "members": [
+        "dake_nara_only_if"
+      ]
+    },
+    {
+      "id": "sequence_tekara_nisuru",
+      "name": "先做完……再……（てからにする系）",
+      "members": [
+        "tekara_ni_suru"
+      ]
+    },
+    {
+      "id": "unintended_result_kotoni",
+      "name": "结果（非本意地）变成了……（ことになってしまって系）",
+      "members": [
+        "koto_ni_natte_shimatte"
+      ]
+    },
+    {
+      "id": "unlikely_appearance_souninai",
+      "name": "看起来不会……的样子（そうにない系）",
+      "members": [
+        "raresou_ni_nai"
+      ]
+    },
+    {
+      "id": "colloquial_hearsay_tte",
+      "name": "听说……（口语って系）",
+      "members": [
+        "tte_hearsay_colloquial"
+      ]
+    },
+    {
+      "id": "since_then_change_teirai",
+      "name": "自从……以来（て以来系）",
+      "members": [
+        "te_irai"
+      ]
+    },
+    {
+      "id": "never_again_nidoto",
+      "name": "再也不要……了（二度と〜ない系）",
+      "members": [
+        "nidoto_nai"
+      ]
+    },
+    {
+      "id": "point_ni_aru",
+      "name": "……的关键/不同在于……（は〜にある系）",
+      "members": [
+        "chigai_wa_niaru"
+      ]
+    },
+    {
+      "id": "concessive_nagara",
+      "name": "虽然……但是……（ながら逆接系）",
+      "members": [
+        "nagara_concessive"
       ]
     }
   ],
@@ -4840,6 +4933,295 @@
         }
       ],
       "source": "2016-07"
+    },
+    {
+      "id": "akiramekaketa",
+      "pattern": "〜かけた",
+      "meaning": "做了一半就（差点）……，表示动作没做完就中断，或几乎要发生",
+      "connection": "動詞ます形＋かける／かけた",
+      "formality": "口语、书面都可用",
+      "family": "in_progress_kakeru",
+      "confusable": [
+        "kaketeita_almost"
+      ],
+      "distinguish_zh": "动词ます形+「かける」表示某动作进行到一半，「かけた」是其过去形，可以表示“做到一半就中途放弃了”，也可以表示“就快要……了（但结果没有发生）”，与表示动作曾持续处于未完成状态的「〜かけていた」相比，「かけた」更强调那个中断/临界的瞬间。",
+      "frequency": 4,
+      "examples": [
+        {
+          "jp": "卒業論文がなかなか書けなくて、一時はあきらめかけたが、何とか今日無事に提出することができた。",
+          "zh": "毕业论文怎么也写不出来，一度差点放弃，但今天总算得以顺利提交了。"
+        }
+      ],
+      "source": "2016-12"
+    },
+    {
+      "id": "no_as_ga_subject",
+      "pattern": "〜の（代替主语「が」）",
+      "meaning": "……（在从句中，“の”可替代主格助词“が”）",
+      "connection": "連体修飾節の中の主語＋の＋動詞",
+      "formality": "书面语，较正式",
+      "family": "subject_marker_no",
+      "confusable": [],
+      "distinguish_zh": "在修饰名词的从句（连体修饰节）内部，主语可以用「の」代替「が」，两者意义相同，“子どものころ、母の作ったハンバーグ”＝“子どものころ、母が作ったハンバーグ”，是比较书面、古典的用法。",
+      "frequency": 3,
+      "examples": [
+        {
+          "jp": "子どものころ、母の作ったハンバーグが大好きで、よく作ってもらった。",
+          "zh": "小的时候，我非常喜欢妈妈做的汉堡，经常让妈妈做给我吃。"
+        }
+      ],
+      "source": "2016-12"
+    },
+    {
+      "id": "sonouchi_soon",
+      "pattern": "そのうち",
+      "meaning": "不久，过一阵子（表示在不远的将来）",
+      "connection": "副詞，修饰句子",
+      "formality": "口语、书面都可用",
+      "family": "near_future_sonouchi",
+      "confusable": [],
+      "distinguish_zh": "副词「そのうち」表示在不久的将来某个不确定的时间点，事情会自然而然地发生或实现，“不久，过一阵子……”，语气比较轻松、乐观。",
+      "frequency": 3,
+      "examples": [
+        {
+          "jp": "作文が得意な友達に「どうやったらうまくなれるの?」と聞いたら、「たくさん書けばそのうちうまくなるよ。」と言われた。",
+          "zh": "作文写得好的朋友，我问他“怎样才能提高作文水平呢？”，朋友说“只要多写，不久就会提高了”。"
+        }
+      ],
+      "source": "2016-12"
+    },
+    {
+      "id": "ijou_since",
+      "pattern": "〜以上",
+      "meaning": "既然……就……",
+      "connection": "動詞普通形＋以上",
+      "formality": "书面语，较正式",
+      "family": "as_long_as_ijou",
+      "confusable": [
+        "karaniha"
+      ],
+      "distinguish_zh": "动词普通形+「以上」表示既然处于前项这样的状况或做出了这样的决定，就必须承担相应的责任、采取相应的行动，“既然……就……”，语气与「からには」相近，略偏书面。",
+      "frequency": 4,
+      "examples": [
+        {
+          "jp": "看護師の仕事は夜勤もあって大変だが、自分でこの仕事を選んだ以上、がんばって続けたいと思う。",
+          "zh": "虽然护士的工作要值夜班，很辛苦，但既然自己选择了，就要努力做下去。"
+        }
+      ],
+      "source": "2016-12"
+    },
+    {
+      "id": "toshimasu_hypothetical",
+      "pattern": "〜とします",
+      "meaning": "假设……，假定……（常与“仮に”呼应）",
+      "connection": "動詞普通形／数量詞＋とします",
+      "formality": "书面语，较正式",
+      "family": "hypothetical_toshimasu",
+      "confusable": [
+        "toshitara"
+      ],
+      "distinguish_zh": "「〜とします」表示提出一个假设条件，常与副词「仮に」搭配使用，“假设……的话”，多用于说明性、计算性的文章中先设定前提条件。",
+      "frequency": 3,
+      "examples": [
+        {
+          "jp": "人は一生のうちどのくらい寝ているのでしょうか。仮に一日8時間寝て、80歳まで生きるとします。すると、睡眠時間は約233,600時間で、約27年寝ている計算になります。",
+          "zh": "人的一生要睡多久呢？假设人一天睡8小时，活到80岁。那么睡眠时间大约为233600小时，也就是大概有27年的睡眠时间。"
+        }
+      ],
+      "source": "2016-12"
+    },
+    {
+      "id": "dake_nara_only_if",
+      "pattern": "〜だけなら",
+      "meaning": "如果仅仅是……的话（なら表假定，后项多为说话人的评价）",
+      "connection": "名詞／動詞普通形＋だけなら",
+      "formality": "口语、书面都可用",
+      "family": "conditional_dake_nara",
+      "confusable": [
+        "dake_de_youni_naru"
+      ],
+      "distinguish_zh": "「だけ」表示限定“仅仅、只是”，「なら」表示假定条件，组合表示“如果仅仅是……这一点的话（那么……）”，后项常接说话人对这种有限条件下的评价或判断。",
+      "frequency": 3,
+      "examples": [
+        {
+          "jp": "夢を語るだけなら誰でもできるが、実現させるのは簡単なことではない。",
+          "zh": "如果仅仅谈自己的梦想的话，那谁都会，但要实现它却不是简单的事。"
+        }
+      ],
+      "source": "2016-12"
+    },
+    {
+      "id": "tekara_ni_suru",
+      "pattern": "〜てからにする",
+      "meaning": "先做完……之后再（决定/进行下一步），请在……之后再……",
+      "connection": "動詞て形＋からにする",
+      "formality": "书面语，较正式，常用于说明书",
+      "family": "sequence_tekara_nisuru",
+      "confusable": [],
+      "distinguish_zh": "「〜てから」表示先做完前项动作，「〜にする」表示做出决定，组合表示“先做完……这件事之后，再进行（后面的动作）”，常见于说明书等强调操作顺序的文本中。",
+      "frequency": 3,
+      "examples": [
+        {
+          "jp": "（説明書で）エアコンを掃除するときは、安全上、必ずコンセントを抜いてからにしてください。",
+          "zh": "（说明书上）在清洁空调的时候，为安全起见，请务必先拔掉插头（之后再进行清扫）。"
+        }
+      ],
+      "source": "2016-12"
+    },
+    {
+      "id": "koto_ni_natte_shimatte",
+      "pattern": "〜ことになってしまって",
+      "meaning": "结果（客观、非本意地）变成了……的状况（表示无奈的客观决定结果）",
+      "connection": "動詞辞書形＋ことになってしまって",
+      "formality": "口语、书面都可用",
+      "family": "unintended_result_kotoni",
+      "confusable": [],
+      "distinguish_zh": "「〜ことになる」表示客观决定下来的结果，加上表示不如意、无奈语气的「〜てしまう」，组合表示“结果（不是自己本意地）变成了……的状况”，常用于描述令说话人为难、无奈接受的既定安排。",
+      "frequency": 4,
+      "examples": [
+        {
+          "jp": "私はスピーチが苦手なのに、今度友達の結婚パーティーでスピーチをすることになってしまって、困っている。",
+          "zh": "我不善于演讲，却要在这次朋友的结婚宴上致辞，真是为难。"
+        }
+      ],
+      "source": "2016-12"
+    },
+    {
+      "id": "raresou_ni_nai",
+      "pattern": "〜そうにない",
+      "meaning": "看起来不会……的样子，好像不可能……",
+      "connection": "動詞可能形（られる）連用形＋そうにない",
+      "formality": "口语、书面都可用",
+      "family": "unlikely_appearance_souninai",
+      "confusable": [
+        "totemo_negative"
+      ],
+      "distinguish_zh": "动词可能形连用形+样态「そうだ」的否定「そうにない」，表示从目前状况看，某事发生的可能性极低，“看起来不会……”，与描述客观上是否能看到某事的「見られないことだった」等表达不同，「そうにない」更强调基于目前迹象的主观样态判断。",
+      "frequency": 3,
+      "examples": [
+        {
+          "jp": "せっかく、夕日がきれいなことで有名なA海岸に来たのに、急に雨が降り出した。どうも夕日は見られそうにない。",
+          "zh": "特意来到因美丽的落日而闻名的A海岸，没想到突然下起了雨。看来是看不到落日了。"
+        }
+      ],
+      "source": "2016-12"
+    },
+    {
+      "id": "tte_hearsay_colloquial",
+      "pattern": "〜って",
+      "meaning": "听说……，据说……（口语，相当于「という」，用于转述听到的内容）",
+      "connection": "普通形＋って",
+      "formality": "口语",
+      "family": "colloquial_hearsay_tte",
+      "confusable": [
+        "datte_hearsay_quote"
+      ],
+      "distinguish_zh": "口语中的「って」除了可作为提示助词外，还可以放在句末，相当于「〜という」，表示转述从他人那里听到的信息，“听说……”，语气随意、亲切。",
+      "frequency": 4,
+      "examples": [
+        {
+          "jp": "山川「中村くん、毎日ジョギングしてるんだって?」中村「うん、そうなんだよ。」山川「実は、ぼくもなんだよ。走るっていいよね。」",
+          "zh": "山川：“中村君，听说你每天都跑步？”中村：“嗯，是啊。”山川：“其实我也在跑。跑步挺好的啊。”"
+        }
+      ],
+      "source": "2016-12"
+    },
+    {
+      "id": "okoshi_ni_naru_keigo",
+      "pattern": "〜お越しになりました",
+      "meaning": "您（尊称他人）来了（“来る”的尊他敬语）",
+      "connection": "お越しになる的活用形",
+      "formality": "正式、商务场合常用",
+      "family": "keigo",
+      "confusable": [
+        "oide_ni_naru_form",
+        "miemashita_keigo"
+      ],
+      "distinguish_zh": "「お越しになる」是“来る”的尊他敬语，比「いらっしゃる」更书面、郑重，常用于正式场合尊敬地叙述对方（客人）的到来。",
+      "frequency": 3,
+      "examples": [
+        {
+          "jp": "（内線電話で）山田「はい、山田です。」木村「受付の木村ですが、X社の中川様がお越しになりました。」山田「わかりました。すぐ行きます。」",
+          "zh": "（内线电话）山田：“喂，我是山田。”木村：“我是前台的木村，X社的中川先生来了。”山田：“知道了，我马上去。”"
+        }
+      ],
+      "source": "2016-12"
+    },
+    {
+      "id": "te_irai",
+      "pattern": "〜て以来",
+      "meaning": "自从……以来（就一直……）",
+      "connection": "動詞て形＋以来",
+      "formality": "口语、书面都可用",
+      "family": "since_then_change_teirai",
+      "confusable": [
+        "since_then_never"
+      ],
+      "distinguish_zh": "「〜て以来」表示自从前项这一事情发生之后，某种状态或行为就一直持续到现在，“自从……以来”，后项常与「ずっと」等表示持续的词呼应。",
+      "frequency": 4,
+      "examples": [
+        {
+          "jp": "就職したときに買って以来ずっと使っていたかばんがとうとう壊れたので、買い換えることにした。",
+          "zh": "找到工作的时候起就一直用的包坏了，所以重新买了一个。"
+        }
+      ],
+      "source": "2016-12"
+    },
+    {
+      "id": "nidoto_nai",
+      "pattern": "〜二度と〜ない",
+      "meaning": "再也不要……了（表达强烈的主观意愿）",
+      "connection": "二度と＋動詞ない形",
+      "formality": "口语、书面都可用",
+      "family": "never_again_nidoto",
+      "confusable": [],
+      "distinguish_zh": "「二度と」意为“第二次，再一次”，与否定形呼应使用，表示说话人强烈的主观意愿，“再也不要……了”，常用于经历过痛苦、麻烦之事后发出的感叹。",
+      "frequency": 4,
+      "examples": [
+        {
+          "jp": "登山には不思議な魅力がある。登っているときはこんなに苦しいことは二度としたくないと思うのに、山を下りて何日かするとなぜかまた登りたくなる。",
+          "zh": "登山具有神奇的魅力。登山时都想，以后再也不想做这么苦的事了。但下山后过了几天，不知道为什么又想爬了。"
+        }
+      ],
+      "source": "2016-12"
+    },
+    {
+      "id": "chigai_wa_niaru",
+      "pattern": "〜は〜にある",
+      "meaning": "……的关键/不同在于……",
+      "connection": "名詞は＋普通形（の）＋にある",
+      "formality": "书面语，较正式",
+      "family": "point_ni_aru",
+      "confusable": [],
+      "distinguish_zh": "「〜は〜にある」用于说明某事物的关键、原因、区别究竟在于什么，“……在于……”，前项常是「違い」「原因」「ポイント」等词，后项说明具体内容，是书面说理文章中常见的总结句型。",
+      "frequency": 4,
+      "examples": [
+        {
+          "jp": "ビジネスで成功できる人とできない人の違いは、どんなに大変な状況でもあきらめずに最後まで取り組めるかどうかにあると思う。",
+          "zh": "我认为在商业上成功的人与不成功的人之间的差别是，不管处于怎样严峻的情况下，是否都能做到不放弃而拼到最后。"
+        }
+      ],
+      "source": "2016-12"
+    },
+    {
+      "id": "nagara_concessive",
+      "pattern": "〜ながら",
+      "meaning": "虽然……但是……（逆接，表示前后内容相矛盾）",
+      "connection": "形容詞・動詞ます形／形容動詞語幹＋ながら",
+      "formality": "书面语，较正式",
+      "family": "concessive_nagara",
+      "confusable": [
+        "monono_concessive"
+      ],
+      "distinguish_zh": "「〜ながら」除了表示“一边……一边……”的同时动作用法外，还可以表示逆接，“虽然……但是……”，前后内容形成对比或矛盾，与「〜のに」「〜ものの」语义相近。",
+      "frequency": 4,
+      "examples": [
+        {
+          "jp": "彫刻家川村たけるが作る動物の彫刻作品は、形はシンプルながら今にも動き出しそうな生命力にあふれている。",
+          "zh": "雕刻家川村たける制作的动物雕刻作品，虽外形简单，但动物看着就像要动起来一样，非常具有生命力。"
+        }
+      ],
+      "source": "2016-12"
     }
   ]
 }
