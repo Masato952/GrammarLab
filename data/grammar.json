@@ -66,7 +66,8 @@
         "osagashi_shitara_kenjougo",
         "gozaimasu_keigo",
         "shite_kudasaimashita_keigo",
-        "moushiagemasu_kenjougo"
+        "moushiagemasu_kenjougo",
+        "omachi_desu_sonkeigo"
       ]
     },
     {
@@ -82,7 +83,8 @@
       "members": [
         "sasete_kureru",
         "kiite_morau_koto_de",
-        "tekureru_basic"
+        "tekureru_basic",
+        "yarasete_moratte_kita"
       ]
     },
     {
@@ -459,7 +461,8 @@
       "id": "case_by_case_niyotte",
       "name": "视情况而定（によっては系）",
       "members": [
-        "ni_yotte_ha"
+        "ni_yotte_ha",
+        "niyotte_kotonaru"
       ]
     },
     {
@@ -784,7 +787,8 @@
       "id": "state_keep_mamani",
       "name": "保持……的状态（たままにしておいて系）",
       "members": [
-        "mamani_shite_oite"
+        "mamani_shite_oite",
+        "ta_mama_ni_sezu"
       ]
     },
     {
@@ -917,7 +921,8 @@
       "id": "gradual_change_tsurete",
       "name": "随着……逐渐（につれて系）",
       "members": [
-        "ni_tsurete"
+        "ni_tsurete",
+        "ni_shitagatte"
       ]
     },
     {
@@ -1542,6 +1547,55 @@
       "name": "早就决定要……（うと決めていた系）",
       "members": [
         "youto_kimeteita"
+      ]
+    },
+    {
+      "id": "mo_shinaide_negative",
+      "name": "连……都不（做）（もしないで系）",
+      "members": [
+        "mo_shinaide"
+      ]
+    },
+    {
+      "id": "ittai_adv",
+      "name": "到底，究竟（いったい系）",
+      "members": [
+        "ittai_whatever"
+      ]
+    },
+    {
+      "id": "kara_shika_dake_gentei",
+      "name": "只能从……（からしか系）",
+      "members": [
+        "kara_shika_gentei"
+      ]
+    },
+    {
+      "id": "gimonshi_yorimo",
+      "name": "比任何……都……（疑問詞+よりも系）",
+      "members": [
+        "gimonshi_yorimo_saijou"
+      ]
+    },
+    {
+      "id": "youto_shinakutemo_ii_family",
+      "name": "不必勉强去做……（うとしなくてもいい系）",
+      "members": [
+        "youto_shinakutemo_ii"
+      ]
+    },
+    {
+      "id": "toshite_capacity_family",
+      "name": "作为……（として系）",
+      "members": [
+        "toshite_capacity"
+      ]
+    },
+    {
+      "id": "kotokara_reason_family",
+      "name": "因为……，由来是……（ことから系）",
+      "members": [
+        "kotokara_reason"
       ]
     }
   ],
@@ -6195,6 +6249,239 @@
         }
       ],
       "source": "2018-07"
+    },
+    {
+      "id": "mo_shinaide",
+      "pattern": "〜も（動詞ます形）＋しないで",
+      "meaning": "连……都不（做）就……（强调对某事完全不做，带有责备、不满的语气）",
+      "connection": "動詞ます形＋も＋しないで",
+      "formality": "口语、书面都可用",
+      "family": "mo_shinaide_negative",
+      "confusable": [],
+      "distinguish_zh": "「動詞ます形+も+しないで」表示连某个（本来该做的）动作都完全没有做，就进行了后项，语气中带有不满、责备的意味，比单纯的「〜ないで」语气更强调“连……都不”。",
+      "frequency": 3,
+      "examples": [
+        {
+          "jp": "彼は謝りもしないで、そのまま帰ってしまった。",
+          "zh": "他连道歉都没有道歉，就那样回去了。"
+        }
+      ],
+      "source": "2018-12"
+    },
+    {
+      "id": "ittai_whatever",
+      "pattern": "いったい",
+      "meaning": "到底，究竟（用于加强疑问语气，表示强烈想知道真相）",
+      "connection": "副詞，多与疑问句呼应使用",
+      "formality": "口语、书面都可用",
+      "family": "ittai_adv",
+      "confusable": [],
+      "distinguish_zh": "副词「いったい」用于加强疑问句的语气，表达说话人强烈想知道某件事的真相或原因，“到底、究竟”，常与「なぜ」「どう」「何」等疑问词搭配使用。",
+      "frequency": 3,
+      "examples": [
+        {
+          "jp": "（テレビ番組で）「私たちが住んでいる地球は、いったいどうやってできたのでしょうか。」",
+          "zh": "（电视节目上）“我们居住的地球究竟是怎么形成的呢？”"
+        }
+      ],
+      "source": "2018-12"
+    },
+    {
+      "id": "ni_shitagatte",
+      "pattern": "〜にしたがって",
+      "meaning": "随着……（表示随着前项动作、进展的变化，后项也相应发生变化）",
+      "connection": "動詞辞書形／名詞＋にしたがって",
+      "formality": "书面语，较正式",
+      "family": "gradual_change_tsurete",
+      "confusable": [
+        "ni_tsurete"
+      ],
+      "distinguish_zh": "「にしたがって」与「につれて」意思相近，都表示“随着……”，但「にしたがって」更强调前后项呈比例关系的规律性变化，前项常接动词辞书形，不能接「〜ている」等状态形式；此题中随丈夫年龄下降家务比重增加，前面动词需用辞书形「下がる」而非表示状态的「下がっている」。",
+      "frequency": 4,
+      "examples": [
+        {
+          "jp": "X社の調査によると、共働き夫婦における夫の家事負担の割合は、夫の年齢が下がるにしたがって増加しているという。",
+          "zh": "根据X公司的调查，在双职工家庭中，丈夫年龄越小，分担家务的比重越大。"
+        }
+      ],
+      "source": "2018-12"
+    },
+    {
+      "id": "omachi_desu_sonkeigo",
+      "pattern": "お＋動詞ます形＋です",
+      "meaning": "（尊敬语）正在……（用于尊敬地描述对方或与对方相关人物的动作/状态）",
+      "connection": "お＋動詞ます形＋です",
+      "formality": "书面语，正式敬语场合",
+      "family": "keigo",
+      "confusable": [
+        "o_mochi_desuka",
+        "shite_kudasaimashita_keigo"
+      ],
+      "distinguish_zh": "「お＋動詞ます形＋です」是尊敬语句型，用于尊敬地描述对方（或客人等地位较高者）正在进行的动作或所处的状态，如「お待ちです」＝“（对方）正在等候”；因主语是客人「山下様」，不能使用自谦语「〜ております」（用于自己一方的动作）。",
+      "frequency": 4,
+      "examples": [
+        {
+          "jp": "（会社で）受付「A社の山下様が受付でお待ちです。」田中「あ、わかりました。すぐ行きます。」",
+          "zh": "（在公司里）前台：“A公司的山下在前台等您。”田中：“啊，好的。我马上过去。”"
+        }
+      ],
+      "source": "2018-12"
+    },
+    {
+      "id": "kara_shika_gentei",
+      "pattern": "〜からしか〜ない",
+      "meaning": "只能从……（表示除此之外别无其他选择/途径，与否定形式呼应）",
+      "connection": "名詞＋からしか＋（動詞否定形）",
+      "formality": "口语、书面都可用",
+      "family": "kara_shika_dake_gentei",
+      "confusable": [
+        "suru_shikanai"
+      ],
+      "distinguish_zh": "「しか」必须与句末的否定形式呼应使用，表示“仅仅、只有……”；当强调“从……这唯一的范围/来源中选择”时，需搭配格助词「から」构成「からしか〜ない」，而非「にしか」（对象限定）或「にだけ／からだけ」（无否定呼应，不强调“别无选择”的无奈感）。",
+      "frequency": 3,
+      "examples": [
+        {
+          "jp": "レストランハヤマのランチは、AランチかBランチの2種類からしか選べないが、安くてとてもおいしい。",
+          "zh": "餐厅哈亚马的午餐虽然只有A和B两种可以选择，但是又便宜又美味。"
+        }
+      ],
+      "source": "2018-12"
+    },
+    {
+      "id": "gimonshi_yorimo_saijou",
+      "pattern": "疑問詞＋（名詞）よりも",
+      "meaning": "比任何……都……（用疑问词构成的比较句，表示最高级）",
+      "connection": "疑問詞（どの／どんな）＋名詞＋よりも",
+      "formality": "口语、书面都可用",
+      "family": "gimonshi_yorimo",
+      "confusable": [],
+      "distinguish_zh": "用「どの／どんな」等疑问词代替具体的比较对象，加上「よりも」，构成没有特定比较对象、涵盖所有同类事物的最高级表达，“比任何……都……”，语气比单纯用「いちばん」更强调“超越一切同类事物”的比较意味。",
+      "frequency": 3,
+      "examples": [
+        {
+          "jp": "昨日私が乗った飛行機は、今まで乗ったどの飛行機よりも小さかった。",
+          "zh": "昨天我乘坐的飞机是我有史以来坐过的最小的一架。"
+        }
+      ],
+      "source": "2018-12"
+    },
+    {
+      "id": "ta_mama_ni_sezu",
+      "pattern": "〜た（形容詞の）ままにせず",
+      "meaning": "不要放任……的状态不管，不要让……一直保持原样",
+      "connection": "動詞た形／形容詞＋まま＋にせず",
+      "formality": "口语、书面都可用",
+      "family": "state_keep_mamani",
+      "confusable": [
+        "mamani_shite_oite"
+      ],
+      "distinguish_zh": "「〜まま」表示保持某种状态不变，「にせず」是「にしないで」的书面语形式，表示“不要（就那样）放任不管”；与「〜たままにしておいて」（保持……的状态别动，命令对方不要改变现状）方向相反，「〜ままにせず」强调不能让某种（不良）状态持续，需要采取后项动作加以改变。",
+      "frequency": 3,
+      "examples": [
+        {
+          "jp": "髪が傷んでしまうので、髪を洗った後は、ぬれたままにせず、しっかり乾かしましょう。",
+          "zh": "因为会损伤头发，所以在洗完头发以后，不要让它继续湿着，好好地擦干吧。"
+        }
+      ],
+      "source": "2018-12"
+    },
+    {
+      "id": "youto_shinakutemo_ii",
+      "pattern": "〜（よ）うとしなくてもいい",
+      "meaning": "不必勉强去做……，不用非要努力……（劝对方不必强迫自己尝试某事）",
+      "connection": "動詞意志形＋うとしなくてもいい",
+      "formality": "口语",
+      "family": "youto_shinakutemo_ii_family",
+      "confusable": [
+        "youtoshitemo"
+      ],
+      "distinguish_zh": "动词意志形+「うとする」表示“打算、努力去做……”，接上「なくてもいい」（不必……）构成“不必勉强努力去做……”，用于劝慰对方不要强迫自己做某件困难的事，语气委婉体贴；与单纯的「〜なくてもいい」（不做……也可以）相比，多了“不必刻意努力尝试”的语感。",
+      "frequency": 3,
+      "examples": [
+        {
+          "jp": "A「最近元気ないみたいだけど、どうしたの?」B「別れた彼のことがなかなか忘れられなくて……。」A「忘れられないなら、そんなに無理に忘れようとしなくてもいいと思うよ。」",
+          "zh": "A：“最近好像没什么精神啊，怎么了？”B：“我总是忘不了前男友啊……”A：“我觉得，如果忘不掉的话，就不要强迫自己去忘记。”"
+        }
+      ],
+      "source": "2018-12"
+    },
+    {
+      "id": "yarasete_moratte_kita",
+      "pattern": "〜（さ）せてもらってきた",
+      "meaning": "（一直以来）都是自己请求／获得对方允许而做……（从过去持续到现在的经历，视点在说话人一方）",
+      "connection": "動詞使役形＋てもらってきた",
+      "formality": "口语、书面都可用",
+      "family": "juju",
+      "confusable": [
+        "tekureru_basic",
+        "sasete_kureru"
+      ],
+      "distinguish_zh": "「使役形+てもらう」的视点在说话人一方，强调“我方”请求或获得对方允许才得以做某事；而「〜てくれる」的视点在对方，强调对方主动为我方做某事。本题中“我”请求父母允许自己自由做想做的事，从孩提时代持续到现在，因此用「てもらってきた」而非以对方为视点的「てくれていた」。",
+      "frequency": 3,
+      "examples": [
+        {
+          "jp": "私は両親に子供のころから自分がやりたいことを自由にやらせてもらってきた。",
+          "zh": "我从小就让父母让我自由地做自己想做的事。"
+        }
+      ],
+      "source": "2018-12"
+    },
+    {
+      "id": "toshite_capacity",
+      "pattern": "〜として",
+      "meaning": "作为……（表示身份、资格、立场）",
+      "connection": "名詞＋として",
+      "formality": "口语、书面都可用",
+      "family": "toshite_capacity_family",
+      "confusable": [],
+      "distinguish_zh": "「として」接在名词后，表示以某种身份、资格、立场进行后项的动作或状态，“作为……”，是较为基础常用的书面/口语通用句型，常与「有名な」等修饰词连用，表达“作为……而闻名”。",
+      "frequency": 4,
+      "examples": [
+        {
+          "jp": "山や植物の写真家として有名な岩本まさき氏の写真展が15日からABCデパートで開催される。",
+          "zh": "以拍摄山和植物而闻名的岩本Masaki的摄影展从15日开始在ABC百货公司举办。"
+        }
+      ],
+      "source": "2018-12"
+    },
+    {
+      "id": "niyotte_kotonaru",
+      "pattern": "〜によって、〜が変わる／異なる",
+      "meaning": "根据……（因素）的不同，……会有所不同/发生变化",
+      "connection": "名詞（疑問詞節）＋によって、〜が変わる／異なる",
+      "formality": "书面语，较正式",
+      "family": "case_by_case_niyotte",
+      "confusable": [
+        "niyotte_means",
+        "ni_yotte_ha"
+      ],
+      "distinguish_zh": "「によって」后接「変わる」「異なる」等表示差异的动词时，表示随着前项因素的不同，后项的结果、状态也会相应地有所不同，强调“变化的原因/依据”；与表示手段方法的「によって」（通过……）及表示部分举例的「によっては」（视情况而定，也有……的）用法不同，需结合后续搭配的动词来判断具体语义。",
+      "frequency": 3,
+      "examples": [
+        {
+          "jp": "情報をどのような順番で提示するかによって、相手の受け止め方が変わってくるので、順番を意識して話す必要がある。",
+          "zh": "根据提示信息顺序的不同，对方理解的方式也会发生变化。因此有意识地按照顺序说话很有必要。"
+        }
+      ],
+      "source": "2018-12"
+    },
+    {
+      "id": "kotokara_reason",
+      "pattern": "〜ことから",
+      "meaning": "因为……，由于……（根据前项事实，推出后项理由、结论或名称由来）",
+      "connection": "普通形＋ことから",
+      "formality": "书面语，较正式",
+      "family": "kotokara_reason_family",
+      "confusable": [],
+      "distinguish_zh": "「ことから」接在句子普通形后，以前项客观存在的事实作为依据/线索，引出后项的理由、结论，尤其常用于说明事物名称、称呼的由来，“因为……，所以（这样称呼/由来）……”。",
+      "frequency": 3,
+      "examples": [
+        {
+          "jp": "日本では、99歳のお祝いを「白寿」と言います。「百」の字から「一」をとると「白」という字になることから、そう呼ばれています。",
+          "zh": "在日本，把庆祝99岁叫做“白寿”。因为从“百”这个字拿去“一”就变成了“白”这个字，所以这么称呼。"
+        }
+      ],
+      "source": "2018-12"
     }
   ]
 }
