@@ -55,7 +55,9 @@
         "o_mochi_desuka",
         "okoshikudasai",
         "teori_keigo",
-        "goran_no_youni"
+        "goran_no_youni",
+        "goran_itadaku",
+        "itashimashouka_kenjougo"
       ]
     },
     {
@@ -69,7 +71,8 @@
       "id": "juju",
       "name": "授受动词・恩惠表达",
       "members": [
-        "sasete_kureru"
+        "sasete_kureru",
+        "kiite_morau_koto_de"
       ]
     },
     {
@@ -600,6 +603,97 @@
       "name": "在…方面（の上では系）",
       "members": [
         "no_ue_deha_men"
+      ]
+    },
+    {
+      "id": "field_ni_oite",
+      "name": "在……方面（においては系）",
+      "members": [
+        "ni_oite_men"
+      ]
+    },
+    {
+      "id": "hypothetical_potential",
+      "name": "假设不大可能实现的事（可能形+ものなら系）",
+      "members": [
+        "kanou_mono_nara"
+      ]
+    },
+    {
+      "id": "supplementary_condition",
+      "name": "补充条件（ただし系）",
+      "members": [
+        "tadashi_futeikijiken"
+      ]
+    },
+    {
+      "id": "momentum_trend",
+      "name": "势头、趋势（勢いだ系）",
+      "members": [
+        "ikioi_da"
+      ]
+    },
+    {
+      "id": "degree_ni_suginai",
+      "name": "不过是……而已（にすぎない系）",
+      "members": [
+        "ni_suginakatta"
+      ]
+    },
+    {
+      "id": "contrastive_tomokaku",
+      "name": "……姑且不论（ならともかく系）",
+      "members": [
+        "nara_tomokaku"
+      ]
+    },
+    {
+      "id": "prohibition_saseru_naide",
+      "name": "别让……（させないでよ系）",
+      "members": [
+        "saseru_naide_request"
+      ]
+    },
+    {
+      "id": "habitual_gachi",
+      "name": "容易……，往往……（がち系）",
+      "members": [
+        "gachi_keikou"
+      ]
+    },
+    {
+      "id": "remaining_duration",
+      "name": "还剩……时间（あと〜ぐらいは系）",
+      "members": [
+        "ato_kikan_gurai"
+      ]
+    },
+    {
+      "id": "representative_example",
+      "name": "以……为首（をはじめ系）",
+      "members": [
+        "wo_hajime"
+      ]
+    },
+    {
+      "id": "best_choice",
+      "name": "……是最好的（に限る系）",
+      "members": [
+        "ni_kagiru"
+      ]
+    },
+    {
+      "id": "realize_only_after",
+      "name": "……之后才（第一次）意识到（てはじめて系）",
+      "members": [
+        "tehajimete_kizuku"
+      ]
+    },
+    {
+      "id": "vivid_metaphor",
+      "name": "简直像是……（今にも〜そうだ系）",
+      "members": [
+        "imanimo_sou_da"
       ]
     }
   ],
@@ -2403,6 +2497,266 @@
         }
       ],
       "source": "2013-07"
+    },
+    {
+      "id": "ni_oite_men",
+      "pattern": "〜において",
+      "meaning": "在……方面（领域、场合）",
+      "connection": "名詞＋において",
+      "formality": "书面语，较正式",
+      "family": "field_ni_oite",
+      "confusable": [
+        "no_ue_deha_men"
+      ],
+      "distinguish_zh": "「において」在此处表示领域、方面，相当于格助词「で」，比「で」更书面、正式，常用于抽象名词后，比如「安全性において」（在安全性方面）。",
+      "frequency": 3,
+      "examples": [
+        {
+          "jp": "このメーカーのヘルメットは、安全性において、他のどのメーカーの製品よりも優れている。",
+          "zh": "这家厂商的安全帽在安全性方面，优于其他任何一家的产品。"
+        }
+      ],
+      "source": "2013-12"
+    },
+    {
+      "id": "kanou_mono_nara",
+      "pattern": "〜（可能形）ものなら",
+      "meaning": "如果能……的话（假设一个不大可能实现的事）",
+      "connection": "動詞可能形＋ものなら",
+      "formality": "口语",
+      "family": "hypothetical_potential",
+      "confusable": [],
+      "distinguish_zh": "接在动词可能态之后，表示假设一个不大可能实现的事，相当于“如果能……的话，那……吧”，后项常常带有希望、请求、意志等用法。",
+      "frequency": 3,
+      "examples": [
+        {
+          "jp": "山田「今度の連休、木村さんは温泉に行くみたいだよ。森さんはどこか行かないの?」森「行けるものなら行きたいけど、今度の連休は仕事が入っちゃったんだよね。」",
+          "zh": "山田：“这次连休，木村好像要去泡温泉哦。森君要去什么地方吗？”森：“如果能去的话真想去啊，可是这次连休又被派了工作任务。”"
+        }
+      ],
+      "source": "2013-12"
+    },
+    {
+      "id": "tadashi_futeikijiken",
+      "pattern": "〜ただし",
+      "meaning": "但，只不过……（用来补充前项事物的补充条件）",
+      "connection": "独立使用，接续在前一句话之后",
+      "formality": "书面、口语皆可",
+      "family": "supplementary_condition",
+      "confusable": [],
+      "distinguish_zh": "「ただし」用于对前面所述事物追加一个补充条件或例外情况，可译为“只是，只不过”，与「および」（和、及）、「すなわち」（也就是说）、「あるいは」（或、或者）容易混淆，注意区分功能。",
+      "frequency": 3,
+      "examples": [
+        {
+          "jp": "（セミナーの案内で）受講料は、無料です。ただし、資料代500円をいただきます。",
+          "zh": "（讲座通知）听讲免费。只是需要收500元的资料费用。"
+        }
+      ],
+      "source": "2013-12"
+    },
+    {
+      "id": "ikioi_da",
+      "pattern": "〜勢いだ",
+      "meaning": "……的势头，……的趋势",
+      "connection": "動詞辞書形＋勢いだ",
+      "formality": "书面语，较正式",
+      "family": "momentum_trend",
+      "confusable": [
+        "bakari_da_keikou"
+      ],
+      "distinguish_zh": "「勢いだ」表示某一活动的最高潮，接在动词「ている」形、形容词连用形或「名詞＋の」之后，表示“正在……之中”“……高潮中”的意思，常用于描述数据、气势等迅猛发展的态势。",
+      "frequency": 3,
+      "examples": [
+        {
+          "jp": "今年の映画祭の来場者は、開幕から3日で10万人に達した。8日間の開催期間で最終的には昨年の20万人を大幅に上回る勢いだ。",
+          "zh": "今年电影节的到访者自开幕以来3天内达到10万人次。照此势头8天的总到访者会大幅超过去年的20万人。"
+        }
+      ],
+      "source": "2013-12"
+    },
+    {
+      "id": "ni_suginakatta",
+      "pattern": "〜にすぎなかった",
+      "meaning": "不过是……而已（过去时）",
+      "connection": "普通形／名詞＋にすぎなかった",
+      "formality": "书面语，较正式",
+      "family": "degree_ni_suginai",
+      "confusable": [],
+      "distinguish_zh": "「にすぎない」的过去时，前接体言、动词连体形，表示程度低、不值一提，“只不过……”，语气比「でもなかった」「よりほかなかった」「ばかりではなかった」更强调“仅仅如此”。",
+      "frequency": 3,
+      "examples": [
+        {
+          "jp": "北川市は、かつては人口5千人の小さな村にすぎなかったが、今では人口50万人の大都市だ。",
+          "zh": "曾经的北川市只能说是一个人口五千的小乡村，如今却发展成人口五十万大城市。"
+        }
+      ],
+      "source": "2013-12"
+    },
+    {
+      "id": "nara_tomokaku",
+      "pattern": "〜ならともかく",
+      "meaning": "……姑且不论，……还说得过去，可是……",
+      "connection": "普通形／名詞＋ならともかく",
+      "formality": "口语",
+      "family": "contrastive_tomokaku",
+      "confusable": [],
+      "distinguish_zh": "表示“……的话姑且不论/还说得过去，可是……”，前项和后项做对比，后项往往与前项形成反差，语气带有转折。",
+      "frequency": 3,
+      "examples": [
+        {
+          "jp": "（店で）A「このシャツ、かわいい。でも、会社に着ていくには派手かな。」B「うん。デートで着るならともかく、仕事には派手すぎるよ。」",
+          "zh": "（在店里）A：“这件衬衫真可爱。可是，穿去公司会不会有点花哨啊。”B：“是啊。姑且不论在约会时候穿，工作时候穿就太花哨了吧。”"
+        }
+      ],
+      "source": "2013-12"
+    },
+    {
+      "id": "saseru_naide_request",
+      "pattern": "〜させないでよ",
+      "meaning": "别让（我）……啊（使役+ないで，请求对方不要促使自己做某事）",
+      "connection": "動詞使役形＋ないでよ",
+      "formality": "口语",
+      "family": "prohibition_saseru_naide",
+      "confusable": [],
+      "distinguish_zh": "使役形「させる」（让……做）加否定的请求形式「〜ないでよ」，表示“别让我做……啊”，常用于口语中带撒娇/抱怨语气地请求对方停止某个促使自己做某事的行为，比如“别催我”「急がせないでよ」。",
+      "frequency": 2,
+      "examples": [
+        {
+          "jp": "（駅で）A「まだ切符買ってないの?もう電車来ちゃうよ。早く早く。」B「まだ5分もあるでしょう。そんなに急がせないでよ。」",
+          "zh": "（在车站）A：“还没买票吗？电车已经来了，快点快点。”B：“还有五分钟呢吧。别那么催我啊。”"
+        }
+      ],
+      "source": "2013-12"
+    },
+    {
+      "id": "gachi_keikou",
+      "pattern": "〜がち",
+      "meaning": "容易……，往往……（表示某种情况经常发生的倾向）",
+      "connection": "動詞ます形／名詞＋がち",
+      "formality": "口语、书面都可用",
+      "family": "habitual_gachi",
+      "confusable": [],
+      "distinguish_zh": "「がち」表示某种情况经常发生，相当于“容易……、常常……、往往……”，多用于比较消极的场合，比如「思ってしまいがち」（容易一厢情愿地这样想）。",
+      "frequency": 3,
+      "examples": [
+        {
+          "jp": "「自分がされてうれしいことは相手もうれしい」とつい思ってしまいがちだが、相手が嫌がる場合もあるので、気をつけようと思う。",
+          "zh": "我们很容易想当然地认为“自己觉得开心的事，别人也会开心”，但实际上有时对方会感到厌烦，所以要注意。"
+        }
+      ],
+      "source": "2013-12"
+    },
+    {
+      "id": "ato_kikan_gurai",
+      "pattern": "〜あと〜ぐらいは",
+      "meaning": "还剩……（这段时间）",
+      "connection": "あと＋期間詞＋ぐらいは",
+      "formality": "口语",
+      "family": "remaining_duration",
+      "confusable": [],
+      "distinguish_zh": "「あと」表示从此刻之后的一段时间，「ぐらいは」强调“至少还有这么长时间”，常用于表达“还想再持续做某事一段时间”的语境。",
+      "frequency": 2,
+      "examples": [
+        {
+          "jp": "A「夏休み、あしたで終わりだね。」B「そうだね。でもまだあと1週間ぐらいは休みたいよね。」",
+          "zh": "A：“暑假明天就结束了呢。”B：“是啊。不过我好想再休息1周啊。”"
+        }
+      ],
+      "source": "2013-12"
+    },
+    {
+      "id": "wo_hajime",
+      "pattern": "〜をはじめ",
+      "meaning": "以……为首，……以及……",
+      "connection": "名詞＋をはじめ",
+      "formality": "书面语，较正式",
+      "family": "representative_example",
+      "confusable": [
+        "toitta_reiji"
+      ],
+      "distinguish_zh": "「をはじめ」接在体言性结构后，前面叙述最主要的内容，表示“以……为首/为代表”，常用于列举一系列相关事物中最具代表性的一个。",
+      "frequency": 3,
+      "examples": [
+        {
+          "jp": "（北川先生へのメールで）昨日無事に帰国しました。日本滞在中は、北川先生をはじめ多くの方々にお世話になり、本当にありがとうございました。",
+          "zh": "（给北川老师的邮件）昨天平安地回国了。暂在日本那段时间，受到了很多人的照顾，特别是北川老师，真的非常感谢。"
+        }
+      ],
+      "source": "2013-12"
+    },
+    {
+      "id": "ni_kagiru",
+      "pattern": "〜に限る",
+      "meaning": "……是最好的，最好……",
+      "connection": "動詞辞書形／名詞＋に限る",
+      "formality": "口语、书面都可用",
+      "family": "best_choice",
+      "confusable": [],
+      "distinguish_zh": "「に限る」接在体言后，表示说话人认为某选择是最好的，“最……莫过于……”，常用于经验之谈式的建议。",
+      "frequency": 3,
+      "examples": [
+        {
+          "jp": "私の祖父は、風邪をひいても、「風邪のときはあたたかくして早く寝るに限る。」と言って病院に行かない。",
+          "zh": "我的祖父即使得了感冒，也不去医院，他说“感冒时最好穿暖和点、早点睡”。"
+        }
+      ],
+      "source": "2013-12"
+    },
+    {
+      "id": "tehajimete_kizuku",
+      "pattern": "〜てはじめて（気づく／わかる）",
+      "meaning": "……之后才（第一次）意识到／明白……",
+      "connection": "動詞て形＋はじめて",
+      "formality": "书面、口语皆可",
+      "family": "realize_only_after",
+      "confusable": [
+        "ni_taisuru_shinrai"
+      ],
+      "distinguish_zh": "「てはじめて」（不加「て」时读作「顺接」）表示只有达到某种状态后，才意识到某一曾被忽视的事，“只有……才……”，常搭配「気づく」「わかる」等动词。",
+      "frequency": 3,
+      "examples": [
+        {
+          "jp": "留学中、自分の国のことを聞かれて初めて、今まで当たり前だと思っていて疑問にすら思っていなかったことが多いのに気づいた。",
+          "zh": "留学期间，被别人问到自己国家的事情时，才发现有很多事是一直以来都觉得是理所当然的，都没产生过疑问。"
+        }
+      ],
+      "source": "2013-12"
+    },
+    {
+      "id": "imanimo_sou_da",
+      "pattern": "〜今にも〜そうだ",
+      "meaning": "眼看就要……了，简直马上就要……",
+      "connection": "今にも＋動詞ます形＋そうだ",
+      "formality": "口语、书面都可用",
+      "family": "vivid_metaphor",
+      "confusable": [],
+      "distinguish_zh": "「今にも〜そうだ」是传闻助动词「そうだ」的一种，常与「今にも」形成呼应，表示“眼看就要……、马上就要……”，用于生动描写即将发生的状态变化。",
+      "frequency": 3,
+      "examples": [
+        {
+          "jp": "彼が描いたライオンの絵は、今にも動き出して近づいてきそうなほど、本物そっくりに描かれている。",
+          "zh": "他画里的那头狮子，就仿佛要跃动起来朝自己一般栩栩如生。"
+        }
+      ],
+      "source": "2013-12"
+    },
+    {
+      "id": "kiite_morau_koto_de",
+      "pattern": "〜てもらうことで",
+      "meaning": "通过请别人（为自己）做……",
+      "connection": "動詞て形＋もらうことで",
+      "formality": "口语、书面都可用",
+      "family": "juju",
+      "confusable": [],
+      "distinguish_zh": "「〜てもらう」表示自己请别人为自己做某事，与「で」（通过、凭借）搭配，「〜てもらうことで」意为“通过让别人做……（这件事）”，强调这一授受行为本身带来的效果。",
+      "frequency": 3,
+      "examples": [
+        {
+          "jp": "悩んでいるときは、誰かに話を聞いてもらうことで気持ちが楽になる場合もある。",
+          "zh": "自己烦恼的时候，有时通过向别人倾诉，心情会变得轻松。"
+        }
+      ],
+      "source": "2013-12"
     }
   ]
 }
