@@ -59,7 +59,9 @@
         "goran_itadaku",
         "itashimashouka_kenjougo",
         "miemashita_keigo",
-        "okoshi_itadaku"
+        "okoshi_itadaku",
+        "oide_ni_naru_form",
+        "okiki_shitemo_yoroshii"
       ]
     },
     {
@@ -1120,6 +1122,97 @@
       "name": "说到……（というと系）",
       "members": [
         "toiuto_association"
+      ]
+    },
+    {
+      "id": "ranking_nitsugu",
+      "name": "仅次于……（につぐ系）",
+      "members": [
+        "nitsugu_second"
+      ]
+    },
+    {
+      "id": "unexpected_positive_nakanaka",
+      "name": "相当，很（なかなか+肯定系）",
+      "members": [
+        "nakanaka_positive"
+      ]
+    },
+    {
+      "id": "also_datte_aru",
+      "name": "也是有……的时候（ことだってある系）",
+      "members": [
+        "koto_datte_aru"
+      ]
+    },
+    {
+      "id": "final_result_sueni",
+      "name": "经过……之后（末に系）",
+      "members": [
+        "sueni_result"
+      ]
+    },
+    {
+      "id": "nostalgic_recollection_monoda",
+      "name": "真是……啊（回忆感慨ものだ系）",
+      "members": [
+        "monoda_nostalgia"
+      ]
+    },
+    {
+      "id": "difficult_to_do_kaneru",
+      "name": "很难……（かねる系）",
+      "members": [
+        "shineru_hard_to"
+      ]
+    },
+    {
+      "id": "zero_possibility_kkonai",
+      "name": "不可能……（っこない系）",
+      "members": [
+        "kko_nai_impossible"
+      ]
+    },
+    {
+      "id": "exception_object_taishite",
+      "name": "唯独对……（に対してだけは系）",
+      "members": [
+        "ni_taishite_dake_wa"
+      ]
+    },
+    {
+      "id": "wish_youni_shitehoshii",
+      "name": "希望能做到……（ようにしてほしい系）",
+      "members": [
+        "youni_shite_hoshii"
+      ]
+    },
+    {
+      "id": "spontaneous_causative_passive",
+      "name": "不由得……（使役被动表自发系）",
+      "members": [
+        "saserareru_spontaneous"
+      ]
+    },
+    {
+      "id": "low_probability_mazunai",
+      "name": "大概不会……（まず〜ない系）",
+      "members": [
+        "mazu_nai"
+      ]
+    },
+    {
+      "id": "incidental_tsuideni",
+      "name": "顺便……（ついでに系）",
+      "members": [
+        "tsuideni_incidental"
+      ]
+    },
+    {
+      "id": "sufficient_without_naide_sumu",
+      "name": "不……就可以（ないで済む系）",
+      "members": [
+        "naide_sumu"
       ]
     }
   ],
@@ -4462,6 +4555,291 @@
         }
       ],
       "source": "2015-12"
+    },
+    {
+      "id": "nitsugu_second",
+      "pattern": "〜につぐ",
+      "meaning": "仅次于……，次于……",
+      "connection": "名詞＋につぐ",
+      "formality": "书面语，较正式",
+      "family": "ranking_nitsugu",
+      "confusable": [],
+      "distinguish_zh": "「〜につぐ」接在名词后，表示在排名、程度上仅次于前项，位居第二，“次于……”，常用于描述排行、位次。",
+      "frequency": 3,
+      "examples": [
+        {
+          "jp": "この国で、卵、牛乳につぐ3番目に多い食物アレルギーは、小麦アレルギーだ。",
+          "zh": "在这个国家中，引起过敏最多的食物排名里，小麦是继鸡蛋、牛奶之后位居第三位的食物过敏源。"
+        }
+      ],
+      "source": "2016-07"
+    },
+    {
+      "id": "nakanaka_positive",
+      "pattern": "なかなか＋形容詞（肯定）",
+      "meaning": "相当，很，还挺……的（用于超出预期的正面评价，后不可接否定）",
+      "connection": "なかなか＋形容詞・形容動詞（肯定形）",
+      "formality": "口语、书面都可用",
+      "family": "unexpected_positive_nakanaka",
+      "confusable": [
+        "nakanaka_negative"
+      ],
+      "distinguish_zh": "副词「なかなか」接肯定形式时，表示程度超出预期，带有赞赏的语气，“相当，很……”，与接否定形式时表示“怎么也不……”（如“なかなか来ない”）的用法完全不同，注意区分。",
+      "frequency": 4,
+      "examples": [
+        {
+          "jp": "弟がスケートをするのが初めてだったので何度か転んでいたが、初めてにしてはなかなか上手だった。",
+          "zh": "虽然弟弟是初次溜冰，摔了好多次，但作为第一次，已经相当不错了。"
+        }
+      ],
+      "source": "2016-07"
+    },
+    {
+      "id": "koto_datte_aru",
+      "pattern": "〜ことだってある",
+      "meaning": "也是有……的时候，也会……（だって在此相当于でも/も，表示举例强调）",
+      "connection": "動詞辞書形＋ことだってある",
+      "formality": "口语",
+      "family": "also_datte_aru",
+      "confusable": [
+        "koto_ga_aru"
+      ],
+      "distinguish_zh": "「だって」在此处相当于「でも」或「も」，用于举出一个例子来强调“连……也会/都有”，与表示轻视、举例的名词+「なんて」用法不同，也和表示反驳引用的「だって」（都说了……嘛）不同，需结合语境判断具体含义。",
+      "frequency": 3,
+      "examples": [
+        {
+          "jp": "私は漫画ばかり読んでいると思われているようだが、そんなことはない。たまには小説を読むことだってある。",
+          "zh": "我好像被大家认为只看漫画，但其实并不是那样。偶尔我也是会看看小说的。"
+        }
+      ],
+      "source": "2016-07"
+    },
+    {
+      "id": "sueni_result",
+      "pattern": "〜末に",
+      "meaning": "经过……之后（最终）……，……的结果是……",
+      "connection": "動詞た形＋末に、名詞の＋末に",
+      "formality": "书面语，较正式",
+      "family": "final_result_sueni",
+      "confusable": [
+        "ageku"
+      ],
+      "distinguish_zh": "「〜末に」表示经过前项长时间的努力、纠结或过程之后，最终得出后项的结果，“经过……之后”，语气比较中性、客观，与多用于消极结果的「〜あげく」不同，「末に」前后项可以是积极的结果。",
+      "frequency": 4,
+      "examples": [
+        {
+          "jp": "私は、進学するか就職するか迷ったが、家族や先生と何日も話し合った末に、進学を選んだ。",
+          "zh": "我，在升学还是工作之间很是迷茫，但与家里人和老师商量了很多天后，最终选择了升学。"
+        }
+      ],
+      "source": "2016-07"
+    },
+    {
+      "id": "monoda_nostalgia",
+      "pattern": "〜ものだ",
+      "meaning": "真是……啊（接在过去时后，表示对往事的怀念、感慨）",
+      "connection": "動詞た形＋ものだ",
+      "formality": "口语、书面都可用",
+      "family": "nostalgic_recollection_monoda",
+      "confusable": [
+        "monono_concessive"
+      ],
+      "distinguish_zh": "「〜ものだ」接在动词过去式后，表示对往事的回忆、感慨，“真是……啊”，与表示一般常识、社会普遍道理的「〜ものだ」（动词辞书形+ものだ）用法不同，需结合前后时态判断具体含义。",
+      "frequency": 4,
+      "examples": [
+        {
+          "jp": "実家の押し入れを片付けていたら、祖父母の結婚式の写真が出てきた。よくこんな昔の写真が今まで残っていたものだ。",
+          "zh": "整理老家壁橱的时候看到了祖父祖母结婚仪式的照片。至今还保留着这么老的照片啊，真是感慨。"
+        }
+      ],
+      "source": "2016-07"
+    },
+    {
+      "id": "shineru_hard_to",
+      "pattern": "〜かねる",
+      "meaning": "很难……，难以……（表示由于心理或客观原因难以做到）",
+      "connection": "動詞ます形＋かねる",
+      "formality": "书面语，较正式",
+      "family": "difficult_to_do_kaneru",
+      "confusable": [],
+      "distinguish_zh": "动词ます形+「かねる」表示由于某种客观情况或心理上的顾虑，很难做出某个动作或判断，“难以……”，比单纯的否定形式更委婉、正式，常用于商务场合。",
+      "frequency": 3,
+      "examples": [
+        {
+          "jp": "今回の戦略が有効であったかどうかは、まだ結果が出ていない現時点では判断しかねる。",
+          "zh": "这次的战略是否有效，在还没出来结果的现时点很难判断。"
+        }
+      ],
+      "source": "2016-07"
+    },
+    {
+      "id": "kko_nai_impossible",
+      "pattern": "〜っこない",
+      "meaning": "不可能……，绝不会……（口语，强调可能性为零）",
+      "connection": "動詞ます形＋っこない",
+      "formality": "口语",
+      "family": "zero_possibility_kkonai",
+      "confusable": [
+        "hazu_ga_nai"
+      ],
+      "distinguish_zh": "动词ます形+「っこない」是口语中强调“绝对不可能……”的表达，语气比「はずがない」更随意、更强烈，常用于日常对话中断然否定某种可能性。",
+      "frequency": 3,
+      "examples": [
+        {
+          "jp": "妻「ねえ、この雑誌のアンケートに答えると、抽選で一人にテレビが当たるんだって。応募してみようよ。」夫「抽選で一人じゃ、当たりっこないよ。」",
+          "zh": "妻子：“喂，听说如果回答这个杂志的调查问卷，就会从中抽选一个人赠送电视机呢，试着应征看看吧。”丈夫：“抽选只有一个人的话，不可能抽中的呀。”"
+        }
+      ],
+      "source": "2016-07"
+    },
+    {
+      "id": "ni_taishite_dake_wa",
+      "pattern": "〜に対してだけは",
+      "meaning": "唯独对……（表示例外对象）",
+      "connection": "名詞＋に対してだけは",
+      "formality": "口语、书面都可用",
+      "family": "exception_object_taishite",
+      "confusable": [],
+      "distinguish_zh": "「〜に対して」表示动作、态度指向的对象，加上限定「だけは」，表示“唯独对……（是例外）”，常用于说明某人对绝大多数对象一致，唯独对某个特定对象态度不同。",
+      "frequency": 3,
+      "examples": [
+        {
+          "jp": "どんな人が相手でも厳しく接する森先輩だが、なぜか私に対してだけはそうではない。",
+          "zh": "无论对方是什么样的人都严肃对待的森前辈，不知为什么唯独对我不是那样。"
+        }
+      ],
+      "source": "2016-07"
+    },
+    {
+      "id": "youni_shite_hoshii",
+      "pattern": "〜ようにしてほしい",
+      "meaning": "希望能做到……（使某种状态成为可能）",
+      "connection": "動詞辞書形／可能形＋ようにしてほしい",
+      "formality": "口语、书面都可用",
+      "family": "wish_youni_shitehoshii",
+      "confusable": [
+        "tehoshii_darou"
+      ],
+      "distinguish_zh": "「〜ようにする」表示为达成某目标而采取措施，加上表示希望的「〜てほしい」，组合表示“希望（对方）想办法做到……”，常用于向他人提出改善性的请求或建议。",
+      "frequency": 4,
+      "examples": [
+        {
+          "jp": "近所の図書館によく行くが、人気の本が貸し出し中で読めないことが多いので、もっと数を増やして、たくさんの人が読めるようにしてほしい。",
+          "zh": "虽说经常去附近的图书馆，但经常是人气的书借出去了不能阅读，我希望可以增加书的数量，让更多的人都能阅读。"
+        }
+      ],
+      "source": "2016-07"
+    },
+    {
+      "id": "oide_ni_naru_form",
+      "pattern": "〜おいでになったら",
+      "meaning": "您来了的话（“行く・来る・いる”的尊他敬语＋条件形）",
+      "connection": "おいでになる的た形＋ら",
+      "formality": "正式、商务场合常用",
+      "family": "keigo",
+      "confusable": [
+        "okoshi_itadaku",
+        "miemashita_keigo"
+      ],
+      "distinguish_zh": "「おいでになる」是“行く・来る・いる”共通的尊他敬语，比「いらっしゃる」使用范围更广，接续条件形「〜たら」表示“（对方）来了的话（就……）”，用于对客人到来后应采取行动的指示。",
+      "frequency": 3,
+      "examples": [
+        {
+          "jp": "（会社で）課長「山下さん、A社の木村様がおいでになったら、応接室に案内してください。」山下「はい、わかりました。」",
+          "zh": "（在公司）课长：“山下，A公司的木村先生来了的话，请带他去接待室。”山下：“好的，我知道了。”"
+        }
+      ],
+      "source": "2016-07"
+    },
+    {
+      "id": "okiki_shitemo_yoroshii",
+      "pattern": "〜お聞きしてもよろしいでしょうか",
+      "meaning": "可以请教/询问一下……吗（自谦语，非常有礼貌地询问）",
+      "connection": "お＋動詞ます形＋してもよろしいでしょうか",
+      "formality": "书面语，非常正式、客气",
+      "family": "keigo",
+      "confusable": [],
+      "distinguish_zh": "「お＋動詞ます形＋する」是自谦语的固定句型，加上「〜てもよろしいでしょうか」（能否请允许我……），组合成非常礼貌地询问对方是否可以做某事的表达，常用于服务业等正式场合。",
+      "frequency": 4,
+      "examples": [
+        {
+          "jp": "（店で）客「すみません、この携帯電話を解約したいんですが。」店員「かしこまりました。差し支えなければ、解約の理由をお聞きしてもよろしいでしょうか。」",
+          "zh": "（在店里）客人：“不好意思，我想解约这个手机号。”店员：“明白了。如果方便的话，可以请教一下解约的理由吗？”"
+        }
+      ],
+      "source": "2016-07"
+    },
+    {
+      "id": "saserareru_spontaneous",
+      "pattern": "〜（さ）せられる",
+      "meaning": "不由得……，不由自主地感到……（使役被动形表自发）",
+      "connection": "動詞使役被動形（させられる）",
+      "formality": "书面语，较正式",
+      "family": "spontaneous_causative_passive",
+      "confusable": [],
+      "distinguish_zh": "动词的使役被动形除了表示“被迫做……”之外，还可以用来表示某种情绪、想法是不由自主产生的，“不由得……，不由自主地……”，「感じさせられる」即“不由得让人感到……”。",
+      "frequency": 4,
+      "examples": [
+        {
+          "jp": "一人暮らしを始めたころは、料理も洗濯もすべて自分でするのが大変で、これまでずっとどんなに恵まれた環境にいたかと感じさせられる毎日だった。",
+          "zh": "开始一个人生活的时候，每天要自己做饭洗衣服非常累，我每天都在感叹，这之前我是身处于多少受眷顾的环境中啊。"
+        }
+      ],
+      "source": "2016-07"
+    },
+    {
+      "id": "mazu_nai",
+      "pattern": "まず〜ない",
+      "meaning": "大概不会……，基本不会……（表示可能性极低的推测）",
+      "connection": "まず＋動詞ない形",
+      "formality": "口语、书面都可用",
+      "family": "low_probability_mazunai",
+      "confusable": [],
+      "distinguish_zh": "副词「まず」在与否定形式呼应使用时，表示说话人认为某事发生的可能性极低，“大概不会……，基本不会……”，与表示“首先”的「まず」（用于列举顺序）用法不同，需结合语境判断。",
+      "frequency": 3,
+      "examples": [
+        {
+          "jp": "このお菓子はとても簡単に作れるから初心者でも失敗することはまずないという友人の話を聞いて、作ってみようと思った。",
+          "zh": "听朋友说，这个点心制作很简单，即便是初学者，大概也不会失败，我听了以后也想做试试看。"
+        }
+      ],
+      "source": "2016-07"
+    },
+    {
+      "id": "tsuideni_incidental",
+      "pattern": "〜ついでに",
+      "meaning": "顺便……（表示利用做某事的机会顺带做另一件事）",
+      "connection": "動詞辞書形／た形＋ついでに、名詞の＋ついでに",
+      "formality": "口语、书面都可用",
+      "family": "incidental_tsuideni",
+      "confusable": [],
+      "distinguish_zh": "「〜ついでに」表示在做前项这件事的同时或过程中，顺便完成后项本来不是主要目的的另一件事，“顺便……”，语气比较自然、随意。",
+      "frequency": 4,
+      "examples": [
+        {
+          "jp": "近所のスーパーの隣にはクリーニング屋がある。スーパーもクリーニング屋も私が仕事から帰る時間でも開いていて、買い物するついでに預けた服を取りに行けるのが助かる。",
+          "zh": "在家附近的超市旁边有一家干洗店。超市和干洗店在我工作回来时也还开着，我买东西时可以顺便去取洗的衣服，真是帮了我大忙。"
+        }
+      ],
+      "source": "2016-07"
+    },
+    {
+      "id": "naide_sumu",
+      "pattern": "〜ないで済む",
+      "meaning": "不……就可以，不……也行（表示不必做某事就能解决问题）",
+      "connection": "動詞ない形＋で済む",
+      "formality": "口语、书面都可用",
+      "family": "sufficient_without_naide_sumu",
+      "confusable": [],
+      "distinguish_zh": "「〜ないで済む」表示不需要采取前项这一动作，事情也能顺利解决、了结，“不……就可以”，常用于表达因某种条件而省去了原本必要的麻烦步骤。",
+      "frequency": 3,
+      "examples": [
+        {
+          "jp": "いつ行っても長い行列ができているラーメン屋なのに、今回あまり並ばないで済んだのは、何時ごろがすいているか事前に確認してから行ったからだ。",
+          "zh": "不管什么时候去，都排长队的拉面店，这次没怎么排队就进去了，是因为事前查了大概几点比较空之后才去的。"
+        }
+      ],
+      "source": "2016-07"
     }
   ]
 }
