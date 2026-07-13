@@ -53,7 +53,9 @@
         "o_moushiageru",
         "mairu_kenjougo",
         "o_mochi_desuka",
-        "okoshikudasai"
+        "okoshikudasai",
+        "teori_keigo",
+        "goran_no_youni"
       ]
     },
     {
@@ -123,7 +125,8 @@
       "id": "quotation_example",
       "name": "举例引用（とか言う系）",
       "members": [
-        "toka_iu"
+        "toka_iu",
+        "toitta_reiji"
       ]
     },
     {
@@ -415,6 +418,76 @@
       "name": "只要……就足够（も〜ば系）",
       "members": [
         "mo_ba_dake_areba"
+      ]
+    },
+    {
+      "id": "habitual_bakari",
+      "name": "老是、一个劲地（ばかりいる系）",
+      "members": [
+        "bakari_teiru"
+      ]
+    },
+    {
+      "id": "hypothetical_kari_ni",
+      "name": "假定语气（かりに系）",
+      "members": [
+        "kari_ni"
+      ]
+    },
+    {
+      "id": "concessive_nimokakawarazu",
+      "name": "尽管…但是…（にもかかわらず系）",
+      "members": [
+        "nimo_kakawarazu"
+      ]
+    },
+    {
+      "id": "case_by_case_niyotte",
+      "name": "视情况而定（によっては系）",
+      "members": [
+        "ni_yotte_ha"
+      ]
+    },
+    {
+      "id": "third_person_desire",
+      "name": "第三人称的愿望（たがっている系）",
+      "members": [
+        "tagatteiru_shieki"
+      ]
+    },
+    {
+      "id": "exclamation_doredake",
+      "name": "感叹语气（どれだけ〜か系）",
+      "members": [
+        "dore_dake_ka_kantan"
+      ]
+    },
+    {
+      "id": "conditional_you_naraba",
+      "name": "假定倾向（〜ようならば系）",
+      "members": [
+        "kurikaesareru_younaraba"
+      ]
+    },
+    {
+      "id": "return_after_action",
+      "name": "做完某事后再回来（〜てきます系）",
+      "members": [
+        "tekimasukara"
+      ]
+    },
+    {
+      "id": "regardless_result",
+      "name": "无论如何都…（いずれにしても系）",
+      "members": [
+        "izureni_shitemo"
+      ]
+    },
+    {
+      "id": "written_content_to_aru",
+      "name": "某处写着…（〜とある系）",
+      "members": [
+        "to_aru_naiyou"
       ]
     }
   ],
@@ -1679,6 +1752,246 @@
         }
       ],
       "source": "2012-07"
+    },
+    {
+      "id": "bakari_teiru",
+      "pattern": "〜てばかりいる",
+      "meaning": "老是……，一个劲地……",
+      "connection": "動詞て形＋ばかりいる",
+      "formality": "口语",
+      "family": "habitual_bakari",
+      "confusable": [],
+      "distinguish_zh": "固定句型「〜てばかりいる」表示“一直、总是在做某件事”，带有说话人不太赞成、觉得有点过头的语气。",
+      "frequency": 3,
+      "examples": [
+        {
+          "jp": "母「また寝てるの?せっかくの休みなんだから、寝てばかりいないで、外に出かけたら?」息子「わかったよ。」",
+          "zh": "妈妈：“还在睡觉？难得的休息天，不要老是睡觉，到外面去走走吧。”儿子：“知道了。”"
+        }
+      ],
+      "source": "2012-12"
+    },
+    {
+      "id": "kari_ni",
+      "pattern": "〜かりに",
+      "meaning": "假如、如果……",
+      "connection": "かりに＋普通形（常与「たら」「なら」等呼应）",
+      "formality": "书面语，较正式",
+      "family": "hypothetical_kari_ni",
+      "confusable": [],
+      "distinguish_zh": "「かりに」用于提出一个假设的前提，“假如……的话”，常与句末的「〜としたら」「〜たら」呼应，比「もし」语气更正式、更强调“姑且这样假设”。",
+      "frequency": 3,
+      "examples": [
+        {
+          "jp": "人は通勤に多くの時間を使っている。かりに通勤に往復2時間かけるとすると、1年間で480時間も通勤に使っている計算になる。",
+          "zh": "人们在上下班上花费很多时间。假如上下班往返要花2小时的话，那么一年内就要花费480个小时用于上下班。"
+        }
+      ],
+      "source": "2012-12"
+    },
+    {
+      "id": "teori_keigo",
+      "pattern": "〜ておる（ている的礼貌语）",
+      "meaning": "正在……（书面/礼貌语气）",
+      "connection": "動詞て形＋おる",
+      "formality": "书面语，正式、礼貌",
+      "family": "keigo",
+      "confusable": [],
+      "distinguish_zh": "「ておる」是「ている」程度较低的自谦式礼貌语，常用于介绍自己一方的持续性动作或状态，书面报道、正式场合、自我介绍中常见。",
+      "frequency": 3,
+      "examples": [
+        {
+          "jp": "彼は小説家になってから、1年に1冊のペースで長編小説を発表しており、来月出る小説で10冊目となる。",
+          "zh": "他成为小说家以后，以每年一本的速度发表长篇小说，下个月出版的将是他的第十本小说。"
+        }
+      ],
+      "source": "2012-12"
+    },
+    {
+      "id": "nimo_kakawarazu",
+      "pattern": "〜にもかかわらず",
+      "meaning": "尽管……但是……（前后事项相互矛盾，出人意料）",
+      "connection": "普通形／名詞＋にもかかわらず",
+      "formality": "书面语，较正式",
+      "family": "concessive_nimokakawarazu",
+      "confusable": [
+        "toshitemo_even_if"
+      ],
+      "distinguish_zh": "表示“尽管……但是……”，前后内容相互矛盾，含有“不符合常理、出人意料”的语气，比「のに」更书面、更正式。",
+      "frequency": 4,
+      "examples": [
+        {
+          "jp": "駅前に新しくできたラーメン屋はいつも込んでいる。昨日も大雨にもかかわらず行列ができていた。",
+          "zh": "车站前新开的拉面店一直很火爆。昨天尽管下大雨，还是排起了长队。"
+        }
+      ],
+      "source": "2012-12"
+    },
+    {
+      "id": "ni_yotte_ha",
+      "pattern": "〜によっては",
+      "meaning": "根据……的不同（情况），也可能会……",
+      "connection": "名詞＋によっては",
+      "formality": "书面语，较正式",
+      "family": "case_by_case_niyotte",
+      "confusable": [],
+      "distinguish_zh": "「によっては」从各式各样的种类/情况中选取其中一种来举例说明，“视情况不同，也有……的”，隐含“不是所有情况都这样，但有一部分是这样”的语感。",
+      "frequency": 3,
+      "examples": [
+        {
+          "jp": "最近は夜遅くまで開いているスーパーが多くなってきた。スーパーによっては、24時間営業のところもある。",
+          "zh": "最近出现很多营业到深夜的超市。根据超市不同，也有24小时营业的。"
+        }
+      ],
+      "source": "2012-12"
+    },
+    {
+      "id": "tagatteiru_shieki",
+      "pattern": "〜させたがっている",
+      "meaning": "（第三人称）想让……（做某事）",
+      "connection": "動詞使役形＋たがっている",
+      "formality": "口语、书面都可用",
+      "family": "third_person_desire",
+      "confusable": [],
+      "distinguish_zh": "「たがる」是表示第三人称“想、希望”的补助动词，与使役形「させる」组合，「させたがっている」意为“（第三人称，如父母）想让别人做某事”，注意区分主语是“希望别人去做”的一方，而非动作的实际执行者。",
+      "frequency": 3,
+      "examples": [
+        {
+          "jp": "先輩「受験する大学は決まった?」後輩「いえ、僕は海外の大学に行きたいんですけど、両親は僕を自宅から通える大学に行かせたがっているんです」",
+          "zh": "前辈：“报考的大学定下来了吗？”后辈：“没有。我想去国外的大学，可是父母想让我上家附近能通学的大学。”"
+        }
+      ],
+      "source": "2012-12"
+    },
+    {
+      "id": "dore_dake_ka_kantan",
+      "pattern": "〜どれだけ〜か",
+      "meaning": "该有多么……啊！（表示感慨、感叹）",
+      "connection": "どれだけ＋普通形＋か",
+      "formality": "口语、书面都可用",
+      "family": "exclamation_doredake",
+      "confusable": [],
+      "distinguish_zh": "「どれだけ〜か」用于表达强烈的感慨或感叹，“该有多么……呀！”，句末的「か」不可省略，若省略则只是单纯的疑问/陈述，失去感叹语气。",
+      "frequency": 3,
+      "examples": [
+        {
+          "jp": "最近は毎月決まった金額でかけ放題の国際電話サービスがある。私が留学していたときにもそんなサービスがあったらどれだけよかったか。",
+          "zh": "最近有每月定额话费、国际长途无限畅打的优惠活动。如果我留学那会儿也有这样的优惠该多好呀！"
+        }
+      ],
+      "source": "2012-12"
+    },
+    {
+      "id": "goran_no_youni",
+      "pattern": "〜ご覧のように",
+      "meaning": "如您所见……（尊敬对方的“看”这一动作）",
+      "connection": "ご覧＋のように",
+      "formality": "正式、服务业常用",
+      "family": "keigo",
+      "confusable": [
+        "hazu_da"
+      ],
+      "distinguish_zh": "「ご覧」是「見る」的尊他敬语，用于尊敬地表达对方（如客人）“看”这一动作，「〜ように／とおり」都可用来引出后面要介绍的既知或未知内容。注意与「拝見する」（見る的自谦语，用于说话人自己的动作）区分——干扰项常把主语弄反。",
+      "frequency": 3,
+      "examples": [
+        {
+          "jp": "（店で）店員「こちらの車はいかがですか。中古車ですが、ご覧のように新車と変わらないくらいきれいですよ。」客「そうですね。きれいですね。」",
+          "zh": "（在店里）店员：“这辆车如何？虽然是二手车，但是如您所见，和新车差不多，很漂亮。”客人：“确实。很漂亮。”"
+        }
+      ],
+      "source": "2012-12"
+    },
+    {
+      "id": "kurikaesareru_younaraba",
+      "pattern": "〜されるようならば",
+      "meaning": "要是（这种情况）反复出现的话",
+      "connection": "動詞受身形＋ようならば",
+      "formality": "书面语，较正式",
+      "family": "conditional_you_naraba",
+      "confusable": [],
+      "distinguish_zh": "被动形「〜される」＋「ようならば」（如果看起来是这样的话），客观陈述“同样的情况反复出现”这一事实并据此给出后续建议，与使役形「〜させる」、可能形「〜せる」、使役被动形「〜させられる」等干扰项要分清主语和态。",
+      "frequency": 3,
+      "examples": [
+        {
+          "jp": "（ホームページで）Q:ゲームをしていたら、急に画面が暗くなってしまいました。どうしたらいいですか。A:一度電源を切り、1分くらい経ってからまたつけてみてください。ただし、同じことが何度も繰り返されるようならば故障です。修理を依頼してください。",
+          "zh": "（在主页上）Q：玩游戏时画面突然变暗，该怎么办？A：请关闭电源，1分钟后重启。但是，该情况反复出现的话，说明发生故障，请保修。"
+        }
+      ],
+      "source": "2012-12"
+    },
+    {
+      "id": "tekimasukara",
+      "pattern": "〜てきますから",
+      "meaning": "我去（做某事）就回来，所以……",
+      "connection": "動詞て形＋きます＋から",
+      "formality": "口语",
+      "family": "return_after_action",
+      "confusable": [],
+      "distinguish_zh": "「〜てきます」表示“做完某件事后会再回到原处”，常用于出门前告知对方，“我去……一下就回来”，后接「から」说明理由，常见于请对方稍等的场景。",
+      "frequency": 3,
+      "examples": [
+        {
+          "jp": "A「あ、飲み物がなくなってしまいましたね。」B「じゃあ、私がちょっとコンビニに行って買ってきますから、待っていてください。」A「私もいっしょに買いに行きますよ。」",
+          "zh": "A：“啊，饮料喝完啦。”B：“那我去便利店买了就回来，你等一下。”A：“我也一起去买吧。”"
+        }
+      ],
+      "source": "2012-12"
+    },
+    {
+      "id": "izureni_shitemo",
+      "pattern": "〜いずれにしても",
+      "meaning": "总之，不管怎样……",
+      "connection": "独立使用，接续在前一句话之后",
+      "formality": "书面、口语皆可",
+      "family": "regardless_result",
+      "confusable": [],
+      "distinguish_zh": "「いずれにしても」用于总结前面列举的多种可能性，表示“不管是哪一种情况，总之……”，常用于给出最终结论或建议。",
+      "frequency": 3,
+      "examples": [
+        {
+          "jp": "この計画をこのまま進めるかやめるか、いずれにしても早急に結論を出す必要があるだろう。",
+          "zh": "无论是像现在这样继续推进这项计划，还是终止它，总之都有必要尽早得出结论吧。"
+        }
+      ],
+      "source": "2012-12"
+    },
+    {
+      "id": "to_aru_naiyou",
+      "pattern": "〜とある",
+      "meaning": "（某处）写着……",
+      "connection": "「」内の引用内容＋とある",
+      "formality": "书面语，较正式",
+      "family": "written_content_to_aru",
+      "confusable": [],
+      "distinguish_zh": "「〜とある」用于说明“某份资料/文件上写着……内容”，「と」前面是被引用的具体内容，常见于介绍文件、通知、告示上的文字信息。",
+      "frequency": 3,
+      "examples": [
+        {
+          "jp": "「来週の登山の持ち物について質問があります。配られたプリントに、ビニール袋を持参のことと ありますが、だいたい何枚ぐらい用意すれば足りるのでしょうか。」",
+          "zh": "「关于下周登山要带的东西我有个问题。发的资料上写着要带塑料袋，那大概准备几个才够呢？」"
+        }
+      ],
+      "source": "2012-12"
+    },
+    {
+      "id": "toitta_reiji",
+      "pattern": "〜といった",
+      "meaning": "……之类的，……等（举例，暗示还有其他同类）",
+      "connection": "名詞（列挙）＋といった＋名詞",
+      "formality": "书面语，较正式",
+      "family": "quotation_example",
+      "confusable": [
+        "toka_iu"
+      ],
+      "distinguish_zh": "「〜といった」用于列举同类事物中的几个代表性例子，暗示“还有其他类似的”，常修饰后面的名词，比「〜とか」更书面正式。",
+      "frequency": 3,
+      "examples": [
+        {
+          "jp": "日本の食卓に欠かせないみそやしょうゆといった調味料の原料となる大豆だが、日本国内で作られているものはわずかで、その多くを海外からの輸入に頼っているという。",
+          "zh": "大豆是日本餐桌上不可缺少的味噌、酱油等调味料的原料，但是在日本国内生产的非常少，据说大部分都依赖从海外进口。"
+        }
+      ],
+      "source": "2012-12"
     }
   ]
 }
