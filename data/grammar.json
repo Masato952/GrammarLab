@@ -57,7 +57,8 @@
         "teori_keigo",
         "goran_no_youni",
         "goran_itadaku",
-        "itashimashouka_kenjougo"
+        "itashimashouka_kenjougo",
+        "miemashita_keigo"
       ]
     },
     {
@@ -694,6 +695,118 @@
       "name": "简直像是……（今にも〜そうだ系）",
       "members": [
         "imanimo_sou_da"
+      ]
+    },
+    {
+      "id": "as_instructed",
+      "name": "按照……那样（とおりに系）",
+      "members": [
+        "toori_ni"
+      ]
+    },
+    {
+      "id": "field_kaketewa",
+      "name": "在……方面（かけては系）",
+      "members": [
+        "kaketewa"
+      ]
+    },
+    {
+      "id": "causative_request_kenjougo",
+      "name": "使役+谦逊请求（聞かせていただけないか系）",
+      "members": [
+        "kikasete_itadakenai"
+      ]
+    },
+    {
+      "id": "adequate_extent",
+      "name": "在……范围内还算……（なりに系）",
+      "members": [
+        "sorenari_ni"
+      ]
+    },
+    {
+      "id": "near_future_intent",
+      "name": "正打算……时（うとした系）",
+      "members": [
+        "you_to_shita_tokoro"
+      ]
+    },
+    {
+      "id": "extent_degree_dislike",
+      "name": "……得受不了（でしょうがない系）",
+      "members": [
+        "deshouganai"
+      ]
+    },
+    {
+      "id": "conditional_you_deareba",
+      "name": "假定推想（ようであれば系）",
+      "members": [
+        "you_deareba"
+      ]
+    },
+    {
+      "id": "gradual_change_uchini",
+      "name": "逐渐……的过程中（ていくうちに系）",
+      "members": [
+        "teiku_uchini"
+      ]
+    },
+    {
+      "id": "juju_saseteyaru_shitei",
+      "name": "使役+施恩（させてやろう系）",
+      "members": [
+        "sasete_yarou"
+      ]
+    },
+    {
+      "id": "hearsay_rashii_past",
+      "name": "似乎……（過去+らしい系）",
+      "members": [
+        "katta_rashii"
+      ]
+    },
+    {
+      "id": "state_keep_mamani",
+      "name": "保持……的状态（たままにしておいて系）",
+      "members": [
+        "mamani_shite_oite"
+      ]
+    },
+    {
+      "id": "regret_ba_noni",
+      "name": "与事实相反的遗憾假想（〜ば〜のに系）",
+      "members": [
+        "ba_noni_regret"
+      ]
+    },
+    {
+      "id": "important_action_ue_de",
+      "name": "做……时应注意（動詞る形+上で系）",
+      "members": [
+        "suru_ue_de_chuui"
+      ]
+    },
+    {
+      "id": "concessive_donnani_fam",
+      "name": "无论多么……也……（どんなに〜ても系）",
+      "members": [
+        "concessive_donnani"
+      ]
+    },
+    {
+      "id": "requirement_towa_ga_aru",
+      "name": "……需要……（とは〜がある系）",
+      "members": [
+        "towa_ga_aru"
+      ]
+    },
+    {
+      "id": "conditional_ndattara",
+      "name": "如果……的话就……（んだったら系）",
+      "members": [
+        "ndattara"
       ]
     }
   ],
@@ -2757,6 +2870,332 @@
         }
       ],
       "source": "2013-12"
+    },
+    {
+      "id": "toori_ni",
+      "pattern": "〜とおりに",
+      "meaning": "按照……那样（做）",
+      "connection": "動詞辞書形／た形＋とおりに、名詞＋のとおりに",
+      "formality": "口语、书面都可用",
+      "family": "as_instructed",
+      "confusable": [
+        "you_de"
+      ],
+      "distinguish_zh": "「とおりに」表示完全按照前项所述的方式、内容去做，“照着……做”，比「ように」更强调“一字不差地照做”。",
+      "frequency": 3,
+      "examples": [
+        {
+          "jp": "料理の本に書いてあるとおりに作ってもみたのだが、なぜかうまくいかなかった。",
+          "zh": "按照菜谱里写的试着做了，不知怎么的做得不顺利。"
+        }
+      ],
+      "source": "2014-07"
+    },
+    {
+      "id": "kaketewa",
+      "pattern": "〜にかけては",
+      "meaning": "在……方面（是……的），说到……",
+      "connection": "名詞＋にかけては",
+      "formality": "口语、书面都可用",
+      "family": "field_kaketewa",
+      "confusable": [
+        "ni_oite_men"
+      ],
+      "distinguish_zh": "「にかけては」表示在某个特定领域或方面，接后面多接表示正面评价的内容，“说到……方面，……是最厉害的”。",
+      "frequency": 3,
+      "examples": [
+        {
+          "jp": "村田「青木くんって、本当に面白い人だよね。」西野「うん。彼、人を笑わせることにかけては天才だからね。」",
+          "zh": "村田：“青木君真是个有趣的人啊。”西野：“嗯，他在使人发笑方面真是个天才啊。”"
+        }
+      ],
+      "source": "2014-07"
+    },
+    {
+      "id": "kikasete_itadakenai",
+      "pattern": "〜（さ）せていただけないでしょうか",
+      "meaning": "能否请您允许我做……",
+      "connection": "動詞使役形＋ていただけないでしょうか",
+      "formality": "书面语，非常正式、客气",
+      "family": "causative_request_kenjougo",
+      "confusable": [],
+      "distinguish_zh": "使役形+「ていただけないでしょうか」是非常有礼貌地表达请求别人允许自己做某事的敬语句型，比「〜てもらえませんか」更正式客气。",
+      "frequency": 4,
+      "examples": [
+        {
+          "jp": "山田「私、青木先輩のようにカメラマンの仕事をしたいと思っているんです。ぜひ青木先輩のお話を聞かせていただけないでしょうか。」青木「ああ、かまわないよ。」",
+          "zh": "山田：“我想像青木前辈一样做摄影师的工作。希望青木前辈能让我听听您的经历。”青木：“好啊，没关系的。”"
+        }
+      ],
+      "source": "2014-07"
+    },
+    {
+      "id": "sorenari_ni",
+      "pattern": "〜なりに",
+      "meaning": "以……的方式（与……相应的、在……立场上）",
+      "connection": "体言＋なりに",
+      "formality": "口语、书面都可用",
+      "family": "adequate_extent",
+      "confusable": [],
+      "distinguish_zh": "「なりに」接在体言后，表示“以与前项相应的方式”，即在某种有限的条件/立场下，尽自己所能做到的程度，含有“虽然不完美，但是按自己的方式已经做到了”的语感。",
+      "frequency": 3,
+      "examples": [
+        {
+          "jp": "今回の京都旅行は、天気が悪い日が多かったが、行きたかったお寺には行けたし、それなりに楽しめた。",
+          "zh": "这次的京都之行，虽说天气不好的日子居多，但去了想去的寺庙，过得还是很开心的。"
+        }
+      ],
+      "source": "2014-07"
+    },
+    {
+      "id": "you_to_shita_tokoro",
+      "pattern": "〜（よ）うとした",
+      "meaning": "正打算要……（的时候）",
+      "connection": "動詞意向形＋とした",
+      "formality": "书面、口语皆可",
+      "family": "near_future_intent",
+      "confusable": [
+        "you_to_suru_tabi_ni"
+      ],
+      "distinguish_zh": "「（よ）うとする」表示就要做某动作或某种作用即将发生，相当于“想要……”“就要……”，接续「た」表示这个意图发生在过去某个时间点。",
+      "frequency": 3,
+      "examples": [
+        {
+          "jp": "バス停に着いたとき、出発時刻の1時間前に空港に着くバスがちょうど来たので乗ろうとしたが、満員で乗れず、結局、飛行機に間に合わなかった。",
+          "zh": "到公交站时，去机场的公交正好在飞机起飞时间的一小时前到，想要搭乘，但因为人满而没坐上，结果还是没有赶上飞机。"
+        }
+      ],
+      "source": "2014-07"
+    },
+    {
+      "id": "deshouganai",
+      "pattern": "〜でしょうがない",
+      "meaning": "……得不得了，……得受不了",
+      "connection": "形容詞・形容動詞連用形＋てしょうがない",
+      "formality": "口语",
+      "family": "extent_degree_dislike",
+      "confusable": [
+        "tamaranai"
+      ],
+      "distinguish_zh": "接在形容词连用形、形容动词词干、动词连用形后，表示某种感觉、情绪强烈到无法忍受的程度，“得不得了、得受不了、非常……”。",
+      "frequency": 3,
+      "examples": [
+        {
+          "jp": "友達の中には、仕事が休みの日はすることがなくて、暇でしょうがないと言う人もいる。",
+          "zh": "朋友当中有人说，非工作日没事干而闲得不得了。"
+        }
+      ],
+      "source": "2014-07"
+    },
+    {
+      "id": "miemashita_keigo",
+      "pattern": "〜見えました",
+      "meaning": "您来了（“来る”的敬语表达）",
+      "connection": "お見えになる的活用，或直接使用「見える」",
+      "formality": "正式、服务业常用",
+      "family": "keigo",
+      "confusable": [
+        "mairimasu_kenjougo"
+      ],
+      "distinguish_zh": "「見えました」相当于「お見えになりました」，是「来る」的尊他敬语表达，用于尊敬地叙述对方（客人）的到来，区别于「参る」（“行く・来る”的自谦语，用于己方）。",
+      "frequency": 3,
+      "examples": [
+        {
+          "jp": "森田「村山さん、Y社の川西部長が見えました。会議室でお待ちです。」村山「わかりました。」",
+          "zh": "森田：“村山，Y公司的川西部长来了。人现在会议室里。”村山：“我知道了。”"
+        }
+      ],
+      "source": "2014-07"
+    },
+    {
+      "id": "you_deareba",
+      "pattern": "〜ようであれば",
+      "meaning": "如果……的话（表示对情况的推量和设想）",
+      "connection": "普通形＋ようであれば",
+      "formality": "书面语，较正式",
+      "family": "conditional_you_deareba",
+      "confusable": [],
+      "distinguish_zh": "表示对某种情况的一种推量和设想，“如果……的话，那么……”，比单纯的「たら／れば」多了一层“根据观察到的迹象来判断”的语感。",
+      "frequency": 3,
+      "examples": [
+        {
+          "jp": "医者「明日になっても熱が下がらないようであれば、この薬を飲んでください。」",
+          "zh": "医生：“如果到了明天还没退烧的话，那就服用这个药。”"
+        }
+      ],
+      "source": "2014-07"
+    },
+    {
+      "id": "teiku_uchini",
+      "pattern": "〜ていくうちに",
+      "meaning": "随着……逐渐……（在持续做某事的过程中逐渐产生变化）",
+      "connection": "動詞て形＋いくうちに",
+      "formality": "口语、书面都可用",
+      "family": "gradual_change_uchini",
+      "confusable": [
+        "uchi_ni_henka"
+      ],
+      "distinguish_zh": "「〜ていくうちに」表示在持续进行某个动作、并让这个动作不断向前发展的过程中，逐渐产生了后项的变化，强调动作本身的渐进性。",
+      "frequency": 3,
+      "examples": [
+        {
+          "jp": "（歌の練習で）先生「最初は、緊張して大きな声で歌えないと思います。でも、練習していくうちにだんだん大きな声で歌えるようになりますよ。」",
+          "zh": "（在练歌）老师：“一开始会因为紧张而不能大声唱歌。但随着不断练习会逐渐变得能大声唱歌的。”"
+        }
+      ],
+      "source": "2014-07"
+    },
+    {
+      "id": "sasete_yarou",
+      "pattern": "〜させてやろう",
+      "meaning": "让……（对方）……吧（使役+てやる，表示主动施加某种影响）",
+      "connection": "動詞使役形＋てやろう",
+      "formality": "口语",
+      "family": "juju_saseteyaru_shitei",
+      "confusable": [
+        "saseteyaru"
+      ],
+      "distinguish_zh": "使役形「させる」+「てやろう」（意志形的授受表达），表示说话人打算主动做某事以对他人（一般是地位较低或对手）施加某种影响或效果，“让他们……吧”，常用于比较强势、带竞争意味的语境。",
+      "frequency": 3,
+      "examples": [
+        {
+          "jp": "監督「みんな、今日は本当によくやった。この調子であしたの決勝戦もがんばろう。おれたちが勝って世間を驚かせてやろうじゃないか。」",
+          "zh": "教练：“大家今天真的干得不错。就以这种状态去参加明天的决赛，一起加油吧。让我们用胜利震惊全世界吧。”"
+        }
+      ],
+      "source": "2014-07"
+    },
+    {
+      "id": "katta_rashii",
+      "pattern": "〜（なかった）らしい",
+      "meaning": "似乎……（根据某些依据做出的委婉判断，过去时）",
+      "connection": "動詞否定た形＋らしい",
+      "formality": "口语、书面都可用",
+      "family": "hearsay_rashii_past",
+      "confusable": [
+        "rashii"
+      ],
+      "distinguish_zh": "「らしい」表示有根据的判断或委婉的推测/断定，接在过去否定形之后，表示“似乎当时并没有……”。",
+      "frequency": 3,
+      "examples": [
+        {
+          "jp": "会議は9時開始の予定だったが、開始時刻までに来たのは3人だけだった。遅れてきた人に理由を聞いたら、開始時刻が正しく伝わっていなかったらしい。",
+          "zh": "原定9点开始会议，但直到开始只来了3个人。向迟到的人询问迟到理由，说好像是因为会议时间没有被正确地传达到。"
+        }
+      ],
+      "source": "2014-07"
+    },
+    {
+      "id": "mamani_shite_oite",
+      "pattern": "〜たままにしておいて",
+      "meaning": "保持……的状态（不要动/不要改变）",
+      "connection": "動詞た形＋ままにしておく",
+      "formality": "口语",
+      "family": "state_keep_mamani",
+      "confusable": [],
+      "distinguish_zh": "「〜まま」表示保持前文描述的状态不变，「〜ておく」表示预先做好某事以备将来的需要，两者组合表示“让……保持这个状态（先别动/别关）”。",
+      "frequency": 3,
+      "examples": [
+        {
+          "jp": "妹「お姉ちゃん、パソコン貸して。」姉「いいよ。あ、あとで私も使うから、電源は入れたままにしておいて。」妹「わかった。」",
+          "zh": "妹妹：“姐姐，把电脑借我用用吧。”姐姐：“好。啊，一会儿我也要用的，所以用完别关电源。”妹妹：“知道了。”"
+        }
+      ],
+      "source": "2014-07"
+    },
+    {
+      "id": "ba_noni_regret",
+      "pattern": "〜ば〜のに",
+      "meaning": "要是……就好了（对与事实相反的假想表示遗憾）",
+      "connection": "動詞ば形＋…＋のに",
+      "formality": "口语、书面都可用",
+      "family": "regret_ba_noni",
+      "confusable": [],
+      "distinguish_zh": "采用「〜ば、…のに」的形式，在「〜ば」部分提出一个与事实相反的假想，在「…」部分表达对于这件事无法实现而感到遗憾（或欣喜）的心情。",
+      "frequency": 4,
+      "examples": [
+        {
+          "jp": "A「じゃあ、そろそろ帰るね。お茶、ごちそうさまでした。」B「え、もう帰るの?せっかく来たんだから、もう少しゆっくりしていけばいいのに。」",
+          "zh": "A：“那我差不多该回去了。谢谢款待。”B：“诶，这就要走了？难得来一趟，再多待一会儿慢慢玩了再走多好啊。”"
+        }
+      ],
+      "source": "2014-07"
+    },
+    {
+      "id": "suru_ue_de_chuui",
+      "pattern": "〜（動詞る形）上で",
+      "meaning": "在做……的过程中（应注意/必须做到……）",
+      "connection": "動詞辞書形＋上で",
+      "formality": "书面语，较正式",
+      "family": "important_action_ue_de",
+      "confusable": [
+        "no_ue_de"
+      ],
+      "distinguish_zh": "接在动词辞书形后，用于表达目的的场景，前面要求是一个正面/积极意义的目的，后文出现要达成这个目的所必须采取的行动或十分重要的条件，注意与「〜のうえで」（先做完前项手续，再进行后项）区分接续和语感。",
+      "frequency": 3,
+      "examples": [
+        {
+          "jp": "レポートを作成する上で注意すべきことは、事実なのか意見なのかを明確にすることだ。",
+          "zh": "写报告时需要注意的是，要弄清楚是事实还是意见。"
+        }
+      ],
+      "source": "2014-07"
+    },
+    {
+      "id": "concessive_donnani",
+      "pattern": "〜どんなに〜ても",
+      "meaning": "无论多么……也……",
+      "connection": "どんなに＋形容詞／動詞て形＋も",
+      "formality": "口语、书面都可用",
+      "family": "concessive_donnani_fam",
+      "confusable": [
+        "temo_temo"
+      ],
+      "distinguish_zh": "「どんなに〜ても」用于表达逆接、让步，“不管……多么……，也……”，强调即使程度极高的前项，也不能阻止后项成立。",
+      "frequency": 3,
+      "examples": [
+        {
+          "jp": "私は、どんなにつらいことがあっても、そんな様子を全く見せず、いつもにこにこしている石川さんを尊敬している。",
+          "zh": "我一直很尊敬那个无论遭遇多么痛苦的事儿，都完全看不出痛苦的样子，一直笑眯眯的石川老师。"
+        }
+      ],
+      "source": "2014-07"
+    },
+    {
+      "id": "towa_ga_aru",
+      "pattern": "〜とは〜がある",
+      "meaning": "……真是需要……啊（表示对某事需要具备某种条件感到惊讶/感慨）",
+      "connection": "普通形＋とは＋名詞＋がある",
+      "formality": "口语",
+      "family": "requirement_towa_ga_aru",
+      "confusable": [],
+      "distinguish_zh": "「とは」引出令人感到意外、感慨的话题，「〜がある」表示需要具备的东西，组合起来表示“……这件事，真是需要……呢”，带有感叹语气。",
+      "frequency": 2,
+      "examples": [
+        {
+          "jp": "A「サラリーマンから農家になるとは、ずいぶん勇気があるんだね。」B「自分の夢をどうしてもあきらめきれなくてね。」",
+          "zh": "A：“从工薪职员转当农民真是需要很大的勇气呢。”B：“自己的梦想怎么也没法放弃啊。”"
+        }
+      ],
+      "source": "2014-07"
+    },
+    {
+      "id": "ndattara",
+      "pattern": "〜んだったら",
+      "meaning": "如果……的话（就……）",
+      "connection": "普通形＋んだったら",
+      "formality": "口语",
+      "family": "conditional_ndattara",
+      "confusable": [],
+      "distinguish_zh": "「んだったら」是「のだったら」的口语缩约形，表示假定条件，“如果是……的话”，常用于根据对方的状况给出建议或判断。",
+      "frequency": 3,
+      "examples": [
+        {
+          "jp": "A「昨日、また仕事で失敗しちゃったんだよね。この仕事、私には向いていないんだろうね。やっぱり転職しようかな。」B「私は反対しないよ。本当に向いていないと思うんだったら、続けることもないと思うからね。」",
+          "zh": "A：“昨天工作上又失败了。这份工作，可能真的不适合我吧。要不还是换个工作好了。”B：“我不反对哦。如果真的觉得不适合的话，那么我认为也没有必要继续下去。”"
+        }
+      ],
+      "source": "2014-07"
     }
   ]
 }
