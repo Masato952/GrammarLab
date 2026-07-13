@@ -62,7 +62,8 @@
         "okoshi_itadaku",
         "oide_ni_naru_form",
         "okiki_shitemo_yoroshii",
-        "okoshi_ni_naru_keigo"
+        "okoshi_ni_naru_keigo",
+        "osagashi_shitara_kenjougo"
       ]
     },
     {
@@ -1306,6 +1307,90 @@
       "name": "虽然……但是……（ながら逆接系）",
       "members": [
         "nagara_concessive"
+      ]
+    },
+    {
+      "id": "hypothetical_mononara",
+      "name": "要是能……就……（ものなら系）",
+      "members": [
+        "mono_nara_hypothetical"
+      ]
+    },
+    {
+      "id": "concessive_tatoe_temo",
+      "name": "即使……也……（たとえ〜ても系）",
+      "members": [
+        "tatoe_temo"
+      ]
+    },
+    {
+      "id": "intense_emotion_naranai",
+      "name": "……得不得了（でならない系）",
+      "members": [
+        "de_naranai_emotion"
+      ]
+    },
+    {
+      "id": "risk_prediction_osore",
+      "name": "有……的危险（おそれがある系）",
+      "members": [
+        "osore_ga_aru"
+      ]
+    },
+    {
+      "id": "colloquial_wish_naraikana",
+      "name": "要是能……就好了呀（ないかな系）",
+      "members": [
+        "naraika_na_wish"
+      ]
+    },
+    {
+      "id": "flexible_choice_nidemo",
+      "name": "……也可以（にでも系）",
+      "members": [
+        "ni_demo_flexible"
+      ]
+    },
+    {
+      "id": "summary_example_toiuyouni",
+      "name": "像……这样（というように系）",
+      "members": [
+        "toiuyouni_example"
+      ]
+    },
+    {
+      "id": "unexpected_during_you_to_uchini",
+      "name": "正打算……的时候（うとしているうちに系）",
+      "members": [
+        "you_to_shiteiru_uchini"
+      ]
+    },
+    {
+      "id": "impossibility_hazuganai",
+      "name": "不可能……（はずがない系）",
+      "members": [
+        "hazu_ga_nai"
+      ]
+    },
+    {
+      "id": "since_then_kiri",
+      "name": "……之后就再没有……（たきり系）",
+      "members": [
+        "kiri_result"
+      ]
+    },
+    {
+      "id": "prolonged_negative_nakanaka",
+      "name": "怎么也不……（なかなか+否定系）",
+      "members": [
+        "nakanaka_negative"
+      ]
+    },
+    {
+      "id": "cleft_nowa_da",
+      "name": "所谓……就是……（のは〜だ强调句系）",
+      "members": [
+        "nowa_da_emphasis"
       ]
     }
   ],
@@ -5222,6 +5307,258 @@
         }
       ],
       "source": "2016-12"
+    },
+    {
+      "id": "mono_nara_hypothetical",
+      "pattern": "〜ものなら",
+      "meaning": "要是能……的话就……（表示假定一个难以实现的事情）",
+      "connection": "動詞可能形＋ものなら",
+      "formality": "口语、书面都可用",
+      "family": "hypothetical_mononara",
+      "confusable": [],
+      "distinguish_zh": "动词可能形+「ものなら」表示假定一件实现难度很高的事情，如果它能实现的话，后项就会怎样，“要是能……的话就……”，常与「〜たい」等愿望表达呼应。",
+      "frequency": 3,
+      "examples": [
+        {
+          "jp": "時間のある学生時代に、もっと本を読んだり、海外旅行に行ったりしておけばよかった。あのころに戻れるものなら戻りたい。",
+          "zh": "在时间很充裕的学生时代，如果能够多读点书或者多去海外旅游就好了。如果能回到那个时代的话好想回去。"
+        }
+      ],
+      "source": "2017-07"
+    },
+    {
+      "id": "tatoe_temo",
+      "pattern": "たとえ〜ても",
+      "meaning": "即使……也……（比单独的「ても」更强调假设让步的语气）",
+      "connection": "たとえ＋動詞て形／形容詞くて＋も",
+      "formality": "口语、书面都可用",
+      "family": "concessive_tatoe_temo",
+      "confusable": [
+        "concessive_toshitemo"
+      ],
+      "distinguish_zh": "副词「たとえ」与「〜ても」呼应使用，表示即使假设前项这种极端情况成立，后项的结论也不会改变，“即使……也……”，比单独使用「〜ても」语气更强调、更郑重。",
+      "frequency": 4,
+      "examples": [
+        {
+          "jp": "転校する友人からの手紙に、「たとえ遠く離れても、私たちの友情は変わらない」と書いてあった。",
+          "zh": "转校的朋友寄来的信里写道：“即便离得很远，我们的友情也不会发生变化”。"
+        }
+      ],
+      "source": "2017-07"
+    },
+    {
+      "id": "de_naranai_emotion",
+      "pattern": "〜でならない",
+      "meaning": "……得不得了，非常……（表示强烈的、自然涌现的情感）",
+      "connection": "形容詞・形容動詞連用形＋てならない／でならない",
+      "formality": "书面语，较正式",
+      "family": "intense_emotion_naranai",
+      "confusable": [
+        "deshouganai"
+      ],
+      "distinguish_zh": "「〜てならない／でならない」接在表示情感、感觉的形容词或形容动词后，表示这种情绪强烈到无法抑制的程度，“……得不得了”，与「〜てしょうがない」意义相近，但「でならない」更偏书面、郑重。",
+      "frequency": 3,
+      "examples": [
+        {
+          "jp": "祖母は、留学中の私のことが心配でならないらしい。",
+          "zh": "祖母好像非常担心正在留学的我。"
+        }
+      ],
+      "source": "2017-07"
+    },
+    {
+      "id": "osore_ga_aru",
+      "pattern": "〜おそれがある",
+      "meaning": "有……的危险，可能会……（书面语，多用于灾害、事故等负面预测）",
+      "connection": "動詞辞書形／名詞の＋おそれがある",
+      "formality": "书面语，非常正式，常用于新闻、公告",
+      "family": "risk_prediction_osore",
+      "confusable": [],
+      "distinguish_zh": "「〜おそれがある」表示有发生某种不良后果的可能性，“有……的危险”，多用于天气预报、灾害警报等新闻报道中，语气客观、正式，不用于日常口语的一般推测。",
+      "frequency": 4,
+      "examples": [
+        {
+          "jp": "発達する低気圧の影響で、明日の夕方から夜にかけて、激しい雨が降るおそれがある。",
+          "zh": "受低气压迅速扩展的影响，明天傍晚到晚上有可能有强降雨。"
+        }
+      ],
+      "source": "2017-07"
+    },
+    {
+      "id": "naraika_na_wish",
+      "pattern": "〜ないかな",
+      "meaning": "要是能……就好了呀（口语，「かな」接否定形表达期盼的心情）",
+      "connection": "動詞ない形＋かな",
+      "formality": "口语",
+      "family": "colloquial_wish_naraikana",
+      "confusable": [],
+      "distinguish_zh": "疑问终助词「かな」原本表示自问、不确定，但接在否定形后使用时，常常反过来表达说话人对某件事发生的期盼、愿望，“要是……就好了呀”，是口语中委婉表达愿望的方式。",
+      "frequency": 3,
+      "examples": [
+        {
+          "jp": "A「ねえねえ、夏休みのキャンプ、楽しみだね。」B「うん。早く夏休みにならないかな。」",
+          "zh": "A：“喂喂，暑假的野营，好期待啊。”B：“嗯。暑假要是快点来就好啦。”"
+        }
+      ],
+      "source": "2017-07"
+    },
+    {
+      "id": "ni_demo_flexible",
+      "pattern": "〜にでも",
+      "meaning": "……也可以，……什么的也行（表示不拘泥于具体选择，随意皆可）",
+      "connection": "名詞（時間）＋にでも",
+      "formality": "口语、书面都可用",
+      "family": "flexible_choice_nidemo",
+      "confusable": [],
+      "distinguish_zh": "「〜にでも」表示对具体的选择不作严格限定，几个选项中哪一个都可以，“……也可以，……什么的也行”，常用于提建议或安排时间、地点等场合，语气随和、不强求。",
+      "frequency": 3,
+      "examples": [
+        {
+          "jp": "課長「田中さん、さっき頼んだ書類の整理ですけど、今週は出張もあって忙しいでしょうし、特に急ぎじゃないので、来週にでもお願いします。」田中「はい、わかりました。」",
+          "zh": "课长：“田中，刚刚拜托你整理的资料，你这周要出差应该很忙，而且也不是特别急，所以下周随便找个时间做也可以。”田中：“好的，知道了。”"
+        }
+      ],
+      "source": "2017-07"
+    },
+    {
+      "id": "toiuyouni_example",
+      "pattern": "〜というように",
+      "meaning": "像……这样（用于举例、归纳前面列举的内容）",
+      "connection": "普通形＋というように",
+      "formality": "口语、书面都可用",
+      "family": "summary_example_toiuyouni",
+      "confusable": [
+        "toiuto_association"
+      ],
+      "distinguish_zh": "「〜というように」放在一系列具体例子之后，用来归纳、总结前面所列举的内容，“像……这样”，常见于并列举例句式的收尾部分。",
+      "frequency": 3,
+      "examples": [
+        {
+          "jp": "この辺りは、春はお花見、夏は川遊び、秋は紅葉、冬はスキーというように、一年中自然を楽しむことができます。",
+          "zh": "这一带春天赏花，夏天在河里戏水，秋天赏红叶，冬天滑雪，像这样一年四季都可以享受大自然的乐趣。"
+        }
+      ],
+      "source": "2017-07"
+    },
+    {
+      "id": "you_to_shiteiru_uchini",
+      "pattern": "〜（よ）うとしているうちに",
+      "meaning": "正打算……的时候（下一瞬间，发生了意外的后项）",
+      "connection": "動詞意向形＋うとしているうちに",
+      "formality": "口语、书面都可用",
+      "family": "unexpected_during_you_to_uchini",
+      "confusable": [
+        "you_to_shita_tokoro",
+        "uchi_ni_henka"
+      ],
+      "distinguish_zh": "「〜（よ）うとする」表示正打算做某动作，加上「〜ているうちに」（在……过程中，不知不觉发生了后项），组合表示“正打算……的时候，（意外地）发生了后面的事情”，强调动作尚未完成就被打断或引发了意外结果。",
+      "frequency": 3,
+      "examples": [
+        {
+          "jp": "きれいな鳥がいたので写真を撮りたかったが、かばんからカメラを取り出そうとしているうちに飛んでいってしまった。",
+          "zh": "有一只很漂亮的鸟，我刚想拿出相机拍张照片，它就飞走了。"
+        }
+      ],
+      "source": "2017-07"
+    },
+    {
+      "id": "hazu_ga_nai",
+      "pattern": "〜はずがない",
+      "meaning": "不可能……，不会……",
+      "connection": "普通形＋はずがない",
+      "formality": "口语、书面都可用",
+      "family": "impossibility_hazuganai",
+      "confusable": [
+        "hazu_da",
+        "kko_nai_impossible"
+      ],
+      "distinguish_zh": "「〜はずがない」是「〜はずだ」（应该……）的否定推测形式，表示说话人根据已知信息、有把握地断定某事绝不可能发生，“不可能……”，比「〜っこない」语气更书面、更强调逻辑上的不可能。",
+      "frequency": 4,
+      "examples": [
+        {
+          "jp": "情報化や国際化が進む現代において、学校の教育がこれまでと同じでいいはずがない。コンピュータなどの新しい教育内容が取り入れられるのも当然の流れだと思う。",
+          "zh": "在这个信息化国际化发达的现代社会，学校的教育绝对不可能跟以前一样就可以了。我觉得增加电脑等新的教育内容是必然的趋势。"
+        }
+      ],
+      "source": "2017-07"
+    },
+    {
+      "id": "osagashi_shitara_kenjougo",
+      "pattern": "〜お探ししたら",
+      "meaning": "如果我为您找的话（自谦语，谦逊地提出为对方做某事）",
+      "connection": "お＋動詞ます形＋したら",
+      "formality": "正式、服务业常用",
+      "family": "keigo",
+      "confusable": [],
+      "distinguish_zh": "「お＋動詞ます形＋する」是自谦语的固定句型，表示自己谦逊地为对方做某事，接续条件形「〜たら」，表示“如果我来为您做……的话”，常用于服务场合主动提出帮助。",
+      "frequency": 3,
+      "examples": [
+        {
+          "jp": "（おもちゃ屋で）店員「お客様、何かお探しでしたら、ご案内いたしますが。」客「あ、孫に頼まれたゲームソフトを探しているんです。」",
+          "zh": "（在玩具商店）店员：“顾客，您如果在找什么的话，我可以帮您介绍一下。”顾客：“啊，我在找孙子要我买的游戏软件。”"
+        }
+      ],
+      "source": "2017-07"
+    },
+    {
+      "id": "kiri_result",
+      "pattern": "〜たきり",
+      "meaning": "……之后就再没有……过（暗示之后再没有发生过前项的事情）",
+      "connection": "動詞た形＋きり",
+      "formality": "口语、书面都可用",
+      "family": "since_then_kiri",
+      "confusable": [
+        "since_then_never"
+      ],
+      "distinguish_zh": "动词た形+「きり」表示做了前项动作之后，就一直保持那个状态，再也没有发生变化或重复该动作，“……之后就再也没有……过”，常与「そのまま」呼应，暗含意外、遗憾的语气。",
+      "frequency": 4,
+      "examples": [
+        {
+          "jp": "先輩の家にはオルガンがある。5年前に海外に引っ越した友達からもらったもので、もらった時に一度弾いたきりだと言っていた。",
+          "zh": "前辈家里有一台风琴。那是5年前从搬去国外的朋友那儿得到的。说是拿来的时候，弹过一次就再没有弹过了。"
+        }
+      ],
+      "source": "2017-07"
+    },
+    {
+      "id": "nakanaka_negative",
+      "pattern": "なかなか＋動詞否定形",
+      "meaning": "怎么也不……，很难……（表示与预期相反，迟迟未能实现）",
+      "connection": "なかなか＋動詞ない形",
+      "formality": "口语、书面都可用",
+      "family": "prolonged_negative_nakanaka",
+      "confusable": [
+        "nakanaka_positive"
+      ],
+      "distinguish_zh": "副词「なかなか」接否定形式时，表示事情与预期相反、迟迟没有进展或未能实现，“怎么也不……，很难……”，与接肯定形式时表示“相当，很”的正面评价用法（如“なかなか上手だ”）意义完全不同。",
+      "frequency": 4,
+      "examples": [
+        {
+          "jp": "なかなか予約が取れなくて行けなかったレストランに、ようやく行けることになった。",
+          "zh": "之前一直因为预约不到而没去成的餐厅，这次终于可以去了。"
+        }
+      ],
+      "source": "2017-07"
+    },
+    {
+      "id": "nowa_da_emphasis",
+      "pattern": "〜のは〜だ",
+      "meaning": "所谓……就是……（用「の」将前项名词化后加以强调说明）",
+      "connection": "普通形＋のは＋名詞／普通形＋だ",
+      "formality": "口语、书面都可用",
+      "family": "cleft_nowa_da",
+      "confusable": [
+        "nowa_karada"
+      ],
+      "distinguish_zh": "「〜のは〜だ」用「の」将想要强调的部分名词化作为话题，再用「だ」进行说明，是日语中常见的强调句（分裂句）结构，“……的是……”，与专门表示原因的「〜のは〜からだ」不同，这里后项不限于原因，可以是任意说明内容。",
+      "frequency": 4,
+      "examples": [
+        {
+          "jp": "雑誌か何かで誰かが自分にとって人生で一番大切なのは人との出会いだとインタビューに答えていたのを見て、本当にそうだなと思った。",
+          "zh": "在杂志还是什么地方看到的，某个人在回答采访的时候说“对自己来说，人生中最重要的是与人的邂逅”。我想了想，还真是这样的。"
+        }
+      ],
+      "source": "2017-07"
     }
   ]
 }
