@@ -52,7 +52,8 @@
       "members": [
         "o_moushiageru",
         "mairu_kenjougo",
-        "o_mochi_desuka"
+        "o_mochi_desuka",
+        "okoshikudasai"
       ]
     },
     {
@@ -178,7 +179,8 @@
       "id": "exaggerated_expression",
       "name": "夸张程度表达（ぐらい系）",
       "members": [
-        "toittemoii_gurai"
+        "toittemoii_gurai",
+        "to_itte_ii_hodo"
       ]
     },
     {
@@ -192,7 +194,8 @@
       "id": "extreme_example",
       "name": "举极端例子类推",
       "members": [
-        "sura"
+        "sura",
+        "mo_kyokutan"
       ]
     },
     {
@@ -227,7 +230,8 @@
       "id": "regardless_of",
       "name": "不论・与...无关",
       "members": [
-        "ni_yorazu"
+        "ni_yorazu",
+        "wo_towazu"
       ]
     },
     {
@@ -290,7 +294,8 @@
       "id": "thanks_to",
       "name": "多亏了...（おかげ系）",
       "members": [
-        "okage_da"
+        "okage_da",
+        "natta_okagede"
       ]
     },
     {
@@ -326,6 +331,90 @@
       "name": "只有……才……（てはじめて系）",
       "members": [
         "ni_taisuru_shinrai"
+      ]
+    },
+    {
+      "id": "mottomo_correction",
+      "name": "部分纠正/补充说明（もっとも系）",
+      "members": [
+        "mottomo_gyakusetsu"
+      ]
+    },
+    {
+      "id": "state_change_wakaru",
+      "name": "状态变化确认（わかった系）",
+      "members": [
+        "wakatta_henka"
+      ]
+    },
+    {
+      "id": "indifference",
+      "name": "不在乎、不顾（かまわない系）",
+      "members": [
+        "kamawanai"
+      ]
+    },
+    {
+      "id": "experience_teiru",
+      "name": "回想经历（〜ている系）",
+      "members": [
+        "teiru_kaisou"
+      ]
+    },
+    {
+      "id": "direction_result",
+      "name": "方向+结果（へと系）",
+      "members": [
+        "e_to"
+      ]
+    },
+    {
+      "id": "obligation_noun",
+      "name": "必须做的事（なくてはいけないこと系）",
+      "members": [
+        "nakutewa_ikenai_koto"
+      ]
+    },
+    {
+      "id": "hypothetical_toshitara",
+      "name": "假定语气（としたら系）",
+      "members": [
+        "nakereba_naranai_toshitara"
+      ]
+    },
+    {
+      "id": "causative_passive",
+      "name": "使役被动（させられる系）",
+      "members": [
+        "saserareru_souninai"
+      ]
+    },
+    {
+      "id": "concessive_noni_surprise",
+      "name": "转折不满（独立小句のに系）",
+      "members": [
+        "noni_gyakusetsu"
+      ]
+    },
+    {
+      "id": "try_anyway",
+      "name": "姑且先做看看（だけ〜て系）",
+      "members": [
+        "dake_itte_miru"
+      ]
+    },
+    {
+      "id": "double_conditional_polite",
+      "name": "双重假定委婉请求（ば〜と系）",
+      "members": [
+        "ba_to_double_conditional"
+      ]
+    },
+    {
+      "id": "sufficient_quantity",
+      "name": "只要……就足够（も〜ば系）",
+      "members": [
+        "mo_ba_dake_areba"
       ]
     }
   ],
@@ -1290,6 +1379,306 @@
         }
       ],
       "source": "2011-07"
+    },
+    {
+      "id": "mo_kyokutan",
+      "pattern": "〜も（連用の強調）",
+      "meaning": "连……也，甚至……都（举出极端的例子来强调程度）",
+      "connection": "名詞＋も",
+      "formality": "口语、书面都可用",
+      "family": "extreme_example",
+      "confusable": [],
+      "distinguish_zh": "「も」举出一个极端的例子，由此类推其他情况，常用来强调“连……都……”的程度之深。",
+      "frequency": 3,
+      "examples": [
+        {
+          "jp": "小川「ねえ、山田君。昨晩のオリンピック中継見た?」山田「ううん、昨日は残業で疲れちゃって。だから、夕飯も食べないで寝ちゃったんだ。」",
+          "zh": "小川：“喂，山田君，昨晚的奥运会转播你看了吗？”山田：“没有，昨天加班累了，所以连晚饭也没吃就睡了。”"
+        }
+      ],
+      "source": "2012-07"
+    },
+    {
+      "id": "wo_towazu",
+      "pattern": "〜を問わず",
+      "meaning": "不管……，不分……",
+      "connection": "名詞＋を問わず",
+      "formality": "书面语，较正式",
+      "family": "regardless_of",
+      "confusable": [
+        "ni_yorazu"
+      ],
+      "distinguish_zh": "「を問わず」接在体言（名词）后，表示“与……无关，不管是……还是……”，常见搭配如“男女を問わず”“経験の有無を問わず”。",
+      "frequency": 3,
+      "examples": [
+        {
+          "jp": "（広告で）川西ピアノ教室では、初心者、経験者を問わず、どなたにでも丁寧に指導します。",
+          "zh": "（广告）川西钢琴教室，无论是初学者还是有基础者，都将为您细心指导。"
+        }
+      ],
+      "source": "2012-07"
+    },
+    {
+      "id": "mottomo_gyakusetsu",
+      "pattern": "〜もっとも",
+      "meaning": "话虽如此，不过，可是（对前文内容作部分补充或纠正）",
+      "connection": "独立使用，接续在前一句话之后",
+      "formality": "书面、口语皆可",
+      "family": "mottomo_correction",
+      "confusable": [],
+      "distinguish_zh": "用于对前面说过的内容进行部分的补充说明或纠正，语气上不是完全否定前文，而是“话是这么说没错，但是……”。",
+      "frequency": 3,
+      "examples": [
+        {
+          "jp": "今日、子どもをきつくしかりすぎたので、気をつけようと思う。もっとも、本人はそれほど気にしていないかもしれないが。",
+          "zh": "今天因骂孩子过火了点而想下次注意一点，可是，本人可能并不那么在意。"
+        }
+      ],
+      "source": "2012-07"
+    },
+    {
+      "id": "wakatta_henka",
+      "pattern": "〜わかった",
+      "meaning": "知道了，明白了（表示从不知道到知道的状态变化）",
+      "connection": "わかる的た形，独立使用",
+      "formality": "口语",
+      "family": "state_change_wakaru",
+      "confusable": [],
+      "distinguish_zh": "「わかった」强调“原本不知道，此刻突然明白/想到了”的变化过程，区别于「わかってた」（早就知道了，强调过去持续的状态）。",
+      "frequency": 2,
+      "examples": [
+        {
+          "jp": "娘「なぞなぞです。お父さんが嫌いな果物は何でしょう。」父「ううん、なんだろう。あ、そうか、わかった。パパイヤだ。パパが嫌いな果物ってことだよね。」娘「正解です。」",
+          "zh": "女儿：“猜一猜，爸爸不喜欢的水果是什么？”父亲：“嗯，是什么呢？哦，我知道了，是木瓜。是猜爸爸不喜欢的水果对吧？”女儿：“正确。”"
+        }
+      ],
+      "source": "2012-07"
+    },
+    {
+      "id": "kamawanai",
+      "pattern": "〜てもかまわない／どうなったってかまわない",
+      "meaning": "不在乎，不顾，没关系",
+      "connection": "動詞て形／〜たって＋かまわない",
+      "formality": "口语、书面都可用",
+      "family": "indifference",
+      "confusable": [
+        "wakeganai"
+      ],
+      "distinguish_zh": "「かまわない」表示“不在意、不介意”，常接在「〜ても／〜たって」后表示“即使……也不在乎”，区别于「わけがない」（不可能，语气是否定可能性而非表达“不在乎”的态度）。",
+      "frequency": 3,
+      "examples": [
+        {
+          "jp": "この小説を読んで、友のためなら、自分はどうなったってかまわないという主人公の熱い思いに感動した。",
+          "zh": "读了这篇小说后，被主人公为了朋友不顾自身安危的热烈之情打动了。"
+        }
+      ],
+      "source": "2012-07"
+    },
+    {
+      "id": "okoshikudasai",
+      "pattern": "〜お越しくださいました",
+      "meaning": "您光临了，您驾临了（尊敬对方的到来）",
+      "connection": "来る的尊他敬语「お越しになる」的て形＋くださる的过去式",
+      "formality": "正式、服务业常用",
+      "family": "keigo",
+      "confusable": [
+        "o_mochi_desuka"
+      ],
+      "distinguish_zh": "「お越しくださいました」用于尊敬地表达“对方（客人）来了”，区别于「お伺いしました」「お迎えしました」这类表示说话人自己动作的谦逊语。",
+      "frequency": 3,
+      "examples": [
+        {
+          "jp": "わたしたちが旅館に着くと、従業員たちが笑顔で「ようこそお越しくださいました。」とあいさつしてくれた。",
+          "zh": "我们刚回到旅馆，工作人员就笑脸相迎，打招呼道“欢迎光临”。"
+        }
+      ],
+      "source": "2012-07"
+    },
+    {
+      "id": "teiru_kaisou",
+      "pattern": "〜ている（経験の回想）",
+      "meaning": "（曾经）……过（用〜ている回想过去发生过的经历）",
+      "connection": "動詞て形＋いる",
+      "formality": "口语、书面都可用",
+      "family": "experience_teiru",
+      "confusable": [],
+      "distinguish_zh": "〜ている在此处不表示正在进行，而是表示“过去有过这样的经历”，常与「一度」「3年前に」等时间状语搭配。",
+      "frequency": 3,
+      "examples": [
+        {
+          "jp": "A「次の登山、大山に登るのはどう?」B「大山は3年前に一度登っているから、ほかの山がいいなあ。」",
+          "zh": "A：“下次爬山，去大山怎么样？”B：“大山我3年前去过一次了，还是去别的山比较好。”"
+        }
+      ],
+      "source": "2012-07"
+    },
+    {
+      "id": "e_to",
+      "pattern": "〜へと",
+      "meaning": "朝着……（方向），向……（发展扩大）",
+      "connection": "名詞＋へと",
+      "formality": "书面语，较正式",
+      "family": "direction_result",
+      "confusable": [],
+      "distinguish_zh": "「へ」表示动作方向，「と」表示动作的结果或变化的落点，两者组合强调“朝着某个方向发展、扩大”的过程感，常用于书面报道。",
+      "frequency": 3,
+      "examples": [
+        {
+          "jp": "日本の人気バンド「Z」は、ヨーロッパでコンサートを行うなど、活動を世界へと広げている。",
+          "zh": "日本人气乐队“Z”在欧洲举办演唱会等，将活动范围扩展到全世界。"
+        }
+      ],
+      "source": "2012-07"
+    },
+    {
+      "id": "natta_okagede",
+      "pattern": "〜になったおかげで",
+      "meaning": "多亏了当上/成为了……",
+      "connection": "名詞＋になった＋おかげで",
+      "formality": "口语、书面都可用",
+      "family": "thanks_to",
+      "confusable": [],
+      "distinguish_zh": "「になる」接在表示职位、身份的名词后表示“当、成为”，与「おかげで」（多亏……）组合，强调“正是因为当上了这个身份/职位，才有了后面的收获”。",
+      "frequency": 3,
+      "examples": [
+        {
+          "jp": "パソコン教室の講師になったおかげで、人に教えるのは難しいけど楽しいということがわかりました。",
+          "zh": "由于当了电脑培训班的老师，我明白了教别人虽然不容易但是很开心。"
+        }
+      ],
+      "source": "2012-07"
+    },
+    {
+      "id": "nakutewa_ikenai_koto",
+      "pattern": "〜やらなくてはいけないことが",
+      "meaning": "必须做的事情",
+      "connection": "動詞ない形＋くてはいけない＋こと＋が",
+      "formality": "口语、书面都可用",
+      "family": "obligation_noun",
+      "confusable": [],
+      "distinguish_zh": "「やらなくてはいけない」表示“必须做”，后接「こと」将其名词化作主语，“必须做的事情”，注意区分「〜と言われたこと（ことが / のは）」这种“被别人这样说”的转述用法——干扰项常把“必须做”偷换成“被禁止做”。",
+      "frequency": 3,
+      "examples": [
+        {
+          "jp": "だれだって、失敗もするし、やらなくてはいけないことがやれないときもある。",
+          "zh": "无论是谁，都会有失败的时候，也会有必须做却做不到的时候。"
+        }
+      ],
+      "source": "2012-07"
+    },
+    {
+      "id": "nakereba_naranai_toshitara",
+      "pattern": "〜なければならないとしたら",
+      "meaning": "要是必须……的话",
+      "connection": "動詞ない形＋ければならない＋としたら",
+      "formality": "书面语，较正式",
+      "family": "hypothetical_toshitara",
+      "confusable": [
+        "toshitemo_even_if"
+      ],
+      "distinguish_zh": "「としたら」表示假定，“如果……的话”，与「なければならない」（必须）组合，表示“假设必须这样做的话（会很难受/很辛苦）”。注意与「なくていいとしたら」（如果不用做的话）意思相反，是常见的干扰项。",
+      "frequency": 3,
+      "examples": [
+        {
+          "jp": "内容がわからない話を長時間聞かなければならないとしたら、大人だって耐えられないことでしょう。",
+          "zh": "听不懂内容的长篇大论，要是必须得听的话，就算是大人也受不了吧。"
+        }
+      ],
+      "source": "2012-07"
+    },
+    {
+      "id": "saserareru_souninai",
+      "pattern": "〜させられそうになる",
+      "meaning": "差点被迫……（使役被动+差点，表示被迫做某事险些发生）",
+      "connection": "動詞使役受身形＋そうになる",
+      "formality": "口语、书面都可用",
+      "family": "causative_passive",
+      "confusable": [],
+      "distinguish_zh": "使役受身形「〜させられる」表示“被迫做……”，加上「そうになる」（差点、险些）表示“险些被迫……”。要分清动作的发出者和被迫者：句中“主人公と恋人”是被父母强迫拆散的一方，所以要用使役受身，而不是单纯的被动（別れられる，恋人被分手）或使役（別れさせる，父母让他们分手，但主语应是父母而非主人公和恋人）。",
+      "frequency": 3,
+      "examples": [
+        {
+          "jp": "（本屋で）A「あ、この本、面白いよ。」B「どんな話?」A「主人公と恋人が、親に無理やり別れさせられそうになる話なんだけど、すごくどきどきするんだ。」",
+          "zh": "（书店）A：“啊，这本书，好有意思呀。”B：“讲什么内容的？”A：“主人公和恋人，因为父母的强行逼迫而差点分手，让人看得心里七上八下的。”"
+        }
+      ],
+      "source": "2012-07"
+    },
+    {
+      "id": "noni_gyakusetsu",
+      "pattern": "〜のに（句末、独立小句）",
+      "meaning": "明明……却……（表示不符预期的转折、不满语气）",
+      "connection": "普通形＋のに（句末停顿，含蓄表达不满/意外）",
+      "formality": "口语",
+      "family": "concessive_noni_surprise",
+      "confusable": [],
+      "distinguish_zh": "「のに」放在句末，表示“明明是……的呀，结果却……”，带有意外、不满、遗憾的语气，比一般的接续助词「が」「けど」情绪更强烈。",
+      "frequency": 3,
+      "examples": [
+        {
+          "jp": "（学校の正門で）A「みんないますか。」B「田中さんがいません。」A「授業のあとここで待ち合わせて一緒に行くことになっていたのに、一人で行っちゃったのかな。」",
+          "zh": "（在学校正门）A：“大家都到齐了吗？”B：“田中不在。”A：“本来说好了下课后在这里集合一起去的，怎么可能一个人去了呢。”"
+        }
+      ],
+      "source": "2012-07"
+    },
+    {
+      "id": "dake_itte_miru",
+      "pattern": "〜だけ〜てみようか",
+      "meaning": "姑且先……看看（不抱太大期望，但还是先尝试一下）",
+      "connection": "動詞辞書形＋だけ＋動詞て形＋みようか",
+      "formality": "口语",
+      "family": "try_anyway",
+      "confusable": [],
+      "distinguish_zh": "「V-るだけV-てみようか」表示“虽然不确定能不能成，但姑且先做了再说、试试看”，前后使用同一个动词，强调“做这个动作本身”而不保证结果。",
+      "frequency": 3,
+      "examples": [
+        {
+          "jp": "A「あ、今から行く博物館、一週間前に予約してないと入れないってガイドブックに書いてあるよ。」B「え、そうなの? 困ったなあ。」A「行くだけ行って、交渉して入れてもらえないかみようか。」",
+          "zh": "A：“啊，我们现在要去的博物馆，参考手册上写着若不提前一周预约就不能进。”B：“啊，这样啊，真麻烦。”A：“先去了再说，去了以后试着交涉一下，看能不能让我们进去吧。”"
+        }
+      ],
+      "source": "2012-07"
+    },
+    {
+      "id": "ba_to_double_conditional",
+      "pattern": "〜ば〜と（双重假定，委婉请求）",
+      "meaning": "如果……的话，能……就太（感谢）了",
+      "connection": "動詞・形容詞のば形＋…＋動詞可能形＋と＋ありがたい／助かる等",
+      "formality": "书面语，正式、客气",
+      "family": "double_conditional_polite",
+      "confusable": [
+        "sae_ba"
+      ],
+      "distinguish_zh": "前后使用两个假定条件（〜ば……〜と）层层递进，先假设“对方方便的话”，再假设“能帮忙变更的话”，是商务日语中常见的委婉客气请求句式。",
+      "frequency": 3,
+      "examples": [
+        {
+          "jp": "（電話で）A「すみません、来週の2時からの会議ですが、その時間、別の用件が入ってしまいまして……。もしそちらのご都合がよろしければ4時以降に変更していただけると、ありがたいんですが、いかがでしょうか。」B「こちらは大丈夫ですよ。」",
+          "zh": "（电话中）A：“不好意思，下周2点开始的会议，那个时间我有其他事情要处理……如果方便的话能改到4点吗，那就太感谢了，您看可以吗？”B：“我这边没问题。”"
+        }
+      ],
+      "source": "2012-07"
+    },
+    {
+      "id": "mo_ba_dake_areba",
+      "pattern": "〜も〜ば十分だ",
+      "meaning": "只要……就足够了（强调数量之少已经足够）",
+      "connection": "数量詞＋も＋いれば／あれば＋十分だ",
+      "formality": "口语、书面都可用",
+      "family": "sufficient_quantity",
+      "confusable": [
+        "sae_ba"
+      ],
+      "distinguish_zh": "「数量＋も〜ば」强调“只需要这么点数量就够了”，与「さえ〜ば」（只要……就……）语感相近，但「も〜ば」更突出“连这么少的数量都足够”的语气。",
+      "frequency": 3,
+      "examples": [
+        {
+          "jp": "このコンサートの警備には、警備員が20人もいれば十分です。",
+          "zh": "为这场音乐会护卫的警卫人员，只要20个人就够了。"
+        }
+      ],
+      "source": "2012-07"
     }
   ]
 }
