@@ -241,6 +241,17 @@ def exam_sets_by_year(questions):
     return {y: sorted([q for q in questions if q["year"] == y], key=lambda q: q["question_no"]) for y in years}
 
 
+def complete_sentence(q):
+    """把题干里的空格／★替换成正确答案，拼出完整的句子（给朗读功能用）。"""
+    sentence = q["sentence"]
+    if q.get("type") == "reorder" and q.get("full_order"):
+        tokens = ["＿＿＿", "＿＿＿", "★", "＿＿＿"]
+        for n, token in zip(q["full_order"], tokens):
+            sentence = sentence.replace(token, q["options"][n - 1], 1)
+        return sentence
+    return sentence.replace("（　　）", q["options"][q["answer_index"]])
+
+
 def _pattern_variants(pattern):
     """候补挖空文本：按／拆开多个读法，每个读法再生成"去括号整体""去括号符号保留内容"两种写法。"""
     raw = pattern.lstrip("〜").strip()

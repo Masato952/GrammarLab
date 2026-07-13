@@ -5,6 +5,7 @@ import streamlit as st
 from common import (
     accuracy,
     build_bb_card,
+    complete_sentence,
     distinguish_zh,
     entries_by_id,
     exam_sets_by_year,
@@ -120,6 +121,13 @@ with tab_quiz:
                 st.markdown(f"**译文**：{q['translation_zh']}")
                 if grammar_entry:
                     st.caption(f"涉及文法点：「{grammar_entry['pattern']}」— {grammar_entry['meaning']}")
+
+                audio_key = f"{key_prefix}_audio"
+                if st.button("🔊 播放完整句子", key=f"{key_prefix}_play"):
+                    st.session_state[audio_key] = synthesize_ja(complete_sentence(q))
+                if audio_key in st.session_state:
+                    st.audio(st.session_state[audio_key], format="audio/mp3")
+
                 next_clicked = st.button("下一题", key=f"{key_prefix}_next")
 
             return just_answered, next_clicked
@@ -430,6 +438,13 @@ with tab_bb_quiz:
                 st.markdown(f"**说明**：{entry['meaning_zh']}")
                 if entry.get("note"):
                     st.markdown(f"**注意**：{entry['note']}")
+
+                bbq_audio_key = f"bbq_audio_{pos}"
+                if st.button("🔊 播放完整句子", key=f"bbq_play_{pos}"):
+                    st.session_state[bbq_audio_key] = synthesize_ja(card["example"]["jp"])
+                if bbq_audio_key in st.session_state:
+                    st.audio(st.session_state[bbq_audio_key], format="audio/mp3")
+
                 if st.button("下一条", key=f"bbq_next_{pos}"):
                     st.session_state.bbq_pos += 1
                     st.session_state.bbq_card = None
