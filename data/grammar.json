@@ -74,7 +74,8 @@
       "name": "授受动词・恩惠表达",
       "members": [
         "sasete_kureru",
-        "kiite_morau_koto_de"
+        "kiite_morau_koto_de",
+        "tekureru_basic"
       ]
     },
     {
@@ -303,7 +304,8 @@
       "name": "多亏了...（おかげ系）",
       "members": [
         "okage_da",
-        "natta_okagede"
+        "natta_okagede",
+        "no_kyouryoku_de"
       ]
     },
     {
@@ -1020,6 +1022,104 @@
       "name": "……到没有人不……的程度（くらい系）",
       "members": [
         "shiranai_hito_wa_inai_kurai"
+      ]
+    },
+    {
+      "id": "interval_okini",
+      "name": "每隔……（おきに系）",
+      "members": [
+        "okini_interval"
+      ]
+    },
+    {
+      "id": "contrary_result_kaette",
+      "name": "反而，却（かえって系）",
+      "members": [
+        "kaette_contrary"
+      ]
+    },
+    {
+      "id": "incomplete_capacity_kirenai",
+      "name": "不能……完，……不尽（きれない系）",
+      "members": [
+        "kirenai_cant_finish"
+      ]
+    },
+    {
+      "id": "continuous_trend_ippouda",
+      "name": "一直……下去，越来越……（一方だ系）",
+      "members": [
+        "ippouda_trend"
+      ]
+    },
+    {
+      "id": "no_other_way_hoka",
+      "name": "除此之外没有别的办法（ほかない系）",
+      "members": [
+        "hoka_wa_nai"
+      ]
+    },
+    {
+      "id": "written_rule_koto",
+      "name": "应……（用于告示的こと系）",
+      "members": [
+        "koto_notice_rule"
+      ]
+    },
+    {
+      "id": "colloquial_quote_nakyatte",
+      "name": "（心里）想着必须……（なきゃって系）",
+      "members": [
+        "nakya_tte_quote"
+      ]
+    },
+    {
+      "id": "minor_degree_guraninara",
+      "name": "如果只是……这点程度的话（ぐらいなら系）",
+      "members": [
+        "gurai_nara_degree"
+      ]
+    },
+    {
+      "id": "quantity_negation_conjecture",
+      "name": "好像连……都没有（もないみたいだ系）",
+      "members": [
+        "mo_nai_mitai"
+      ]
+    },
+    {
+      "id": "wonder_desire_tehoshii",
+      "name": "到底希望……呢（てほしいのだろうか系）",
+      "members": [
+        "tehoshii_darou"
+      ]
+    },
+    {
+      "id": "minimal_effort_dakede_youni",
+      "name": "只要……就会变得……（だけで〜ようになる系）",
+      "members": [
+        "dake_de_youni_naru"
+      ]
+    },
+    {
+      "id": "addition_ueni",
+      "name": "而且，加之（うえに系）",
+      "members": [
+        "ueni_addition"
+      ]
+    },
+    {
+      "id": "in_progress_kakeru",
+      "name": "快要……了，……到一半（かけていた系）",
+      "members": [
+        "kaketeita_almost"
+      ]
+    },
+    {
+      "id": "association_toiuto",
+      "name": "说到……（というと系）",
+      "members": [
+        "toiuto_association"
       ]
     }
   ],
@@ -4058,6 +4158,310 @@
         }
       ],
       "source": "2015-07"
+    },
+    {
+      "id": "okini_interval",
+      "pattern": "〜おきに",
+      "meaning": "每隔……",
+      "connection": "数量詞＋おきに",
+      "formality": "口语、书面都可用",
+      "family": "interval_okini",
+      "confusable": [
+        "hodo_approx_time"
+      ],
+      "distinguish_zh": "数量词+「おきに」表示以固定的间隔重复进行某动作，“每隔……”，注意「2日おきに」是“每隔两天（即每三天一次）”，与「2日ごとに」（每两天一次）在计算上容易混淆，需结合语境判断。",
+      "frequency": 4,
+      "examples": [
+        {
+          "jp": "この花は、毎日水をやる必要はありません。大体2日おきにやってください。",
+          "zh": "这盆花，不需要每天浇水。请大约每隔两天浇一次。"
+        }
+      ],
+      "source": "2015-12"
+    },
+    {
+      "id": "kaette_contrary",
+      "pattern": "かえって",
+      "meaning": "反而，却（表示结果与预期相反）",
+      "connection": "副詞，修饰句子",
+      "formality": "口语、书面都可用",
+      "family": "contrary_result_kaette",
+      "confusable": [],
+      "distinguish_zh": "副词「かえって」用于表示实际结果与常理、预期完全相反，“反而，却……”，常用于说明本意是想达成好的效果，结果却适得其反的情况。",
+      "frequency": 4,
+      "examples": [
+        {
+          "jp": "ジョギングは健康にいいが、正しく行わないと、かえってひざや腰を痛めてしまう場合もある。",
+          "zh": "虽然慢跑有益于健康，但是如果方法不对，反而会造成膝盖和腰的损伤。"
+        }
+      ],
+      "source": "2015-12"
+    },
+    {
+      "id": "kirenai_cant_finish",
+      "pattern": "〜きれない",
+      "meaning": "不能……完，……不尽（表示能力、限度上无法完成全部）",
+      "connection": "動詞連用形＋きれない",
+      "formality": "口语、书面都可用",
+      "family": "incomplete_capacity_kirenai",
+      "confusable": [],
+      "distinguish_zh": "动词连用形+可能态否定「きれる」的否定形「きれない」，表示由于数量、时间等限制，无法将某动作彻底完成，“……不完，……不尽”。",
+      "frequency": 4,
+      "examples": [
+        {
+          "jp": "ABC美術館はとても広くて、たった3時間では全部の作品を見きれなかった。",
+          "zh": "ABC美术馆非常大，仅用三个小时没能看完全部的作品。"
+        }
+      ],
+      "source": "2015-12"
+    },
+    {
+      "id": "ippouda_trend",
+      "pattern": "〜一方だ",
+      "meaning": "一直……下去，越来越……（表示某种状态、倾向不断发展）",
+      "connection": "動詞辞書形＋一方だ",
+      "formality": "书面语，较正式",
+      "family": "continuous_trend_ippouda",
+      "confusable": [
+        "bakari"
+      ],
+      "distinguish_zh": "动词辞书形+「一方だ」表示某种状态或倾向朝着一个方向不断发展、没有停止的迹象，“越来越……，一直……下去”，多用于描述负面或令人担忧的变化趋势。",
+      "frequency": 4,
+      "examples": [
+        {
+          "jp": "夫は何でも捨てないで取っておくので、家の中は物が増える一方だ。",
+          "zh": "老公什么都留着不扔，导致家里的东西越来越多。"
+        }
+      ],
+      "source": "2015-12"
+    },
+    {
+      "id": "hoka_wa_nai",
+      "pattern": "〜ほか（は）ない",
+      "meaning": "除此之外没有别的办法，只能……",
+      "connection": "動詞辞書形＋ほか（は）ない",
+      "formality": "书面语，较正式",
+      "family": "no_other_way_hoka",
+      "confusable": [
+        "suru_shikanai"
+      ],
+      "distinguish_zh": "动词辞书形+「ほかない／ほかはない」表示除了这个办法之外没有其他选择，“只能……”，与「〜しかない」意义、用法非常相近，可基本互换，「ほかない」略偏书面。",
+      "frequency": 3,
+      "examples": [
+        {
+          "jp": "パソコンの画面が映らなくなってしまった。いろいろ試してみたがうまくいかず、もう自分ではどうしようもないので、修理に出すほかない。",
+          "zh": "电脑的屏幕不显示了。做了各种尝试都没有成功，自己已经没有办法，所以只能交给别人修理了。"
+        }
+      ],
+      "source": "2015-12"
+    },
+    {
+      "id": "koto_notice_rule",
+      "pattern": "〜こと。",
+      "meaning": "应……（用于书面告示、规则中表示命令、注意事项）",
+      "connection": "動詞辞書形（または否定形）＋こと。",
+      "formality": "书面语，正式、公告用语",
+      "family": "written_rule_koto",
+      "confusable": [],
+      "distinguish_zh": "动词辞书形（或否定形）+「こと」以句号结尾，是书面告示、规章制度中常见的命令、注意事项表达方式，“应……”，语气比口语命令形更客观、正式。",
+      "frequency": 3,
+      "examples": [
+        {
+          "jp": "テニスコートの入り口の看板に「コート内では必ずテニスシューズを履くこと。」と書いてあるのに、守らない人がいるので困る。",
+          "zh": "网球场入口处的看板上写着“进入场地时一定要穿网球鞋”，但是仍然有不遵守规定的人，很头疼。"
+        }
+      ],
+      "source": "2015-12"
+    },
+    {
+      "id": "nakya_tte_quote",
+      "pattern": "〜なきゃって",
+      "meaning": "（心里）想着必须……（口语，「なくては」的缩约形+って引用自己的想法）",
+      "connection": "動詞ない形（〜なきゃ）＋って＋思う",
+      "formality": "口语",
+      "family": "colloquial_quote_nakyatte",
+      "confusable": [],
+      "distinguish_zh": "「なきゃ」是「なくては（いけない）」的口语缩约形，后接引用助词「って」，用于引用说话人自己心里所想的内容，“想着必须……”，常见于日常口语对话。",
+      "frequency": 3,
+      "examples": [
+        {
+          "jp": "A「最近、いつも眠そうだね。毎晩、寝るの遅いの?」B「うん。早く寝なきゃって思ってるんだけど。」",
+          "zh": "A：“最近，你一直很困的样子，每天晚上都睡得很晚么？”B：“嗯，想着‘必须要早点睡’，但是……”"
+        }
+      ],
+      "source": "2015-12"
+    },
+    {
+      "id": "gurai_nara_degree",
+      "pattern": "〜ぐらいなら",
+      "meaning": "如果只是……这点程度的话（表示对轻微程度状况的判断）",
+      "connection": "形容詞普通形＋ぐらいなら",
+      "formality": "口语",
+      "family": "minor_degree_guraninara",
+      "confusable": [],
+      "distinguish_zh": "「ぐらい」表示程度较轻，「なら」表示假定条件，组合表示“如果只是……这种轻微程度的话（就可以……）”，常用于说明对轻微状况可以忍受或不采取行动的态度。",
+      "frequency": 3,
+      "examples": [
+        {
+          "jp": "私は歯医者が苦手だ。歯の痛みがひどい時には行くが、少し痛いぐらいなら我慢してしまう。",
+          "zh": "我不喜欢牙医。牙痛到不行的时候会去看牙医，但如果只是稍微有点痛就会忍着。"
+        }
+      ],
+      "source": "2015-12"
+    },
+    {
+      "id": "mo_nai_mitai",
+      "pattern": "〜も〜ないみたいだ",
+      "meaning": "好像连……都没有（表示对数量稀少的推测）",
+      "connection": "数量詞＋も＋動詞ない形＋みたいだ",
+      "formality": "口语",
+      "family": "quantity_negation_conjecture",
+      "confusable": [],
+      "distinguish_zh": "数量词+「も」表示强调数量之少，加上否定形「ない」和表推测的「みたいだ」，组合表示“好像连……都没有”，常用于对天气预报等间接信息来源的委婉推测转述。",
+      "frequency": 3,
+      "examples": [
+        {
+          "jp": "A「最近、天気悪いよね。明日は晴れるかなあ。」B「いや、予報だと、今週は晴れる日が1日もないみたいだよ。」A「じゃあ、明日も天気悪いのかあ。」",
+          "zh": "A：“最近，天气不好呢。明天会放晴吗。”B：“不，据天气预报说，这周好像连一天晴天都没有。”A：“那明天天气也不好啊。”"
+        }
+      ],
+      "source": "2015-12"
+    },
+    {
+      "id": "tehoshii_darou",
+      "pattern": "〜てほしいのだろうか",
+      "meaning": "到底希望……呢（推测对方内心真正的期望）",
+      "connection": "動詞て形＋ほしいのだろうか",
+      "formality": "口语、书面都可用",
+      "family": "wonder_desire_tehoshii",
+      "confusable": [
+        "tagatteiru_shieki"
+      ],
+      "distinguish_zh": "「〜てほしい」表示希望对方做某事，加上表推测疑问的「〜のだろうか」，组合表示说话人在猜测对方内心到底希望自己做什么，“到底希望……呢”，与描述第三人称外露欲望的「〜たがっている」（想要做某事的样子）用法不同，此处「ほしい」针对的是对方希望说话人做的事。",
+      "frequency": 3,
+      "examples": [
+        {
+          "jp": "彼からよく相談を受けるが、何に困っているのかわからないことが多い。私にどういうアドバイスをしてほしいのだろうか。",
+          "zh": "他经常来找我商量，但是多数情况下我都不知道他因为什么而困扰。他究竟想让我给到什么建议呢？"
+        }
+      ],
+      "source": "2015-12"
+    },
+    {
+      "id": "tekureru_basic",
+      "pattern": "〜てくれる",
+      "meaning": "（别人）为我做……（表示感激对方的善意行为）",
+      "connection": "動詞て形＋くれる",
+      "formality": "口语、书面都可用",
+      "family": "juju",
+      "confusable": [
+        "sasete_kureru"
+      ],
+      "distinguish_zh": "「〜てくれる」是最基本的授受表达，表示他人主动为说话人（或说话人一方）做某事，带有感激的语气，与使役形式「〜させてくれる」（对方允许/促成我做某事）不同，「てくれる」的主语是对方，动作也是对方发出的。",
+      "frequency": 4,
+      "examples": [
+        {
+          "jp": "私が風邪で学校を休んだ日、心配して電話をかけてきてくれた友達がたくさんいて、嬉しかった。",
+          "zh": "我因感冒休息的那天，好多朋友因为担心而打来电话，我很开心。"
+        }
+      ],
+      "source": "2015-12"
+    },
+    {
+      "id": "dake_de_youni_naru",
+      "pattern": "〜だけで〜ようになる",
+      "meaning": "只要……就会变得……（表示付出很小努力就能带来某种变化结果）",
+      "connection": "動詞ない形／辞書形＋だけで＋〜ようになる",
+      "formality": "书面语，较正式",
+      "family": "minimal_effort_dakede_youni",
+      "confusable": [],
+      "distinguish_zh": "「〜だけで」表示仅凭前项这一个简单的条件（无需更多），「〜ようになる」表示状态发生变化，组合起来强调“只要做到……这么简单的一点，就能带来……的变化”，常用于生活小窍门、建议类文章。",
+      "frequency": 3,
+      "examples": [
+        {
+          "jp": "狭い部屋でもテーブルの上に物を置かないようにするだけで広く感じられるようになると本に書いてあった。",
+          "zh": "书上写着：即使在狭小的屋子里，也可以通过不在桌子上放东西，而使得在感觉上空间大很多。"
+        }
+      ],
+      "source": "2015-12"
+    },
+    {
+      "id": "ueni_addition",
+      "pattern": "〜うえに",
+      "meaning": "而且，加之（表示在某种状况之上又追加了同类性质的另一情况）",
+      "connection": "普通形＋うえに",
+      "formality": "书面语，较正式",
+      "family": "addition_ueni",
+      "confusable": [
+        "shikamo"
+      ],
+      "distinguish_zh": "「〜うえに」表示在前项已经存在的状况之上，又追加了程度相当或更甚的同类性质的情况，“而且，加之……”，前后项通常性质相近（多为同为正面或同为负面），起递进强调的作用。",
+      "frequency": 4,
+      "examples": [
+        {
+          "jp": "レストランでアルバイトを始めてから今日で1年たつのに、客の注文を間違えたうえに皿を割るというミスまでしてしまった。",
+          "zh": "从进餐厅打工到现在快一年了，但是除了弄错顾客的订单以外，竟然还犯了打碎盘子这种错误。"
+        }
+      ],
+      "source": "2015-12"
+    },
+    {
+      "id": "kaketeita_almost",
+      "pattern": "〜かけていた",
+      "meaning": "快要……了，……到一半（表示动作/变化尚未完成，正处于过程中）",
+      "connection": "動詞連用形＋かけていた",
+      "formality": "口语、书面都可用",
+      "family": "in_progress_kakeru",
+      "confusable": [],
+      "distinguish_zh": "动词连用形+「かける」表示某动作或变化进行到一半、尚未完成，接续「ていた」表示这一未完成的状态曾持续存在，“快要……了，……到一半”，常用于描述被中断或尚未彻底完成的过程。",
+      "frequency": 3,
+      "examples": [
+        {
+          "jp": "大雨の中を傘を差さずに帰ったせいか、治りかけていた風邪がまたひどくなって、今朝からずっと鼻水が止まらない。",
+          "zh": "也许是因为在大雨中没打伞就回家的原因吧，原本已经快治好的感冒又严重了，从今天早上开始一直流鼻水。"
+        }
+      ],
+      "source": "2015-12"
+    },
+    {
+      "id": "toiuto_association",
+      "pattern": "〜というと",
+      "meaning": "说到……（就会联想到……）",
+      "connection": "名詞＋というと",
+      "formality": "口语、书面都可用",
+      "family": "association_toiuto",
+      "confusable": [
+        "toieba"
+      ],
+      "distinguish_zh": "「〜というと」提起某个话题，引出说话人或一般人对该话题的联想、印象，“说到……（就会想到……）”，与「〜といえば」用法、意义非常接近，可基本互换。",
+      "frequency": 4,
+      "examples": [
+        {
+          "jp": "たんぱく質が多く含まれる食べ物というと肉や魚や卵といったものが思い浮かぶと思いますが、大豆にもたくさん含まれています。",
+          "zh": "说到富含蛋白质的食物，可能会想到肉、鱼、鸡蛋等，但是大豆里面也含有很多。"
+        }
+      ],
+      "source": "2015-12"
+    },
+    {
+      "id": "no_kyouryoku_de",
+      "pattern": "〜の協力で",
+      "meaning": "多亏了……的协助/帮助",
+      "connection": "名詞＋の協力で",
+      "formality": "书面语、口语皆可",
+      "family": "thanks_to",
+      "confusable": [
+        "natta_okagede"
+      ],
+      "distinguish_zh": "「〜の協力で」表示某件事情的达成是依靠了某方的协助、配合，“多亏了……的帮助”，与「〜のおかげで」语义相近但更强调“协作、配合”而非单纯的“恩惠”。",
+      "frequency": 3,
+      "examples": [
+        {
+          "jp": "イベントの準備には最低でも二日はかかるだろうと思われたが、多くのボランティアの方の協力で1日で終わったので、スケジュールに余裕ができた。",
+          "zh": "本来以为活动的准备工作最低也要花费2天的时间。但是由于很多志愿者的帮助，一天就做完了，所以日程里面就有了充裕的时间。"
+        }
+      ],
+      "source": "2015-12"
     }
   ]
 }
