@@ -65,7 +65,8 @@
         "okoshi_ni_naru_keigo",
         "osagashi_shitara_kenjougo",
         "gozaimasu_keigo",
-        "shite_kudasaimashita_keigo"
+        "shite_kudasaimashita_keigo",
+        "moushiagemasu_kenjougo"
       ]
     },
     {
@@ -465,7 +466,8 @@
       "id": "third_person_desire",
       "name": "第三人称的愿望（たがっている系）",
       "members": [
-        "tagatteiru_shieki"
+        "tagatteiru_shieki",
+        "tagaranakatta"
       ]
     },
     {
@@ -1463,6 +1465,83 @@
       "name": "并非会……（わけでもない系）",
       "members": [
         "wake_demo_nai"
+      ]
+    },
+    {
+      "id": "unexpected_standard_nishitewa",
+      "name": "以……来说（却……）（にしては系）",
+      "members": [
+        "nishitewa_standard"
+      ]
+    },
+    {
+      "id": "imminent_mamonaku",
+      "name": "不久，马上（まもなく系）",
+      "members": [
+        "mamonaku_soon"
+      ]
+    },
+    {
+      "id": "target_audience_muke",
+      "name": "面向……的（向けの系）",
+      "members": [
+        "muke_no_target"
+      ]
+    },
+    {
+      "id": "discovery_tokoro",
+      "name": "……结果发现（たところ系）",
+      "members": [
+        "tokoro_result"
+      ]
+    },
+    {
+      "id": "insufficient_reason_toiudakede",
+      "name": "仅仅因为……就……（というだけで系）",
+      "members": [
+        "toiu_dakede_reason"
+      ]
+    },
+    {
+      "id": "caution_naiyouni",
+      "name": "为了不……，注意不要……（ないように系）",
+      "members": [
+        "naiyouni_caution"
+      ]
+    },
+    {
+      "id": "hearsay_causative_passive",
+      "name": "据说被要求/被迫……（させられたそうだ系）",
+      "members": [
+        "saserareta_sou_da"
+      ]
+    },
+    {
+      "id": "suggestion_temiwadouka",
+      "name": "要不要试着……呢（てみてはどうか系）",
+      "members": [
+        "temiwa_douka"
+      ]
+    },
+    {
+      "id": "concessive_temo_eventhough",
+      "name": "即便……也（て形+でも系）",
+      "members": [
+        "temo_even_if"
+      ]
+    },
+    {
+      "id": "hearsay_degree_hodorashii",
+      "name": "据说到了……的程度（ほど〜らしい系）",
+      "members": [
+        "hodo_rashii"
+      ]
+    },
+    {
+      "id": "intent_kimeteita",
+      "name": "早就决定要……（うと決めていた系）",
+      "members": [
+        "youto_kimeteita"
       ]
     }
   ],
@@ -5864,6 +5943,258 @@
         }
       ],
       "source": "2017-12"
+    },
+    {
+      "id": "nishitewa_standard",
+      "pattern": "〜にしては",
+      "meaning": "以……来说（却是……），按……说来（不太符合一般标准）",
+      "connection": "名詞／普通形＋にしては",
+      "formality": "口语、书面都可用",
+      "family": "unexpected_standard_nishitewa",
+      "confusable": [
+        "nakanaka_positive"
+      ],
+      "distinguish_zh": "「〜にしては」前接体言、用言连体形，以一般常识、标准为前提，叙述实际情况与该标准不太相符（通常是超出或低于预期），“以……来说（却是……）”。",
+      "frequency": 4,
+      "examples": [
+        {
+          "jp": "昨日泊まったホテルの部屋は、シングルルームにしては広かった。",
+          "zh": "昨天住的酒店房间，按单人间来说面积挺大的。"
+        }
+      ],
+      "source": "2018-07"
+    },
+    {
+      "id": "mamonaku_soon",
+      "pattern": "まもなく",
+      "meaning": "不久，马上，一会儿",
+      "connection": "副詞，修饰句子",
+      "formality": "口语、书面都可用",
+      "family": "imminent_mamonaku",
+      "confusable": [
+        "imminent_now"
+      ],
+      "distinguish_zh": "副词「まもなく」表示某事即将在很短时间内发生，“不久，马上”，语气比「いまにも」更客观、正式，常用于广播、通知等场合。",
+      "frequency": 4,
+      "examples": [
+        {
+          "jp": "（店の前で）客「すみません、開店はまだですか。」店員「まもなく開店いたしますので、もう少々お待ちください。」",
+          "zh": "（店门口）客人：“不好意思，现在还没有开店吗？”店员：“马上就要开店了，请稍等。”"
+        }
+      ],
+      "source": "2018-07"
+    },
+    {
+      "id": "muke_no_target",
+      "pattern": "〜向けの",
+      "meaning": "面向……的，针对……的（表示产品、服务的目标对象）",
+      "connection": "名詞＋向けの＋名詞",
+      "formality": "书面语，较正式",
+      "family": "target_audience_muke",
+      "confusable": [],
+      "distinguish_zh": "「〜向け」表示某事物是为了适应特定对象、群体而制作、设计的，“面向……的”，常见于介绍产品、服务、课程等适用人群的场合。",
+      "frequency": 4,
+      "examples": [
+        {
+          "jp": "北山には、初心者でも楽しめるハイキングコースや上級者向けのコースなど、いくつかの登山コースがあります。",
+          "zh": "北山有多条登山路线，有连初学者也能享受其中的郊游路线，也有专门面向登山达人的路线等等。"
+        }
+      ],
+      "source": "2018-07"
+    },
+    {
+      "id": "tokoro_result",
+      "pattern": "〜たところ",
+      "meaning": "……结果发现，……之后（意外得知了某种结果）",
+      "connection": "動詞た形＋ところ",
+      "formality": "书面语，较正式",
+      "family": "discovery_tokoro",
+      "confusable": [
+        "you_to_shiteiru_uchini"
+      ],
+      "distinguish_zh": "动词た形+「ところ」表示做完前项动作之后，紧接着发生或发现了后项内容，“……之后，结果……”，常用于叙述客观事实的先后顺序，不含说话人主观意志。",
+      "frequency": 4,
+      "examples": [
+        {
+          "jp": "昨日、高熱が出たので病院に行ったところ、インフルエンザと診断された。",
+          "zh": "昨天发高烧去了医院，检查出来得了流感。"
+        }
+      ],
+      "source": "2018-07"
+    },
+    {
+      "id": "toiu_dakede_reason",
+      "pattern": "〜というだけで",
+      "meaning": "仅仅是因为……（这一点理由，就……，暗示理由不充分却引发了很大结果）",
+      "connection": "普通形＋というだけで",
+      "formality": "口语、书面都可用",
+      "family": "insufficient_reason_toiudakede",
+      "confusable": [],
+      "distinguish_zh": "「〜というだけで」表示仅仅凭借前项这一单薄的理由，就导致了后项（通常出乎意料地显著的）结果，“仅仅是因为……”，含有对这种因果关系不太合理、有些意外的语感。",
+      "frequency": 4,
+      "examples": [
+        {
+          "jp": "そのバッグは、どこにでもあるような物なのに、人気歌手が愛用しているというだけで、1万個も売れたそうだ。",
+          "zh": "那个包很普通，哪里都有。但是据说就因为当红歌手喜欢用，而卖掉了1万个。"
+        }
+      ],
+      "source": "2018-07"
+    },
+    {
+      "id": "naiyouni_caution",
+      "pattern": "〜ないように",
+      "meaning": "为了不……，注意不要……（表示以免发生某状况而采取的注意/努力）",
+      "connection": "動詞ない形＋ように",
+      "formality": "口语、书面都可用",
+      "family": "caution_naiyouni",
+      "confusable": [
+        "temo_ii_youni"
+      ],
+      "distinguish_zh": "动词ない形+「ように」表示为了避免某种不良状况的发生而多加注意、努力，“为了不……，注意不要……”，常用于提醒、忠告等语境。",
+      "frequency": 4,
+      "examples": [
+        {
+          "jp": "ホテルのフロント係として働き始めたころは、「どんなに忙しくてもお客様には疲れた顔を見せないように。」と先輩によく注意された。",
+          "zh": "我刚刚开始做酒店前台的时候，前辈经常跟我说“即使再忙也不能在客人面前面露出疲惫之色”。"
+        }
+      ],
+      "source": "2018-07"
+    },
+    {
+      "id": "saserareta_sou_da",
+      "pattern": "〜させられたそうだ",
+      "meaning": "据说被要求/被迫……（使役被动形+样态助动词そうだ，转述他人被迫做某事的经历）",
+      "connection": "動詞使役被動形＋たそうだ",
+      "formality": "口语、书面都可用",
+      "family": "hearsay_causative_passive",
+      "confusable": [],
+      "distinguish_zh": "使役被动形表示“被迫做……”，加上表示转述的「そうだ」，组合表示“据说（某人）被迫/被要求……过”，用于转述他人被迫经历某事的经验。",
+      "frequency": 3,
+      "examples": [
+        {
+          "jp": "X社に入社すると、新入社員は、まず電話の応対の練習を2週間させられるそうだ。",
+          "zh": "据说新到X公司的员工，进入公司后首先需要接受2周的电话应答训练。"
+        }
+      ],
+      "source": "2018-07"
+    },
+    {
+      "id": "temiwa_douka",
+      "pattern": "〜てみてはどうか",
+      "meaning": "要不要试着……呢（婉转提议）",
+      "connection": "動詞て形＋みてはどうか",
+      "formality": "口语、书面都可用",
+      "family": "suggestion_temiwadouka",
+      "confusable": [],
+      "distinguish_zh": "「〜てみる」表示尝试做某事，加上表示提议的「〜てはどうか」（……怎么样），组合表示婉转地建议对方尝试做某事，“要不要试着……呢”。",
+      "frequency": 4,
+      "examples": [
+        {
+          "jp": "田中「次回の勉強会のテーマは何にしましょうか。」山下「私は消費者心理に興味があります。」石川「それも面白そうですが、私はアンケートの分析方法を取り上げてみてはどうかと思います。」",
+          "zh": "田中：“下次学习会的主题定什么比较好呢？”山下：“我对消费者的心理比较感兴趣。”石川：“那个话题也很有意思，但是我想是不是可以尝试一下问卷调查的分析方法呢？”"
+        }
+      ],
+      "source": "2018-07"
+    },
+    {
+      "id": "tagaranakatta",
+      "pattern": "〜たがらなかった",
+      "meaning": "（第三人称）过去不想……（表现出不愿意做的样子）",
+      "connection": "動詞ます形＋たがらなかった",
+      "formality": "口语、书面都可用",
+      "family": "third_person_desire",
+      "confusable": [
+        "tagatteiru_shieki"
+      ],
+      "distinguish_zh": "「〜たがる」表示第三人称表现出想做某事的样子，其否定过去式「たがらなかった」表示第三人称过去表现出不愿意做某事的样子，常用于描述反常行为引发的疑惑。",
+      "frequency": 3,
+      "examples": [
+        {
+          "jp": "散歩が大好きなうちの犬が、今日は散歩に行きたがらなかった。具合でも悪いのだろうか。",
+          "zh": "我们家狗特别喜欢散步，但是今天却貌似不想去了，是不是身体不舒服啊。"
+        }
+      ],
+      "source": "2018-07"
+    },
+    {
+      "id": "moushiagemasu_kenjougo",
+      "pattern": "〜申し上げます",
+      "meaning": "谨……（“言う”的自谦语，用于郑重场合表达自己的言行）",
+      "connection": "「言う」的自谦语活用",
+      "formality": "正式、演讲致辞常用",
+      "family": "keigo",
+      "confusable": [
+        "oide_ni_naru_form"
+      ],
+      "distinguish_zh": "「申し上げる」是「言う」最郑重的自谦语，常用于致辞、演讲等正式场合谦逊地表达自己将要说的话，比一般的「申す」更郑重。",
+      "frequency": 4,
+      "examples": [
+        {
+          "jp": "（スピーチで）「本日は弊社創立50周年記念パーティーにお越しくださりありがとうございます。社長の小林でございます。社を代表して、私から一言ごあいさつ申し上げます。」",
+          "zh": "（致辞）“欢迎各位今天莅临我公司创立50周年纪念晚会，我是社长小林。请允许我代表公司向大家致辞。”"
+        }
+      ],
+      "source": "2018-07"
+    },
+    {
+      "id": "temo_even_if",
+      "pattern": "〜てでも",
+      "meaning": "即便……也（要做到，表示不惜采取极端手段）",
+      "connection": "動詞て形＋でも",
+      "formality": "口语、书面都可用",
+      "family": "concessive_temo_eventhough",
+      "confusable": [
+        "toshitemo_even_if"
+      ],
+      "distinguish_zh": "动词て形+「でも」表示即便要采取前项这种（程度较高、不轻松的）手段，也要实现后项，“即便……也（要）……”，强调说话人达成目标的决心。",
+      "frequency": 4,
+      "examples": [
+        {
+          "jp": "明日の夕方が締め切りのレポートがまだ終わっていない。明日は一日中授業があって時間がとれないので、今晩徹夜してでも終わらせてしまわないといけない。",
+          "zh": "截止期为明天傍晚的报告还没有完成。明天一天都有课，没有时间，所以今天就算通宵也必须完成报告。"
+        }
+      ],
+      "source": "2018-07"
+    },
+    {
+      "id": "hodo_rashii",
+      "pattern": "〜ほど〜らしい",
+      "meaning": "据说到了……的程度（ほど表程度，らしい表根据传闻的判断）",
+      "connection": "動詞辞書形＋ほど＋名詞＋らしい",
+      "formality": "口语、书面都可用",
+      "family": "hearsay_degree_hodorashii",
+      "confusable": [
+        "katta_rashii"
+      ],
+      "distinguish_zh": "「〜ほど」表示达到某种极高的程度，「〜らしい」表示根据传闻做出的委婉判断，两者组合表示“据说到了……这种程度”，用于转述他人极端的喜好或状态。",
+      "frequency": 3,
+      "examples": [
+        {
+          "jp": "田中さんは一度食べ出すと止まらないほどみかんが好きらしく、冬はいつもみかんを大量に買うそうだ。",
+          "zh": "听说田中喜欢橘子到了一开吃就停不下来的地步，冬天的时候总是会买很多橘子。"
+        }
+      ],
+      "source": "2018-07"
+    },
+    {
+      "id": "youto_kimeteita",
+      "pattern": "〜（よ）うと決めていた",
+      "meaning": "早就决定要……（用意志形表达一直以来的主观决心）",
+      "connection": "動詞意向形＋と決めていた",
+      "formality": "口语、书面都可用",
+      "family": "intent_kimeteita",
+      "confusable": [
+        "you_to_shita_tokoro"
+      ],
+      "distinguish_zh": "动词意志形+「と決めていた」表示说话人在过去某个时间点就已经下定决心要做某事，并且这个决心一直持续，“早就决定要……”，比单纯的「（よ）うと思っていた」语气更坚定。",
+      "frequency": 3,
+      "examples": [
+        {
+          "jp": "私は、中学生になったころから次第に医学に興味を持ち始め、高校に入ったときには将来医者になろうと決めていた。",
+          "zh": "从上初中起，我对医学渐渐有了兴趣。进入高中的时候，我已经决定将来要做一名医生。"
+        }
+      ],
+      "source": "2018-07"
     }
   ]
 }
