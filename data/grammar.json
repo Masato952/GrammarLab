@@ -555,7 +555,8 @@
       "id": "essential_condition",
       "name": "不可或缺（のに欠かせない系）",
       "members": [
-        "no_ni_kakasenai"
+        "no_ni_kakasenai",
+        "ni_kakasenai_dogu"
       ]
     },
     {
@@ -702,7 +703,8 @@
       "id": "as_instructed",
       "name": "按照……那样（とおりに系）",
       "members": [
-        "toori_ni"
+        "toori_ni",
+        "doori_ni_variant"
       ]
     },
     {
@@ -920,6 +922,104 @@
       "name": "无论如何都……（どうしても系）",
       "members": [
         "doushitemo_nomatter"
+      ]
+    },
+    {
+      "id": "means_niyotte",
+      "name": "通过……（手段方法，によって系）",
+      "members": [
+        "niyotte_means"
+      ]
+    },
+    {
+      "id": "emphasis_totemo_nai",
+      "name": "无论如何也不……（とても〜ない系）",
+      "members": [
+        "totemo_negative"
+      ]
+    },
+    {
+      "id": "excessive_degree_amari",
+      "name": "由于过度……（のあまり系）",
+      "members": [
+        "no_amari"
+      ]
+    },
+    {
+      "id": "approx_quantity_hodo",
+      "name": "大约……，……左右（数量+ほど系）",
+      "members": [
+        "hodo_approx_time"
+      ]
+    },
+    {
+      "id": "concessive_monono",
+      "name": "尽管……但是……（ものの系）",
+      "members": [
+        "monono_concessive"
+      ]
+    },
+    {
+      "id": "unnecessary_kotohanai",
+      "name": "没有必要……（ことはない系）",
+      "members": [
+        "koto_wa_nai"
+      ]
+    },
+    {
+      "id": "essential_precondition_nai",
+      "name": "如果不……就不能……（ないことには系）",
+      "members": [
+        "nai_kotoniha"
+      ]
+    },
+    {
+      "id": "as_much_as_wanted",
+      "name": "想……多少就……多少（たいだけ系）",
+      "members": [
+        "tai_dake"
+      ]
+    },
+    {
+      "id": "lenient_suggestion_tekurereba",
+      "name": "……就好了（てくれればいい系）",
+      "members": [
+        "tekurereba_ii"
+      ]
+    },
+    {
+      "id": "deliberate_inaction_zuni_okou",
+      "name": "暂且不……吧（ずにおこう系）",
+      "members": [
+        "zuni_okou"
+      ]
+    },
+    {
+      "id": "near_miss_teshimaisouni",
+      "name": "差点就……了（てしまいそうになる系）",
+      "members": [
+        "teshimai_sou_ni_naru"
+      ]
+    },
+    {
+      "id": "reason_nowa_karada",
+      "name": "……的原因是……（のは〜からだ系）",
+      "members": [
+        "nowa_karada"
+      ]
+    },
+    {
+      "id": "comparison_suru_shinai",
+      "name": "做……和不做……（のと〜ないのでは系）",
+      "members": [
+        "suru_no_to_shinai_no_de_wa"
+      ]
+    },
+    {
+      "id": "extreme_degree_kurai",
+      "name": "……到没有人不……的程度（くらい系）",
+      "members": [
+        "shiranai_hito_wa_inai_kurai"
       ]
     }
   ],
@@ -3644,6 +3744,320 @@
         }
       ],
       "source": "2014-12"
+    },
+    {
+      "id": "niyotte_means",
+      "pattern": "〜によって",
+      "meaning": "通过……，凭借……（表示手段、方法）",
+      "connection": "名詞（動作性）＋によって",
+      "formality": "书面语，较正式",
+      "family": "means_niyotte",
+      "confusable": [
+        "ni_yotte_ha"
+      ],
+      "distinguish_zh": "「によって」接在表示动作、行为的名词后，表示实现后项内容所依靠的手段、方法，“通过……”，与表示原因的「〜によって」（因为……）、表示“依情况而定”的「〜によっては」用法不同，需结合语境判断具体含义。",
+      "frequency": 4,
+      "examples": [
+        {
+          "jp": "南極の氷を調べることによって、数十万年前の地球の気候を知ることができるそうだ。",
+          "zh": "据说通过调查南极的冰川，能够知道数十万年前地球的气候。"
+        }
+      ],
+      "source": "2015-07"
+    },
+    {
+      "id": "totemo_negative",
+      "pattern": "〜とても〜ない",
+      "meaning": "怎么也不……，无论如何也不……",
+      "connection": "とても＋動詞可能形の否定",
+      "formality": "口语、书面都可用",
+      "family": "emphasis_totemo_nai",
+      "confusable": [],
+      "distinguish_zh": "副词「とても」与否定形呼应使用时，表示程度上无论如何都办不到，“怎么也不……”，与表示“非常”的肯定用法「とても」（接肯定形容词/动词）意义相反，需注意搭配否定形式。",
+      "frequency": 4,
+      "examples": [
+        {
+          "jp": "この曲は、私には難しすぎて、とても弾けそうにない。",
+          "zh": "这首曲子对我来说太难了，怎么也弹不来。"
+        }
+      ],
+      "source": "2015-07"
+    },
+    {
+      "id": "no_amari",
+      "pattern": "〜のあまり",
+      "meaning": "由于过度……，因……过度而……",
+      "connection": "名詞＋のあまり、動詞辞書形＋あまり",
+      "formality": "书面语，较正式",
+      "family": "excessive_degree_amari",
+      "confusable": [
+        "sugiru"
+      ],
+      "distinguish_zh": "「のあまり」表示因某种感情、状态过度而导致了后项（多为负面、意外的）结果，“由于过度……，因过分……而……”，比单纯的「すぎて」更强调“情绪、状态达到极限而引发结果”的书面语感。",
+      "frequency": 3,
+      "examples": [
+        {
+          "jp": "入社試験の面接で、緊張のあまり、声が震えてしまった。",
+          "zh": "在入职考试面试时，由于太过紧张，声音都颤抖了。"
+        }
+      ],
+      "source": "2015-07"
+    },
+    {
+      "id": "hodo_approx_time",
+      "pattern": "〜ほど",
+      "meaning": "大约……，……左右（可直接修饰动词，无需加「に」）",
+      "connection": "数量詞＋ほど",
+      "formality": "口语、书面都可用",
+      "family": "approx_quantity_hodo",
+      "confusable": [
+        "gurai"
+      ],
+      "distinguish_zh": "数量词+「ほど」表示大约的数量、程度，“……左右”，可以直接修饰后面的动词（如“30分ほど行く”），不需要像「に」那样另加助词，与「くらい／ぐらい」用法相近但语体上「ほど」略偏书面。",
+      "frequency": 3,
+      "examples": [
+        {
+          "jp": "森川動物園は、森川駅からバスで30分ほど行ったところにある。",
+          "zh": "森川动物园在距离森川站坐巴士30分钟左右的地方。"
+        }
+      ],
+      "source": "2015-07"
+    },
+    {
+      "id": "monono_concessive",
+      "pattern": "〜ものの",
+      "meaning": "尽管……，但是……（转折）",
+      "connection": "普通形＋ものの",
+      "formality": "书面语，较正式",
+      "family": "concessive_monono",
+      "confusable": [
+        "noni_surprise"
+      ],
+      "distinguish_zh": "「ものの」表示承认前项事实成立，但后项出现与预想不完全相符或相反的结果，“尽管……，但是……”，比「が／けど」更书面、正式，常用于描述数据、趋势的转折。",
+      "frequency": 4,
+      "examples": [
+        {
+          "jp": "この地域のみかんの生産量は、2000年から2003年にかけて一時減少したものの、再び増加し、2010年には過去最高となった。",
+          "zh": "这个地区的橘子产量，虽然在2000年到2003年间暂时减少了，但后来又再次增加，在2010年达到了历史最高。"
+        }
+      ],
+      "source": "2015-07"
+    },
+    {
+      "id": "koto_wa_nai",
+      "pattern": "〜ことはない",
+      "meaning": "没有必要……，不必……",
+      "connection": "動詞辞書形＋ことはない",
+      "formality": "口语、书面都可用",
+      "family": "unnecessary_kotohanai",
+      "confusable": [
+        "hitsuyou_wa_nai"
+      ],
+      "distinguish_zh": "动词辞书形+「ことはない」表示没有做某事的必要，常用于安慰、劝告对方不必担心或不必采取某行动，“没有必要……，不必……”。",
+      "frequency": 4,
+      "examples": [
+        {
+          "jp": "（育児書で）赤ちゃんの熱が少しあると心配になるかもしれませんが、熱が多少あっても、元気に遊んでいるなら、慌てることはありません。",
+          "zh": "（育儿书上写道）（家长）可能会很担心婴儿有点发烧，但哪怕有一点热度，如果孩子很精神地在玩的话，就不用慌张。"
+        }
+      ],
+      "source": "2015-07"
+    },
+    {
+      "id": "nai_kotoniha",
+      "pattern": "〜ないことには",
+      "meaning": "如果不……的话，（后项）就不能……",
+      "connection": "動詞ない形＋ことには",
+      "formality": "口语、书面都可用",
+      "family": "essential_precondition_nai",
+      "confusable": [
+        "nakereba"
+      ],
+      "distinguish_zh": "「〜ないことには」表示如果不实现前项这一必要条件，后项就无法成立，“不……的话，就不能……”，后项常与可能形否定或消极表达呼应，语气比单纯「〜なければ」更强调“前项是绝对必要的前提”。",
+      "frequency": 3,
+      "examples": [
+        {
+          "jp": "（就職説明会で）「就職活動とは、企業に応募することです。この企業で働きたいと思っていても、応募しないことには、何も進みません。まずは応募しましょう。」",
+          "zh": "（在就业说明会上）“所谓的就业活动，就是指去企业应聘。即使想在这家企业工作，但只是想而不去应聘的话，就毫无进展。首先去应聘一下吧。”"
+        }
+      ],
+      "source": "2015-07"
+    },
+    {
+      "id": "tai_dake",
+      "pattern": "〜たいだけ",
+      "meaning": "想……多少就……多少（表示随心所欲的程度）",
+      "connection": "動詞ます形＋たいだけ",
+      "formality": "口语",
+      "family": "as_much_as_wanted",
+      "confusable": [],
+      "distinguish_zh": "动词ます形+「たい」（想要）+「だけ」（表示限度）组合，表示按照自己想要的程度去做某事，不受限制，“想……多少就……多少”，常用于反思自己过度放纵的行为。",
+      "frequency": 2,
+      "examples": [
+        {
+          "jp": "先月、エアコンを使いたいだけ使っていたら、電気代が2万円を超えてしまった。",
+          "zh": "上个月，把空调开到爽（想用多少就用多少），结果电费超过了2万日元。"
+        }
+      ],
+      "source": "2015-07"
+    },
+    {
+      "id": "tekurereba_ii",
+      "pattern": "〜てくれればいい",
+      "meaning": "（你/对方）……就好了（表示不强求、宽容的建议）",
+      "connection": "動詞て形＋くれればいい",
+      "formality": "口语",
+      "family": "lenient_suggestion_tekurereba",
+      "confusable": [
+        "temoraeba_ii"
+      ],
+      "distinguish_zh": "「〜てくれればいい」表示说话人对对方的行为没有严格要求，只要对方（在未来某个时机）为自己做某事即可，“你……就好了”，语气宽容、不催促，常用于回应对方的道歉或担心。",
+      "frequency": 3,
+      "examples": [
+        {
+          "jp": "山川「ごめんね。田村さんに借りたCD、今日返そうと思っていたのに、持ってくるの忘れちゃった。」田村「ああ、別に急がないから、次に会うときに持ってきてくれればいいよ。」",
+          "zh": "山川：“不好意思。向田村你借的CD，本想在今天还你，结果忘记带来了。”田村：“啊，我也不急用，下次见面的时候再给我吧。”"
+        }
+      ],
+      "source": "2015-07"
+    },
+    {
+      "id": "zuni_okou",
+      "pattern": "〜ずにおこう",
+      "meaning": "暂且不……（吧），先不……着",
+      "connection": "動詞ない形（ず）＋におこう",
+      "formality": "口语、书面都可用",
+      "family": "deliberate_inaction_zuni_okou",
+      "confusable": [
+        "naideoku"
+      ],
+      "distinguish_zh": "「〜ず」是「〜ないで」的书面语否定形式，加上表示预先准备、保持状态的「〜ておく」的意志形「〜ておこう」，组合表示说话人主动决定暂且不做某事、让某种（不做的）状态持续下去，“暂且不……着（吧）”。",
+      "frequency": 3,
+      "examples": [
+        {
+          "jp": "まだ読んでいない本が10冊もあるから、しばらく本は買わずにおこうと決めていたのに、面白そうな本を見つけて、つい買ってしまった。",
+          "zh": "还有10本书没读完，已经决定近期不买书了，不过看到有趣的书后还是忍不住买了。"
+        }
+      ],
+      "source": "2015-07"
+    },
+    {
+      "id": "teshimai_sou_ni_naru",
+      "pattern": "〜てしまいそうになる",
+      "meaning": "差点就……了，几乎要……了（不由自主地即将发生某状态）",
+      "connection": "動詞て形＋しまいそうになる",
+      "formality": "口语、书面都可用",
+      "family": "near_miss_teshimaisouni",
+      "confusable": [
+        "sounihanai"
+      ],
+      "distinguish_zh": "「〜てしまう」表示无意中、不由自主地做了某事，加上表示样态、即将发生的「〜そうになる」，组合表示某种不由自主的状态几乎（但尚未真正）发生，“差点就……了”，强调动作发生前的瞬间状态。",
+      "frequency": 3,
+      "examples": [
+        {
+          "jp": "昨日、天気がよかったので公園に出かけた。春の日ざしが暖かく、風が気持ちよくて、ベンチに座っていると、つい眠ってしまいそうになった。",
+          "zh": "昨天天气不错去了公园。春日阳光和煦，微风让人感到舒适，坐在长凳上时，不由自主地差点睡着了。"
+        }
+      ],
+      "source": "2015-07"
+    },
+    {
+      "id": "nowa_karada",
+      "pattern": "〜のは〜からだ",
+      "meaning": "……的原因是……，之所以……是因为……",
+      "connection": "普通形＋のは＋普通形＋からだ",
+      "formality": "口语、书面都可用",
+      "family": "reason_nowa_karada",
+      "confusable": [
+        "karakoso"
+      ],
+      "distinguish_zh": "「〜のは〜からだ」用「の」将前项名词化作为话题，用「からだ」说明其原因，“……的原因是……”，是说明因果关系最基本的句型，比强调“正是因为”的「〜のは〜からこそだ」语气更平实、客观。",
+      "frequency": 4,
+      "examples": [
+        {
+          "jp": "優しい子になってほしい。娘の名前を「優子」にしたのは、そういった願いを込めたからだ。",
+          "zh": "我希望（女儿）能成为一个温柔的孩子。所以，给女儿起名“优子”，也是包含了这种心愿。"
+        }
+      ],
+      "source": "2015-07"
+    },
+    {
+      "id": "ni_kakasenai_dogu",
+      "pattern": "〜に欠かせない",
+      "meaning": "……不可或缺的（物品/存在）",
+      "connection": "名詞（体言）＋に欠かせない",
+      "formality": "书面语、口语皆可",
+      "family": "essential_condition",
+      "confusable": [
+        "no_ni_kakasenai"
+      ],
+      "distinguish_zh": "「〜に欠かせない」直接接在名词后，表示对于该事物、场合而言是不可或缺的，“……不可或缺的”，与接在动词名词化形式后的「〜のに欠かせない」（表示做某件事不可或缺）在接续对象上不同，前者接体言，后者接动词性内容。",
+      "frequency": 3,
+      "examples": [
+        {
+          "jp": "日本で携帯電話が発売されて約20年。いまや携帯電話は生活に欠かせない道具として定着したといえるのではないか。",
+          "zh": "在日本，手机已经卖了约20年了。现在，手机可以说是生活中不可或缺的工具，已经确立了这样的地位吧。"
+        }
+      ],
+      "source": "2015-07"
+    },
+    {
+      "id": "doori_ni_variant",
+      "pattern": "〜どおりに",
+      "meaning": "按照……（那样），与……一致地",
+      "connection": "名詞＋どおりに（「とおり」的连浊变体）",
+      "formality": "口语、书面都可用",
+      "family": "as_instructed",
+      "confusable": [
+        "toori_ni"
+      ],
+      "distinguish_zh": "「どおりに」是「とおりに」接在某些名词后发生连浊音变的写法，意义完全相同，表示完全按照前项所述的内容、方式去做，“照着……做”。",
+      "frequency": 3,
+      "examples": [
+        {
+          "jp": "私は、スケジュールどおりに仕事を進めるにはどうすればいいか常に考えながら作業をしている。",
+          "zh": "我总是一边思考如何能让工作按照日程顺利进行，一边开展工作。"
+        }
+      ],
+      "source": "2015-07"
+    },
+    {
+      "id": "suru_no_to_shinai_no_de_wa",
+      "pattern": "〜のと〜ないのとでは",
+      "meaning": "做……和不做……（相比），（结果/效果）不同",
+      "connection": "動詞る形＋のと＋動詞ない形＋のとでは",
+      "formality": "口语、书面都可用",
+      "family": "comparison_suru_shinai",
+      "confusable": [
+        "yorihouga"
+      ],
+      "distinguish_zh": "「動詞るのと動詞ないのとでは」用「の」将两个对立的动作（做/不做）名词化，再用「では」引出比较，“做……和不做……相比，……不一样”，是比较两种截然相反行为结果的典型句型。",
+      "frequency": 3,
+      "examples": [
+        {
+          "jp": "筋肉トレーニングをしているとき今自分がどこを鍛えているのか意識するのとしないのでは効果は全く違います。",
+          "zh": "锻炼肌肉的时候，是否意识到自己现在在锻炼什么地方，效果是完全不一样的。"
+        }
+      ],
+      "source": "2015-07"
+    },
+    {
+      "id": "shiranai_hito_wa_inai_kurai",
+      "pattern": "〜知らない人はいないくらい",
+      "meaning": "……到没有人不知道的程度，……到人尽皆知的地步",
+      "connection": "普通形＋くらい／ぐらい",
+      "formality": "口语、书面都可用",
+      "family": "extreme_degree_kurai",
+      "confusable": [],
+      "distinguish_zh": "「〜くらい」接在描述极端情况的小句之后，用来说明前面事物程度之高，“……知らない人はいないくらい”即“达到了没有人不认识的程度”，是「くらい」表极限程度用法的典型例子。",
+      "frequency": 2,
+      "examples": [
+        {
+          "jp": "「みるく屋」は、A市に住んでいる人なら知らない人はいないくらい有名なお菓子屋さんです。",
+          "zh": "“みるく屋”是一家住在A市里的人都知晓的有名点心铺。"
+        }
+      ],
+      "source": "2015-07"
     }
   ]
 }
