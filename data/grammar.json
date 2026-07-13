@@ -58,7 +58,8 @@
         "goran_no_youni",
         "goran_itadaku",
         "itashimashouka_kenjougo",
-        "miemashita_keigo"
+        "miemashita_keigo",
+        "okoshi_itadaku"
       ]
     },
     {
@@ -807,6 +808,118 @@
       "name": "如果……的话就……（んだったら系）",
       "members": [
         "ndattara"
+      ]
+    },
+    {
+      "id": "extent_span",
+      "name": "跨越……范围（にわたって系）",
+      "members": [
+        "ni_watatte"
+      ]
+    },
+    {
+      "id": "disjunctive_aruiha",
+      "name": "或者（あるいは系）",
+      "members": [
+        "aruiha"
+      ]
+    },
+    {
+      "id": "quotation_datte_complain",
+      "name": "都说了……呢（だって引用不满系）",
+      "members": [
+        "datte_hearsay_quote"
+      ]
+    },
+    {
+      "id": "emphasis_dakeni",
+      "name": "正因为……更加……（だけに系）",
+      "members": [
+        "dakeni_precisely_because"
+      ]
+    },
+    {
+      "id": "hearsay_tonokoto",
+      "name": "据说……（とのことです系）",
+      "members": [
+        "tonokotodesu"
+      ]
+    },
+    {
+      "id": "forced_choice_shikanai",
+      "name": "只能……了（動詞辞書形+しかない系）",
+      "members": [
+        "suru_shikanai"
+      ]
+    },
+    {
+      "id": "reason_toiukara",
+      "name": "由于据说……（というから系）",
+      "members": [
+        "toiukara_reason"
+      ]
+    },
+    {
+      "id": "precaution_temo_ii_youni",
+      "name": "为了……也没关系（预先准备，てもいいように系）",
+      "members": [
+        "temo_ii_youni"
+      ]
+    },
+    {
+      "id": "manner_without_garu",
+      "name": "不嫌……地（〜がらずに系）",
+      "members": [
+        "garazu_ni"
+      ]
+    },
+    {
+      "id": "conditional_n_nara",
+      "name": "要是……的话（んなら系）",
+      "members": [
+        "n_nara"
+      ]
+    },
+    {
+      "id": "progressive_change_tsutsuaru",
+      "name": "正在逐渐……（つつある系）",
+      "members": [
+        "tsutsu_aru"
+      ]
+    },
+    {
+      "id": "unprecedented_koremade",
+      "name": "至今为止从未有过的……（これまでに〜なかった系）",
+      "members": [
+        "kore_made_ni_nai"
+      ]
+    },
+    {
+      "id": "without_missing_kakasazu",
+      "name": "不落下地，不间断地（〜を欠かさず系）",
+      "members": [
+        "wo_kakasazu"
+      ]
+    },
+    {
+      "id": "gradual_change_tsurete",
+      "name": "随着……逐渐（につれて系）",
+      "members": [
+        "ni_tsurete"
+      ]
+    },
+    {
+      "id": "comparison_yorihouga",
+      "name": "与其……不如……（〜より〜ほうが系）",
+      "members": [
+        "yori_hou_ga"
+      ]
+    },
+    {
+      "id": "doushitemo_fam",
+      "name": "无论如何都……（どうしても系）",
+      "members": [
+        "doushitemo_nomatter"
       ]
     }
   ],
@@ -3196,6 +3309,341 @@
         }
       ],
       "source": "2014-07"
+    },
+    {
+      "id": "ni_watatte",
+      "pattern": "〜にわたって",
+      "meaning": "长达……，遍及……（表示跨越的时间、空间、次数范围较大）",
+      "connection": "名詞（期間・範囲・回数）＋にわたって",
+      "formality": "书面语，较正式",
+      "family": "extent_span",
+      "confusable": [
+        "wo_meguru"
+      ],
+      "distinguish_zh": "「にわたって」接在表示期间、范围、次数的名词后，表示动作或状态涉及的范围很广、跨度很大，“长达……”“遍及……”，与「をめぐって」（围绕……进行争论/讨论）语义不同。",
+      "frequency": 4,
+      "examples": [
+        {
+          "jp": "竹石海水浴場は、約700メートルにわたって、美しい砂浜が続いています。",
+          "zh": "竹石海水浴场绵延约700米，都是美丽的沙滩。"
+        }
+      ],
+      "source": "2014-12"
+    },
+    {
+      "id": "aruiha",
+      "pattern": "〜あるいは〜",
+      "meaning": "或者，或是（表示两者选其一）",
+      "connection": "名詞／動詞普通形＋あるいは＋名詞／動詞普通形",
+      "formality": "书面语，较正式",
+      "family": "disjunctive_aruiha",
+      "confusable": [],
+      "distinguish_zh": "「あるいは」是书面语中常用的选择连接词，“或者……”，比口语的「それとも」更正式，常用于书面说明、告示中列出可选项。",
+      "frequency": 3,
+      "examples": [
+        {
+          "jp": "奨学金の申請希望者は、締め切り日までに必要な書類を学生課奨学金係に直接持参するか、あるいは郵送してください。",
+          "zh": "希望申请奖学金的同学，请在截止日期前，将必要的书面材料直接送到学生科奨学金负责处，或者邮寄过来。"
+        }
+      ],
+      "source": "2014-12"
+    },
+    {
+      "id": "datte_hearsay_quote",
+      "pattern": "〜だって",
+      "meaning": "不是说了……嘛，明明说……（引用之前听到的话，带不满/反驳语气）",
+      "connection": "普通形（引用内容）＋だって",
+      "formality": "口语",
+      "family": "quotation_datte_complain",
+      "confusable": [
+        "toka_iu"
+      ],
+      "distinguish_zh": "口语中的「だって」放在引用内容之后，表示“不是说了……嘛”，带有对与事实不符感到不满、抱怨或反驳的语气，与表示“连……都”的「だって」（副助词）用法不同。",
+      "frequency": 3,
+      "examples": [
+        {
+          "jp": "妻「ねえ、最近、天気予報、当たらないよね。今日だって一日晴れるって言ってたのに、午後は雨が降ったし。」夫「そうだね。」",
+          "zh": "妻子：“喂，最近的天气预报真不准啊。今天不是还说了一整天都是晴天嘛，结果下午还下雨了。”丈夫：“是啊。”"
+        }
+      ],
+      "source": "2014-12"
+    },
+    {
+      "id": "dakeni_precisely_because",
+      "pattern": "〜だけに",
+      "meaning": "正因为……，所以更加……",
+      "connection": "普通形＋だけに",
+      "formality": "口语、书面都可用",
+      "family": "emphasis_dakeni",
+      "confusable": [
+        "karakoso"
+      ],
+      "distinguish_zh": "「だけに」表示正因为前项这一特殊的原因、背景，所以后项的程度、感情比一般情况更强烈，“正因为……，才更加……”，语感上比「からこそ」更强调“与前项相称的程度加深”。",
+      "frequency": 4,
+      "examples": [
+        {
+          "jp": "私がテニスを教えている中学生が、県大会で初めて優勝した。彼の努力をずっと見てきただけに、本当にうれしい。",
+          "zh": "我教网球的那个中学生，在县大会上第一次拿到了冠军。正因为一直看着他努力的过程，所以真的非常高兴。"
+        }
+      ],
+      "source": "2014-12"
+    },
+    {
+      "id": "tonokotodesu",
+      "pattern": "〜とのことです",
+      "meaning": "据说……，听说……（郑重转述他人的话）",
+      "connection": "普通形＋とのことです",
+      "formality": "书面语、口语皆可，较郑重",
+      "family": "hearsay_tonokoto",
+      "confusable": [
+        "rashii"
+      ],
+      "distinguish_zh": "「とのことです」是「という・ということです」的郑重表达，用于郑重地转述从他人那里听到的消息或留言，常见于商务场合传达他人口信。",
+      "frequency": 4,
+      "examples": [
+        {
+          "jp": "山下「田中さん、先ほどABC建設の木村様からお電話がありました。至急連絡がほしいとのことです。」田中「はい、わかりました。」",
+          "zh": "山下：“田中，刚才ABC建设的木村先生来过电话了，说是希望您尽快联系他。”田中：“好的，我知道了。”"
+        }
+      ],
+      "source": "2014-12"
+    },
+    {
+      "id": "suru_shikanai",
+      "pattern": "〜（動詞辞書形）しかない",
+      "meaning": "只能……了（别无选择）",
+      "connection": "動詞辞書形＋しかない",
+      "formality": "口语、书面都可用",
+      "family": "forced_choice_shikanai",
+      "confusable": [
+        "deshikanai",
+        "shika_arumai"
+      ],
+      "distinguish_zh": "动词辞书形+「しかない」表示除此之外别无其他选择，“只能……了”，与表示“只不过是……”的「でしかない」（名词/形容动词+でしかない，带贬低语感）用法和意义均不同，也比带推测语气的「〜しかあるまい」更直接、确定。",
+      "frequency": 4,
+      "examples": [
+        {
+          "jp": "夫にもらった指輪をなくしてしまった。一週間以上あちこち探しているが見つからない。もうあきらめるしかないのか。",
+          "zh": "把丈夫送的戒指弄丢了。找了一个多星期到处都没找到。难道只能放弃了吗。"
+        }
+      ],
+      "source": "2014-12"
+    },
+    {
+      "id": "okoshi_itadaku",
+      "pattern": "〜お越しいただきました",
+      "meaning": "承蒙您（对方）光临（“来る”的敬语表达，感谢对方前来）",
+      "connection": "お越しいただく的活用形，「来る」的尊他＋自谦复合敬语",
+      "formality": "正式、商务场合常用",
+      "family": "keigo",
+      "confusable": [
+        "miemashita_keigo",
+        "mairu_kenjougo"
+      ],
+      "distinguish_zh": "「お越しいただく」是「来てもらう」的敬语形式，既尊敬地称呼对方的“来”，又用「いただく」自谦地表达自己承蒙对方的这份好意，常用于感谢对方专程前来，区别于单纯尊他的「お見えになる／見える」（不含“承蒙”的授受语感）。",
+      "frequency": 3,
+      "examples": [
+        {
+          "jp": "先日の勉強会には、社会福祉を専門に研究されている、ABC大学の石川春子先生にお越しいただきました。",
+          "zh": "前几天的学习会，请到了专门研究社会福利的ABC大学石川春子老师前来。"
+        }
+      ],
+      "source": "2014-12"
+    },
+    {
+      "id": "toiukara_reason",
+      "pattern": "〜というから",
+      "meaning": "由于据说……，因为听说……（引用间接听闻的内容作为理由）",
+      "connection": "普通形＋というから",
+      "formality": "书面语，较正式",
+      "family": "reason_toiukara",
+      "confusable": [
+        "tonokotodesu"
+      ],
+      "distinguish_zh": "「というから」由「という」（据说，引用）+「から」（原因）组成，表示以听闻到的内容作为理由，“因为听说……（所以……）”，重心在から上，强调因果关系；与「とのことです」（单纯郑重转述、不强调因果）用法不同。",
+      "frequency": 2,
+      "examples": [
+        {
+          "jp": "「村山屋」はコロッケが人気のお店で、いつも行列ができている。多いときは一日に千個も売れるというから驚きだ。",
+          "zh": "“村山屋”是一家可乐饼很受欢迎的店，总是排着长队。据说多的时候一天能卖出一千个，真是令人吃惊。"
+        }
+      ],
+      "source": "2014-12"
+    },
+    {
+      "id": "temo_ii_youni",
+      "pattern": "〜てもいいように",
+      "meaning": "以防万一……也没关系（提前做好准备）",
+      "connection": "動詞て形＋もいいように",
+      "formality": "口语、书面都可用",
+      "family": "precaution_temo_ii_youni",
+      "confusable": [
+        "you_ni_sonaete"
+      ],
+      "distinguish_zh": "「〜てもいいように」表示为了应对某种可能发生的情况，即使它真的发生了也不至于困扰，而事先做好准备，“为了……（万一发生）也没关系，才……”。",
+      "frequency": 3,
+      "examples": [
+        {
+          "jp": "私は、いつ雨が降ってもいいように、常に折り畳み傘を持ち歩いている。",
+          "zh": "为了不管什么时候下雨都没关系，我总是随身带着折叠伞。"
+        }
+      ],
+      "source": "2014-12"
+    },
+    {
+      "id": "garazu_ni",
+      "pattern": "〜がらずに",
+      "meaning": "不嫌……地，不因……情绪而退缩地（做某事）",
+      "connection": "形容詞・形容動詞語幹＋がらずに",
+      "formality": "口语、书面都可用",
+      "family": "manner_without_garu",
+      "confusable": [
+        "sugizuni"
+      ],
+      "distinguish_zh": "「〜がる」表示第三人称表现出某种感觉、情绪，其否定て形「〜がらずに」表示“不表现出（嫌麻烦、害怕等）情绪地”去做后项动作，常用于劝告、教育语境。",
+      "frequency": 3,
+      "examples": [
+        {
+          "jp": "（育児の本で）3歳ぐらいになると、「なぜ?」「どうして?」という質問が多くなりますが、めんどうくさがらずにきちんと答えてあげましょう。",
+          "zh": "（育儿书中）孩子长到3岁左右，“为什么？”之类的问题会变多，不要嫌麻烦，要好好回答哦。"
+        }
+      ],
+      "source": "2014-12"
+    },
+    {
+      "id": "n_nara",
+      "pattern": "〜んなら",
+      "meaning": "要是……的话（就……）（口语，常针对对方的话给出判断/建议）",
+      "connection": "普通形＋んなら",
+      "formality": "口语",
+      "family": "conditional_n_nara",
+      "confusable": [
+        "ndattara"
+      ],
+      "distinguish_zh": "「んなら」是「のなら」的口语缩约形，与「んだったら」（のだったら的缩约形）意义、用法非常接近，都常用于针对对方刚说的情况做出判断或建议，可基本互换，「んなら」语气略显干脆直接。",
+      "frequency": 3,
+      "examples": [
+        {
+          "jp": "A「ねえ、夏休みの宿題、進んでる?」B「私はもう全部終わったよ。どうせやらなきゃいけないんなら、早めにやっちゃおうと思って、夏休みに入ってすぐ始めたんだ。」",
+          "zh": "A：“喂，暑假作业写得怎么样了？”B：“我已经全部写完了。反正早晚都要写的话，我想着不如早点做完，所以一放暑假就马上开始了。”"
+        }
+      ],
+      "source": "2014-12"
+    },
+    {
+      "id": "tsutsu_aru",
+      "pattern": "〜つつある",
+      "meaning": "正在逐渐……（表示某种变化正持续进行中）",
+      "connection": "動詞ます形＋つつある",
+      "formality": "书面语，较正式",
+      "family": "progressive_change_tsutsuaru",
+      "confusable": [
+        "teiku_uchini"
+      ],
+      "distinguish_zh": "「〜つつある」接在动词ます形后，表示某种变化正朝着一个方向持续发展、正在进行中，“正在逐渐……”，多用于书面语，描述社会现象、状态的渐进变化。",
+      "frequency": 4,
+      "examples": [
+        {
+          "jp": "現在、A港周辺では再開発が進んでおり、道路や公園などの公共施設が整備されつつある。",
+          "zh": "现在，A港口周边的再开发正在推进，道路、公园等公共设施正在逐渐完善。"
+        }
+      ],
+      "source": "2014-12"
+    },
+    {
+      "id": "kore_made_ni_nai",
+      "pattern": "〜これまで（の）〜（に）なかった",
+      "meaning": "至今为止从未有过的……，前所未有的……",
+      "connection": "これまでの＋名詞＋にも＋なかった",
+      "formality": "书面语，较正式",
+      "family": "unprecedented_koremade",
+      "confusable": [],
+      "distinguish_zh": "「これまでの〜にもなかった」表示在过去所有同类事物中都不曾出现过，“至今为止从未有过的……”，常与「そうだ」（样态）连用，形容新产品、新事物具有前所未有的特征。",
+      "frequency": 3,
+      "examples": [
+        {
+          "jp": "X社から新しく発売される腕時計は、これまでのどの時計にもなかった全く新しいデザインになっているそうで、非常に楽しみだ。",
+          "zh": "据说X公司新推出的手表，与以往的任何一款表都不同，设计上有革新，非常期待。"
+        }
+      ],
+      "source": "2014-12"
+    },
+    {
+      "id": "wo_kakasazu",
+      "pattern": "〜を欠かさず",
+      "meaning": "不落下……地，不间断地……",
+      "connection": "名詞＋を欠かさず",
+      "formality": "书面语、口语皆可",
+      "family": "without_missing_kakasazu",
+      "confusable": [],
+      "distinguish_zh": "「欠かす」意为“缺少、遗漏”，其否定て形「欠かさず」表示“不遗漏、不间断地”坚持做某事，常与「一日も」等表示频度的词呼应，强调坚持的彻底性。",
+      "frequency": 3,
+      "examples": [
+        {
+          "jp": "姉のように10年以上一日も欠かさず日記を書くなんて、私にはとてもできない。",
+          "zh": "像姐姐那样十年多来一天都不落地写日记，我可真是做不到。"
+        }
+      ],
+      "source": "2014-12"
+    },
+    {
+      "id": "ni_tsurete",
+      "pattern": "〜につれて",
+      "meaning": "随着……（逐渐）……",
+      "connection": "動詞辞書形／名詞＋につれて",
+      "formality": "书面语，较正式",
+      "family": "gradual_change_tsurete",
+      "confusable": [
+        "ni_shitagatte",
+        "tomonatte"
+      ],
+      "distinguish_zh": "「につれて」表示随着前项的变化，后项也相应地发生程度上的变化，“随着……逐渐……”，后项常与「だんだん、次第に」等表示渐进的词呼应，语义与「にしたがって、にともなって」相近。",
+      "frequency": 4,
+      "examples": [
+        {
+          "jp": "朝、開花したときには真っ白だった花が、夕方が近づくにつれて次第にピンクへと変化していく珍しい花があります。",
+          "zh": "有这样一种奇特的花，早晨开花时花瓣还是白色的，随着傍晚临近，逐渐变成粉红色。"
+        }
+      ],
+      "source": "2014-12"
+    },
+    {
+      "id": "yori_hou_ga",
+      "pattern": "〜より〜ほうが",
+      "meaning": "比起……，……更（不同于前项）",
+      "connection": "動詞普通形＋より＋動詞普通形＋ほうが",
+      "formality": "口语、书面都可用",
+      "family": "comparison_yorihouga",
+      "confusable": [],
+      "distinguish_zh": "「AよりBほうが」用于比较两个选项，表示“比起A，B更……”，是最基本的比较句型，常与「つい」（不由得，不知不觉）等副词连用，表达“虽然理智上知道该怎样，但实际上不由自主地……”。",
+      "frequency": 3,
+      "examples": [
+        {
+          "jp": "部下の作った書類にミスがあるとき、部下にもう一度書き直させるより自分でやってしまったほうが早いと思って、つい自分で直してしまうことも多い。",
+          "zh": "部下写的文件有错误时，比起让部下重新修改，常常觉得自己直接改更快，所以不由得自己就直接修改了。"
+        }
+      ],
+      "source": "2014-12"
+    },
+    {
+      "id": "doushitemo_nomatter",
+      "pattern": "〜どうしても",
+      "meaning": "无论如何都……，怎么也……（表示不管怎样都难以改变的状态）",
+      "connection": "どうしても＋動詞（可能形／否定形）",
+      "formality": "口语、书面都可用",
+      "family": "doushitemo_fam",
+      "confusable": [
+        "donna_datte"
+      ],
+      "distinguish_zh": "「どうしても」是副词，修饰后面的动词，表示“无论怎样努力也……”，常与可能态否定形（〜きれない、〜られない）呼应，强调即使想改变也办不到的状态，与「どんなに〜ても」（无论多么……也……，修饰形容词/形容动词程度）用法略有不同。",
+      "frequency": 4,
+      "examples": [
+        {
+          "jp": "友人にどうしてもと頼まれて引き受けた塾講師の仕事だったが、やってみたら意外に面白くて、自分に向いていると感じた。",
+          "zh": "本来是因为朋友怎么都推脱不掉而接受的补习班老师的工作，结果做了以后发现还挺有意思的，感觉挺适合自己。"
+        }
+      ],
+      "source": "2014-12"
     }
   ]
 }
