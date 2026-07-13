@@ -489,6 +489,118 @@
       "members": [
         "to_aru_naiyou"
       ]
+    },
+    {
+      "id": "quantity_ni_noboru",
+      "name": "数量达到（に上る系）",
+      "members": [
+        "ni_noboru"
+      ]
+    },
+    {
+      "id": "long_process_result",
+      "name": "经过一番过程后（の末に系）",
+      "members": [
+        "no_sue_ni"
+      ]
+    },
+    {
+      "id": "trend_bakari",
+      "name": "越发…的趋势（ばかりだ系）",
+      "members": [
+        "bakari_da_keikou"
+      ]
+    },
+    {
+      "id": "conditional_denai_to",
+      "name": "如果不…就不行（てからでないと系）",
+      "members": [
+        "shitekara_denai_to"
+      ]
+    },
+    {
+      "id": "immediate_sequence",
+      "name": "一…就立刻…（次第系）",
+      "members": [
+        "shidai_sokuji"
+      ]
+    },
+    {
+      "id": "kenjougo_uketamawaru",
+      "name": "谦逊语（承ります系）",
+      "members": [
+        "uketamawarimasu_kenjougo"
+      ]
+    },
+    {
+      "id": "obligation_wakeniwaikanai",
+      "name": "不得不、必须（わけにはいかない系）",
+      "members": [
+        "wake_niwa_ikanai"
+      ]
+    },
+    {
+      "id": "vague_reference",
+      "name": "不确定指代（か何か系）",
+      "members": [
+        "ya_nanika_de"
+      ]
+    },
+    {
+      "id": "essential_condition",
+      "name": "不可或缺（のに欠かせない系）",
+      "members": [
+        "no_ni_kakasenai"
+      ]
+    },
+    {
+      "id": "repeated_habit_tabini",
+      "name": "每当…就…（たびに系）",
+      "members": [
+        "youto_suru_tabi_ni"
+      ]
+    },
+    {
+      "id": "mistaken_belief",
+      "name": "一直以为…其实…（とばかり思っていた系）",
+      "members": [
+        "to_bakari_omotteita"
+      ]
+    },
+    {
+      "id": "possible_reason",
+      "name": "或许也是原因之一（それもあるかもしれません系）",
+      "members": [
+        "sore_mo_aru_kamoshirenai"
+      ]
+    },
+    {
+      "id": "topic_ranking",
+      "name": "说到…／仅次于…（といえば・に次いで系）",
+      "members": [
+        "toieba_nitsuide"
+      ]
+    },
+    {
+      "id": "since_then_never",
+      "name": "自从…之后就再没…（きり〜ない系）",
+      "members": [
+        "kiri_nai"
+      ]
+    },
+    {
+      "id": "not_to_mention",
+      "name": "不用说…（はもとより系）",
+      "members": [
+        "wa_motoyori"
+      ]
+    },
+    {
+      "id": "in_terms_of",
+      "name": "在…方面（の上では系）",
+      "members": [
+        "no_ue_deha_men"
+      ]
     }
   ],
   "grammar": [
@@ -1992,6 +2104,305 @@
         }
       ],
       "source": "2012-12"
+    },
+    {
+      "id": "ni_noboru",
+      "pattern": "〜に上る",
+      "meaning": "达到（某数量）",
+      "connection": "数量詞＋に上る",
+      "formality": "书面语，较正式",
+      "family": "quantity_ni_noboru",
+      "confusable": [],
+      "distinguish_zh": "「に上る」接在数量词后，表示“数量达到……之多”，常用于新闻报道等书面场合，强调数量之大。",
+      "frequency": 3,
+      "examples": [
+        {
+          "jp": "Y遊園地の昨年の入場者数は、1000万人に上った。",
+          "zh": "Y游乐园去年的入场人数达到了1000万人。"
+        }
+      ],
+      "source": "2013-07"
+    },
+    {
+      "id": "no_sue_ni",
+      "pattern": "〜の末に",
+      "meaning": "经过……（漫长辛苦的过程）之后，终于……",
+      "connection": "名詞／動詞た形の名詞化＋の末に",
+      "formality": "书面语，较正式",
+      "family": "long_process_result",
+      "confusable": [
+        "no_ue_de"
+      ],
+      "distinguish_zh": "表示经历了漫长、辛苦的过程之后，终于有了后项的结果，常和「いろいろ」「さんざん」「長い時間」等词语一起使用，语气比「の末に」更强调过程的曲折。",
+      "frequency": 3,
+      "examples": [
+        {
+          "jp": "鉄道会社と自治体による長期間の議論の末に、新駅の建設が決定された。",
+          "zh": "经过铁路公司和自治体长时间的讨论，决定要建设新车站。"
+        }
+      ],
+      "source": "2013-07"
+    },
+    {
+      "id": "bakari_da_keikou",
+      "pattern": "〜ばかりだ（動詞辞書形＋ばかりだ）",
+      "meaning": "一直……，一味地……（表示从目前状况看有持续发展下去的趋势）",
+      "connection": "動詞辞書形＋ばかりだ",
+      "formality": "书面语，较正式",
+      "family": "trend_bakari",
+      "confusable": [
+        "bakari_teiru"
+      ],
+      "distinguish_zh": "接在动词辞书形后，表示事态朝着某个方向不断发展、没有停止的趋势，常用于描述不好的状态持续恶化，比如“越来越……”。",
+      "frequency": 3,
+      "examples": [
+        {
+          "jp": "今日は午後から晴れるという予報だったが、午後になっても雨はやまず、むしろ強くなるばかりだった。",
+          "zh": "天气预报说今天午后会放晴，但是到了下午雨还是没停，反而下得越来越大了。"
+        }
+      ],
+      "source": "2013-07"
+    },
+    {
+      "id": "shitekara_denai_to",
+      "pattern": "〜てからでないと",
+      "meaning": "如果不先……就不能……",
+      "connection": "動詞て形＋からでないと",
+      "formality": "书面语、口语都可用",
+      "family": "conditional_denai_to",
+      "confusable": [],
+      "distinguish_zh": "表示“在完成前项动作之前，无法进行后项”，后项多为否定内容，强调前项是后项的必要前提条件。",
+      "frequency": 3,
+      "examples": [
+        {
+          "jp": "哲学IIの授業は、哲学Iの単位を取得してからでないと、受けることができません。",
+          "zh": "哲学II的课程必须获得哲学I的学分后才能上。"
+        }
+      ],
+      "source": "2013-07"
+    },
+    {
+      "id": "shidai_sokuji",
+      "pattern": "〜次第（動詞ます形＋次第）",
+      "meaning": "一……就立刻……，……之后马上……",
+      "connection": "動詞ます形連用形＋次第",
+      "formality": "书面语，较正式",
+      "family": "immediate_sequence",
+      "confusable": [],
+      "distinguish_zh": "表示一旦前项动作发生或状态成立，就立刻进行后项动作，强调时间上的紧接性，常用于通知、广告等正式场合。",
+      "frequency": 3,
+      "examples": [
+        {
+          "jp": "（広告で）現在、数量限定半額セールを実施中。商品がなくなり次第終了しますので、お早めに。",
+          "zh": "（广告）现在正进行限量半价促销。商品卖完后就马上终止，请尽早选购。"
+        }
+      ],
+      "source": "2013-07"
+    },
+    {
+      "id": "uketamawarimasu_kenjougo",
+      "pattern": "〜承ります",
+      "meaning": "承接、接受……（“引き受ける／承知する”的谦逊语）",
+      "connection": "名詞＋を承ります",
+      "formality": "正式、服务业常用",
+      "family": "keigo",
+      "confusable": [
+        "o_moushiageru"
+      ],
+      "distinguish_zh": "「承る」是「引き受ける／承知する」（接受、承接）的谦逊语，常用于服务业表达“我方承接/接受您的委托、请求”。注意与「申し上げる」（“言う”的谦逊语）、「差し上げる」（“やる/与える”的谦逊语）、「いただく」（“食べる/もらう”的谦逊语）区分——这几个谦逊语对应的原型动词完全不同，是常见的干扰项设置方式。",
+      "frequency": 3,
+      "examples": [
+        {
+          "jp": "（花屋のホームページで）ご予算に合わせて、花束をお作りします。送料無料で日にち指定の全国発送もうけたまわります。",
+          "zh": "（花店的主页上）根据您的预算为您制作花束。并可以免费为您在您指定日期承接全国派送服务。"
+        }
+      ],
+      "source": "2013-07"
+    },
+    {
+      "id": "wake_niwa_ikanai",
+      "pattern": "〜わけにはいかない",
+      "meaning": "不能……，不可以……（因心理、社会关系等因素而必须做或不能做）",
+      "connection": "動詞辞書形／ない形＋わけにはいかない",
+      "formality": "口语、书面都可用",
+      "family": "obligation_wakeniwaikanai",
+      "confusable": [
+        "wakedewanai",
+        "wakeganai"
+      ],
+      "distinguish_zh": "鉴于心理上的、社会性的或人际关系等情况，表达“不做那件事是躲不过去的”或“必须做”之意，区别于「わけではない」（部分否定）和「わけがない」（不可能）。",
+      "frequency": 4,
+      "examples": [
+        {
+          "jp": "夫「行ってきます。」妻「え?会社、行くの?まだ熱があるんでしょう?」夫「大事な会議があるから、休むわけにはいかないんだ。」",
+          "zh": "丈夫：“我走了。”妻子：“诶？你去上班？不是还没退烧嘛。”丈夫：“有重要的会议，所以不能休息。”"
+        }
+      ],
+      "source": "2013-07"
+    },
+    {
+      "id": "ya_nanika_de",
+      "pattern": "〜や何かで",
+      "meaning": "……或什么的（不确定、举例式指代）",
+      "connection": "名詞＋や何かで",
+      "formality": "口语",
+      "family": "vague_reference",
+      "confusable": [],
+      "distinguish_zh": "「や何かで」用于不确定、模糊地指代某个媒介或方式，“……或什么的”，含有说话人记不太清楚具体是哪个的语感，常见于口语对话中。",
+      "frequency": 2,
+      "examples": [
+        {
+          "jp": "A「ねえ見て、このゲーム。面白そうだから、買っちゃった。」B「あ、それって、最近雑誌や何かでよく取り上げられてるゲームでしょう?」",
+          "zh": "A：“你看，这个游戏。看上去很有趣，我就买回来了。”B：“啊，那个是最近在杂志上什么的经常介绍的游戏吧。”"
+        }
+      ],
+      "source": "2013-07"
+    },
+    {
+      "id": "no_ni_kakasenai",
+      "pattern": "〜のに欠かせない",
+      "meaning": "……方面不可或缺（的东西）",
+      "connection": "動詞辞書形の名詞化（の）＋に欠かせない",
+      "formality": "书面、口语皆可",
+      "family": "essential_condition",
+      "confusable": [],
+      "distinguish_zh": "「に欠かせない」表示“……方面不可或缺”，前面的「の」把动词短语名词化，“のに欠かせない”整体修饰后面的名词，强调这个事物在做某件事时是必需的。",
+      "frequency": 3,
+      "examples": [
+        {
+          "jp": "砂糖、塩、酢、しょうゆ、みそ、これらは日本食を作るのに欠かせない調味料です。",
+          "zh": "糖、盐、醋、酱油、味噌，这些是做日本料理不可缺的调味料。"
+        }
+      ],
+      "source": "2013-07"
+    },
+    {
+      "id": "youto_suru_tabi_ni",
+      "pattern": "〜ようとするたびに",
+      "meaning": "每当想要……的时候就……",
+      "connection": "動詞意向形＋とする＋たびに",
+      "formality": "口语、书面都可用",
+      "family": "repeated_habit_tabini",
+      "confusable": [],
+      "distinguish_zh": "「たびに」前接动词连体形，表示“每当……就……”，与意向形「〜ようとする」（正打算……）组合，强调“每次一有出门的动作意图，就会……”这种反复发生的场景。",
+      "frequency": 3,
+      "examples": [
+        {
+          "jp": "うちの犬は、私が出かけようとするたびに、寂しそうな目で私を見る。",
+          "zh": "我家的狗每当我要出门时，就会可怜巴巴地看着我。"
+        }
+      ],
+      "source": "2013-07"
+    },
+    {
+      "id": "to_bakari_omotteita",
+      "pattern": "〜とばかり思っていた",
+      "meaning": "一直以为……（结果发现并非如此）",
+      "connection": "普通形＋とばかり思っていた",
+      "formality": "口语、书面都可用",
+      "family": "mistaken_belief",
+      "confusable": [],
+      "distinguish_zh": "用于叙述自己原本一直以为是某种情况，结果发现事实并非如此，常用来表达“恍然大悟、发现自己错误认知”的语境。",
+      "frequency": 3,
+      "examples": [
+        {
+          "jp": "私は、ストレスは悪いものだとばかり思っていたので、良いストレスもあると知って驚いた。",
+          "zh": "我以前一直认为压力就是不好的东西，因此当我得知也有好的压力时感到很吃惊。"
+        }
+      ],
+      "source": "2013-07"
+    },
+    {
+      "id": "sore_mo_aru_kamoshirenai",
+      "pattern": "〜それもあるかもしれません",
+      "meaning": "或许也有那方面的原因",
+      "connection": "独立使用，用于回应对方的意见并补充自己的看法",
+      "formality": "口语",
+      "family": "possible_reason",
+      "confusable": [],
+      "distinguish_zh": "用于对话中，先部分认同对方提出的原因，再补充说明自己认为还有其他可能的原因，是一种委婉表达不同意见的方式。",
+      "frequency": 2,
+      "examples": [
+        {
+          "jp": "司会者「お二人は、子供が外で遊ばなくなったのはなぜだと思いますか。」山田「子供が安心して遊べる場所がなくなったからだと思います。」西川「確かにそれもあるかもしれませんが、遊びの種類が変わったことも理由の一つだと思います。」",
+          "zh": "主持人：“二位认为孩子们变得不在外面玩的原因是什么呢？”山田：“我觉得是因为孩子们能安心玩的地方没有了。”西川：“或许也有那方面的原因，但我觉得玩耍的种类变了也是原因之一。”"
+        }
+      ],
+      "source": "2013-07"
+    },
+    {
+      "id": "toieba_nitsuide",
+      "pattern": "〜といえば〜に次いで",
+      "meaning": "说到……的话，仅次于……",
+      "connection": "名詞＋といえば／名詞＋に次いで",
+      "formality": "口语、书面都可用",
+      "family": "topic_ranking",
+      "confusable": [],
+      "distinguish_zh": "「といえば」提起某个话题，“说到……的话”；「に次いで」表示“仅次于……、次于……”，两者组合常用于介绍排名第二的事物。",
+      "frequency": 3,
+      "examples": [
+        {
+          "jp": "この国でサッカーに次いで人気のあるスポーツといえば野球だ。",
+          "zh": "在这个国家，说起仅次于足球有人气的运动，要数棒球。"
+        }
+      ],
+      "source": "2013-07"
+    },
+    {
+      "id": "kiri_nai",
+      "pattern": "〜きり〜ない",
+      "meaning": "自从……之后就再也没……",
+      "connection": "動詞た形＋きり＋（否定形）",
+      "formality": "口语",
+      "family": "since_then_never",
+      "confusable": [],
+      "distinguish_zh": "「〜きり」接在动词た形后，表示“自从……之后”，后半句常搭配否定形式，表示预想中该发生的事情一直没有发生，这种没发生的状态持续不变。",
+      "frequency": 3,
+      "examples": [
+        {
+          "jp": "田中「あれ?木村さん、だいぶ髪が伸びましたね」木村「ええ、半年前に切ったきり一度も切ってないんですよ。」",
+          "zh": "田中：“诶？木村你头发长长了好多啊。”木村：“恩，半年前剪过一次后就再也没剪过了。”"
+        }
+      ],
+      "source": "2013-07"
+    },
+    {
+      "id": "wa_motoyori",
+      "pattern": "〜はもとより",
+      "meaning": "不用说……，……自不必说，连……也……",
+      "connection": "名詞＋はもとより",
+      "formality": "书面语，较正式",
+      "family": "not_to_mention",
+      "confusable": [],
+      "distinguish_zh": "「はもとより」表示“不用说……了，连……也……”，比「はもちろん」更书面、更正式，强调前项是理所当然的，重点在后项也同样成立。",
+      "frequency": 3,
+      "examples": [
+        {
+          "jp": "私たちの学校には指導熱心な先生方が多いが、中でも、経験豊富な山田先生は生徒はもとより保護者からの信頼も厚い。",
+          "zh": "我们学校有很多热心教导的老师。其中，经验丰富的山田老师，不用说学生了，还深受家长们的信赖。"
+        }
+      ],
+      "source": "2013-07"
+    },
+    {
+      "id": "no_ue_deha_men",
+      "pattern": "〜の上では",
+      "meaning": "在……方面（上）",
+      "connection": "名詞＋の上では",
+      "formality": "书面语，较正式",
+      "family": "in_terms_of",
+      "confusable": [
+        "no_sue_ni"
+      ],
+      "distinguish_zh": "「の上では」表示“在……这个方面/领域上”，用于限定讨论的范围，常见搭配如“仕事の上では”“数字の上では”，与表示“经过……之后”的「の末に」形似但意思完全不同，注意区分。",
+      "frequency": 3,
+      "examples": [
+        {
+          "jp": "仕事の上では対立することの多い山田さんと林さんだが、プライベートではとても仲がいい。",
+          "zh": "在工作方面有很多对立的山田和林，在私下是好朋友。"
+        }
+      ],
+      "source": "2013-07"
     }
   ]
 }
