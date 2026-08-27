@@ -114,10 +114,10 @@
     },
     "2010-12-q49": {
       "correct": 1,
-      "wrong": 0,
-      "box": 1,
+      "wrong": 1,
+      "box": 0,
       "attempted": true,
-      "next_review": "2026-07-10"
+      "next_review": "2026-08-28"
     }
   },
   "daily": {
