@@ -23,10 +23,10 @@
     },
     "2010-12-q36": {
       "correct": 0,
-      "wrong": 1,
+      "wrong": 2,
       "box": 0,
       "attempted": true,
-      "next_review": "2026-07-09"
+      "next_review": "2026-08-28"
     },
     "2010-12-q37": {
       "correct": 1,
