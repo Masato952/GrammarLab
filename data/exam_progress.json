@@ -99,11 +99,11 @@
       "next_review": "2026-08-28"
     },
     "2010-12-q47": {
-      "correct": 0,
+      "correct": 1,
       "wrong": 1,
-      "box": 0,
+      "box": 1,
       "attempted": true,
-      "next_review": "2026-07-09"
+      "next_review": "2026-08-29"
     },
     "2010-12-q48": {
       "correct": 1,
