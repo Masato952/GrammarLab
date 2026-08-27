@@ -43,18 +43,18 @@
       "next_review": "2026-08-28"
     },
     "2010-12-q39": {
-      "correct": 1,
+      "correct": 2,
       "wrong": 0,
-      "box": 1,
+      "box": 2,
       "attempted": true,
-      "next_review": "2026-07-10"
+      "next_review": "2026-08-31"
     },
     "2010-12-q40": {
-      "correct": 1,
+      "correct": 2,
       "wrong": 0,
-      "box": 1,
+      "box": 2,
       "attempted": true,
-      "next_review": "2026-07-10"
+      "next_review": "2026-08-31"
     },
     "2010-12-q41": {
       "correct": 1,
