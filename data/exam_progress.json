@@ -107,7 +107,7 @@
     },
     "2010-12-q48": {
       "correct": 1,
-      "wrong": 1,
+      "wrong": 2,
       "box": 0,
       "attempted": true,
       "next_review": "2026-08-28"
