@@ -19,6 +19,8 @@ BLUEBOOK_LOG_FILE = DATA_DIR / "bluebook_log.json"
 BLUEBOOK_GROUP_FILE = DATA_DIR / "bluebook_group_stats.json"
 EXAM_PROGRESS_FILE = DATA_DIR / "exam_progress.json"
 LISTENING_FILE = DATA_DIR / "listening_questions.json"
+MOCK_FILE = DATA_DIR / "mock_exam_questions.json"
+MOCK_PROGRESS_FILE = DATA_DIR / "mock_progress.json"
 
 # 简化版莱特纳盒子：答对进下一箱（复习间隔变长），答错打回第0箱（明天重考）
 LEITNER_INTERVALS = [1, 2, 4, 7, 15, 30]
@@ -209,13 +211,50 @@ def save_exam_progress(data):
     github_commit_file(EXAM_PROGRESS_FILE, "data/exam_progress.json", "更新 exam_progress.json")
 
 
-def record_exam_answer(progress_data, log, qid, gid, correct):
-    """答一道真题后：更新旧的 grammar_id 统计（给混同比較/我的进度用），
-    同时给这道题单独记录莱特纳盒子进度（给复习调度用）。"""
-    log.setdefault(gid, {"correct": 0, "wrong": 0})
-    log[gid]["correct" if correct else "wrong"] += 1
-    save_log(log)
+def load_mock_exams():
+    return _safe_json_load(MOCK_FILE, {"sets": []}, "data/mock_exam_questions.json")
 
+
+def load_mock_progress():
+    data = _safe_json_load(MOCK_PROGRESS_FILE, {}, "data/mock_progress.json")
+    data.setdefault("questions", {})
+    data.setdefault("set_attempts", {})
+    data.setdefault("set_last_accuracy", {})
+    return data
+
+
+def save_mock_progress(data):
+    with open(MOCK_PROGRESS_FILE, "w", encoding="utf-8", newline="\n") as f:
+        json.dump(data, f, ensure_ascii=False, indent=2)
+    github_commit_file(MOCK_PROGRESS_FILE, "data/mock_progress.json", "更新 mock_progress.json")
+
+
+def record_mock_answer(progress_data, qid, correct):
+    """答一道模拟题后：记录这道题的对错次数（给错题复习用）。"""
+    qprogress = progress_data["questions"].setdefault(qid, {"correct": 0, "wrong": 0})
+    qprogress["correct" if correct else "wrong"] += 1
+    save_mock_progress(progress_data)
+
+
+def mock_complete_sentence(q):
+    """把模拟题题干还原成完整句子（给朗读功能用）。
+    读音/近义题的题干本身就是完整句（去掉【】标记即可），
+    排序题按 full_order 填空，文章语法题把（　48　）之类替换成正确选项。"""
+    if q.get("mondai") == 6:  # 用法题：正确答案本身就是完整例句
+        return q["options"][q["answer_index"]]
+    sentence = q["sentence"]
+    if q.get("type") == "reorder" and q.get("full_order"):
+        for n, token in zip(q["full_order"], ["＿＿＿", "＿＿＿", "★", "＿＿＿"]):
+            sentence = sentence.replace(token, q["options"][n - 1], 1)
+        return sentence.replace(" ", "")
+    sentence = re.sub(r"（\s*\d+\s*）", q["options"][q["answer_index"]], sentence)
+    sentence = sentence.replace("（　　）", q["options"][q["answer_index"]])
+    return sentence.replace("【", "").replace("】", "")
+
+
+def update_exam_question_progress(progress_data, qid, correct):
+    """更新一道真题的莱特纳盒子进度（给错题复习/常错题提醒用），不落盘。
+    批量判分一整套题时，调用方应该在处理完所有题后自己统一调用一次 save_exam_progress。"""
     qprogress = progress_data["questions"].setdefault(
         qid, {"correct": 0, "wrong": 0, "box": 0, "attempted": False}
     )
@@ -223,6 +262,11 @@ def record_exam_answer(progress_data, log, qid, gid, correct):
     key = "correct" if correct else "wrong"
     qprogress[key] = qprogress.get(key, 0) + 1
     leitner_advance(qprogress, correct)
+
+
+def record_exam_answer(progress_data, qid, correct):
+    """答一道真题后，更新莱特纳盒子进度并立即保存（单题作答场景用，比如错题复习）。"""
+    update_exam_question_progress(progress_data, qid, correct)
     save_exam_progress(progress_data)
 
 
