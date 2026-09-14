@@ -2,6 +2,7 @@ import base64
 import io
 import json
 import os
+import random
 import re
 from datetime import date, timedelta
 from pathlib import Path
@@ -240,6 +241,43 @@ def record_bluebook_answer(bb_data, bb_log, entry, correct):
 def exam_sets_by_year(questions):
     years = sorted({q["year"] for q in questions})
     return {y: sorted([q for q in questions if q["year"] == y], key=lambda q: q["question_no"]) for y in years}
+
+
+def random_option_order(n):
+    order = list(range(n))
+    random.shuffle(order)
+    return order
+
+
+_OPTION_NUM_RE = re.compile(r"([1-4])(?=「)")
+_LEADING_ANSWER_NUM_RE = re.compile(r"^正解[：:]\s*\d+\s*")
+_ORDER_HINT_RE = re.compile(r"（?正确(?:顺序|语序)为[：:]\s*[\d\-]+）?\s*")
+
+
+def shuffled_question_options(q, order):
+    """按 order（选项下标的随机排列）重排一道真题的选项，返回打乱后的 options/answer_index/explanation，
+    排序题还会同步重新映射 full_order，保证「完整语序」还原逻辑不受影响。
+
+    题库里的解析文本是按原始（未打乱）选项顺序写死的：普通题在每个「候选词」前面标了原始序号
+    （如"正解：2「も」...1「と」..."），排序题则直接写"正解：N"和"正确顺序为：X-X-X-X"。
+    选项顺序被打乱展示后，这些写死的编号就会跟界面上的编号对不上，所以这里按需重新映射/去掉。"""
+    options = [q["options"][i] for i in order]
+    old_to_new = {old: new for new, old in enumerate(order)}
+    result = {"options": options, "answer_index": old_to_new[q["answer_index"]]}
+    is_reorder = q.get("type") == "reorder"
+    if is_reorder and q.get("full_order"):
+        result["full_order"] = [old_to_new[n - 1] + 1 for n in q["full_order"]]
+
+    explanation = q.get("explanation_zh", "")
+    if is_reorder:
+        explanation = _LEADING_ANSWER_NUM_RE.sub("", explanation)
+        explanation = _ORDER_HINT_RE.sub("", explanation)
+    else:
+        explanation = _OPTION_NUM_RE.sub(
+            lambda m: str(old_to_new[int(m.group(1)) - 1] + 1), explanation
+        )
+    result["explanation"] = explanation
+    return result
 
 
 def complete_sentence(q):

@@ -18,10 +18,12 @@ from common import (
     load_grammar,
     load_listening_questions,
     load_log,
+    random_option_order,
     record_bluebook_answer,
     record_exam_answer,
     save_bluebook_group_stats,
     save_exam_progress,
+    shuffled_question_options,
     synthesize_ja,
     update_exam_question_progress,
 )
@@ -83,7 +85,14 @@ with tab_quiz:
                 st.caption("四个选项按顺序能拼成一句完整的话，请判断 ★ 处应该填哪个选项")
             st.write(f"### {q['sentence']}")
 
-            option_labels = [f"{i + 1}. {opt}" for i, opt in enumerate(q["options"])]
+            order_key = f"{key_prefix}_order"
+            if order_key not in st.session_state:
+                st.session_state[order_key] = random_option_order(len(q["options"]))
+            shuffled = shuffled_question_options(q, st.session_state[order_key])
+            options = shuffled["options"]
+            answer_index = shuffled["answer_index"]
+
+            option_labels = [f"{i + 1}. {opt}" for i, opt in enumerate(options)]
             answered_key = f"{key_prefix}_answered"
             picked_key = f"{key_prefix}_picked"
             picked = st.radio(
@@ -98,7 +107,7 @@ with tab_quiz:
                 and not st.session_state.get(answered_key, False)
             ):
                 picked_index = option_labels.index(picked)
-                correct = picked_index == q["answer_index"]
+                correct = picked_index == answer_index
                 st.session_state[answered_key] = True
                 st.session_state[picked_key] = picked_index
                 just_answered = correct
@@ -107,18 +116,18 @@ with tab_quiz:
             next_clicked = False
             if st.session_state.get(answered_key):
                 picked_index = st.session_state[picked_key]
-                correct_option = q["options"][q["answer_index"]]
-                if picked_index == q["answer_index"]:
-                    st.success(f"✅ 回答正确！正确答案是 {q['answer_index'] + 1}. {correct_option}")
+                correct_option = options[answer_index]
+                if picked_index == answer_index:
+                    st.success(f"✅ 回答正确！正确答案是 {answer_index + 1}. {correct_option}")
                 else:
                     st.error(
-                        f"❌ 回答错误。你选的是 {picked_index + 1}. {q['options'][picked_index]}，"
-                        f"正确答案是 {q['answer_index'] + 1}. {correct_option}"
+                        f"❌ 回答错误。你选的是 {picked_index + 1}. {options[picked_index]}，"
+                        f"正确答案是 {answer_index + 1}. {correct_option}"
                     )
-                if is_reorder and q.get("full_order"):
-                    full_sentence = "".join(q["options"][n - 1] for n in q["full_order"])
+                if is_reorder and shuffled.get("full_order"):
+                    full_sentence = "".join(options[n - 1] for n in shuffled["full_order"])
                     st.markdown(f"**完整语序**：{full_sentence}")
-                st.markdown(f"**解析**：{q['explanation_zh']}")
+                st.markdown(f"**解析**：{shuffled['explanation']}")
                 st.markdown(f"**译文**：{q['translation_zh']}")
                 if grammar_entry:
                     st.caption(f"涉及文法点：「{grammar_entry['pattern']}」— {grammar_entry['meaning']}")
@@ -182,7 +191,11 @@ with tab_quiz:
                     if is_reorder:
                         st.caption("四个选项按顺序能拼成一句完整的话，请判断 ★ 处应该填哪个选项")
                     st.write(f"### {q['sentence']}")
-                    option_labels = [f"{j + 1}. {opt}" for j, opt in enumerate(q["options"])]
+                    order_key = f"{radio_prefix}_{q['id']}_order"
+                    if order_key not in st.session_state:
+                        st.session_state[order_key] = random_option_order(len(q["options"]))
+                    shuffled = shuffled_question_options(q, st.session_state[order_key])
+                    option_labels = [f"{j + 1}. {opt}" for j, opt in enumerate(shuffled["options"])]
                     picked = st.radio(
                         "选择最合适的选项", option_labels, index=None,
                         key=f"{radio_prefix}_{q['id']}_radio",
@@ -197,12 +210,16 @@ with tab_quiz:
                     results = []
                     correct_n = 0
                     for q in set_qs:
+                        order = st.session_state[f"{radio_prefix}_{q['id']}_order"]
+                        shuffled = shuffled_question_options(q, order)
                         picked_index = picks[q["id"]]
-                        correct = picked_index is not None and picked_index == q["answer_index"]
+                        correct = picked_index is not None and picked_index == shuffled["answer_index"]
                         if correct:
                             correct_n += 1
                         update_exam_question_progress(exam_progress, q["id"], correct)
-                        results.append({"qid": q["id"], "picked_index": picked_index, "correct": correct})
+                        results.append({
+                            "qid": q["id"], "picked_index": picked_index, "correct": correct, "order": order,
+                        })
 
                     total = len(set_qs)
                     exam_progress["set_attempts"][selected_year] = (
@@ -222,32 +239,44 @@ with tab_quiz:
 
                 for i, r in enumerate(results):
                     q = next(item for item in set_qs if item["id"] == r["qid"])
+                    shuffled = shuffled_question_options(q, r["order"])
+                    options = shuffled["options"]
+                    answer_index = shuffled["answer_index"]
                     icon = "✅" if r["correct"] else "❌"
-                    with st.expander(f"第 {i + 1} 题　{icon}　{q['year']} 問題{q['question_no']}"):
-                        st.write(f"### {q['sentence']}")
-                        correct_option = q["options"][q["answer_index"]]
-                        if r["picked_index"] is None:
-                            st.warning(f"这道题没有作答。正确答案是 {q['answer_index'] + 1}. {correct_option}")
-                        elif r["correct"]:
-                            st.success(f"✅ 回答正确！正确答案是 {q['answer_index'] + 1}. {correct_option}")
-                        else:
-                            st.error(
-                                f"❌ 回答错误。你选的是 {r['picked_index'] + 1}. {q['options'][r['picked_index']]}，"
-                                f"正确答案是 {q['answer_index'] + 1}. {correct_option}"
-                            )
-                        if q.get("type") == "reorder" and q.get("full_order"):
-                            full_sentence = "".join(q["options"][n - 1] for n in q["full_order"])
-                            st.markdown(f"**完整语序**：{full_sentence}")
-                        st.markdown(f"**解析**：{q['explanation_zh']}")
-                        st.markdown(f"**译文**：{q['translation_zh']}")
-                        grammar_entry = by_id.get(q["grammar_id"])
-                        if grammar_entry:
-                            st.caption(f"涉及文法点：「{grammar_entry['pattern']}」— {grammar_entry['meaning']}")
-                        audio_key = f"quiz_set_result_{r['qid']}_audio"
-                        if st.button("🔊 播放完整句子", key=f"quiz_set_result_{r['qid']}_play"):
-                            st.session_state[audio_key] = synthesize_ja(complete_sentence(q))
-                        if audio_key in st.session_state:
-                            st.audio(st.session_state[audio_key], format="audio/mp3")
+                    is_reorder = q.get("type") == "reorder"
+                    st.divider()
+                    st.caption(f"第 {i + 1} 题　{icon}　{q['year']} 問題{q['question_no']}" + ("　排序题" if is_reorder else ""))
+                    if is_reorder:
+                        st.caption("四个选项按顺序能拼成一句完整的话，请判断 ★ 处应该填哪个选项")
+                    st.write(f"### {q['sentence']}")
+                    option_labels = [f"{j + 1}. {opt}" for j, opt in enumerate(options)]
+                    st.radio(
+                        "选择最合适的选项", option_labels, index=r["picked_index"],
+                        key=f"quiz_set_result_{r['qid']}_radio", disabled=True,
+                    )
+                    correct_option = options[answer_index]
+                    if r["picked_index"] is None:
+                        st.warning(f"这道题没有作答。正确答案是 {answer_index + 1}. {correct_option}")
+                    elif r["correct"]:
+                        st.success(f"✅ 回答正确！正确答案是 {answer_index + 1}. {correct_option}")
+                    else:
+                        st.error(
+                            f"❌ 回答错误。你选的是 {r['picked_index'] + 1}. {options[r['picked_index']]}，"
+                            f"正确答案是 {answer_index + 1}. {correct_option}"
+                        )
+                    if is_reorder and shuffled.get("full_order"):
+                        full_sentence = "".join(options[n - 1] for n in shuffled["full_order"])
+                        st.markdown(f"**完整语序**：{full_sentence}")
+                    st.markdown(f"**解析**：{shuffled['explanation']}")
+                    st.markdown(f"**译文**：{q['translation_zh']}")
+                    grammar_entry = by_id.get(q["grammar_id"])
+                    if grammar_entry:
+                        st.caption(f"涉及文法点：「{grammar_entry['pattern']}」— {grammar_entry['meaning']}")
+                    audio_key = f"quiz_set_result_{r['qid']}_audio"
+                    if st.button("🔊 播放完整句子", key=f"quiz_set_result_{r['qid']}_play"):
+                        st.session_state[audio_key] = synthesize_ja(complete_sentence(q))
+                    if audio_key in st.session_state:
+                        st.audio(st.session_state[audio_key], format="audio/mp3")
 
                 if st.button("再做一遍这一套", key=f"{radio_prefix}_restart"):
                     st.session_state.quiz_set_attempt = attempt + 1
