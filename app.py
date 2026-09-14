@@ -18,15 +18,10 @@ from common import (
     load_grammar,
     load_listening_questions,
     load_log,
-    load_mock_exams,
-    load_mock_progress,
-    mock_complete_sentence,
     record_bluebook_answer,
     record_exam_answer,
-    record_mock_answer,
     save_bluebook_group_stats,
     save_exam_progress,
-    save_mock_progress,
     synthesize_ja,
     update_exam_question_progress,
 )
@@ -40,19 +35,17 @@ bluebook_data = load_bluebook()
 bluebook_log = load_bluebook_log()
 bluebook_group_stats = load_bluebook_group_stats()
 listening_data = load_listening_questions()
-mock_data = load_mock_exams()
-mock_progress = load_mock_progress()
 by_id = entries_by_id(data)
 bb_by_id = {e["id"]: e for e in bluebook_data["entries"]}
 
 st.title("🈶 N2特训 — 真题 / 蓝宝书")
 
 (
-    tab_quiz, tab_mock, tab_bb_quiz, tab_listening,
+    tab_quiz, tab_bb_quiz, tab_listening,
     tab_bb_browse, tab_search, tab_compare, tab_stats,
 ) = st.tabs(
     [
-        "📝 真题练习", "🧪 模拟考试", "🎯 蓝宝书测试", "🎧 听力练习",
+        "📝 真题练习", "🎯 蓝宝书测试", "🎧 听力练习",
         "📖 蓝宝书文法", "🔍 検索", "⚖️ 混同比較", "📊 我的进度",
     ]
 )
@@ -300,191 +293,6 @@ with tab_quiz:
                         st.session_state.quiz_review_correct += 1
                     if next_clicked:
                         st.session_state.quiz_review_pos += 1
-                        st.rerun()
-
-# ---------------- 模拟考试 ----------------
-with tab_mock:
-    mock_sets = mock_data.get("sets", [])
-
-    if not mock_sets:
-        st.write("模拟题库还是空的。")
-    else:
-        set_titles = {s["id"]: s["title"] for s in mock_sets}
-        selected_set_id = st.selectbox(
-            "选择一套模拟题", list(set_titles.keys()),
-            format_func=lambda x: set_titles[x], key="mock_set_select",
-        )
-        mset = next(s for s in mock_sets if s["id"] == selected_set_id)
-        st.caption(f"来源：{mset.get('source', '')}")
-        set_of_qid = {q["id"]: s for s in mock_sets for q in s["questions"]}
-
-        def render_mock_question(q, key_prefix):
-            """渲染一道模拟题（題干/选项/提交/解析），返回 (just_answered, next_clicked)。"""
-            qset = set_of_qid[q["id"]]
-            mondai = q.get("mondai")
-            instruction = qset.get("mondai_instructions", {}).get(str(mondai), "")
-            st.caption(f"問題{mondai}　第{q['question_no']}题　{instruction}")
-            if q.get("use_passage") and qset.get("passage"):
-                with st.expander(f"📄 阅读原文：{qset.get('passage_title', '')}", expanded=False):
-                    st.markdown(qset["passage"].replace("\n", "\n\n"))
-            if q.get("type") == "reorder":
-                st.caption("四个选项按顺序能拼成一句完整的话，请判断 ★ 处应该填哪个选项")
-            st.write(f"### {q['sentence']}")
-
-            option_labels = [f"{i + 1}. {opt}" for i, opt in enumerate(q["options"])]
-            answered_key = f"{key_prefix}_answered"
-            picked_key = f"{key_prefix}_picked"
-            picked = st.radio(
-                "这个词的正确用法是？" if mondai == 6 else "选择最合适的选项",
-                option_labels, index=None, key=f"{key_prefix}_radio",
-                disabled=st.session_state.get(answered_key, False),
-            )
-
-            just_answered = None
-            if (
-                st.button("提交答案", key=f"{key_prefix}_submit")
-                and picked is not None
-                and not st.session_state.get(answered_key, False)
-            ):
-                picked_index = option_labels.index(picked)
-                correct = picked_index == q["answer_index"]
-                st.session_state[answered_key] = True
-                st.session_state[picked_key] = picked_index
-                just_answered = correct
-                record_mock_answer(mock_progress, q["id"], correct)
-
-            next_clicked = False
-            if st.session_state.get(answered_key):
-                picked_index = st.session_state[picked_key]
-                correct_option = q["options"][q["answer_index"]]
-                if picked_index == q["answer_index"]:
-                    st.success(f"✅ 回答正确！正确答案是 {q['answer_index'] + 1}. {correct_option}")
-                else:
-                    st.error(
-                        f"❌ 回答错误。你选的是 {picked_index + 1}. {q['options'][picked_index]}，"
-                        f"正确答案是 {q['answer_index'] + 1}. {correct_option}"
-                    )
-                if q.get("type") == "reorder" and q.get("full_order"):
-                    full_sentence = "".join(q["options"][n - 1] for n in q["full_order"])
-                    st.markdown(f"**完整语序**：{full_sentence}")
-                st.markdown(f"**解析**：{q['explanation_zh']}")
-                st.markdown(f"**译文**：{q['translation_zh']}")
-
-                audio_key = f"{key_prefix}_audio"
-                if st.button("🔊 播放完整句子", key=f"{key_prefix}_play"):
-                    st.session_state[audio_key] = synthesize_ja(mock_complete_sentence(q))
-                if audio_key in st.session_state:
-                    st.audio(st.session_state[audio_key], format="audio/mp3")
-
-                next_clicked = st.button("下一题", key=f"{key_prefix}_next")
-
-            return just_answered, next_clicked
-
-        mock_mode = st.radio("练习模式", ["按套刷题", "错题复习"], horizontal=True, key="mock_mode")
-
-        if mock_mode == "按套刷题":
-            mondai_nos = sorted({q["mondai"] for q in mset["questions"]})
-            mondai_options = ["全部"] + [f"問題{n}" for n in mondai_nos]
-            mondai_pick = st.selectbox("选择范围", mondai_options, key="mock_mondai_pick")
-            if mondai_pick == "全部":
-                pool = mset["questions"]
-            else:
-                pick_no = int(mondai_pick.replace("問題", ""))
-                pool = [q for q in mset["questions"] if q["mondai"] == pick_no]
-
-            progress_key = f"{selected_set_id}|{mondai_pick}"
-            attempts = mock_progress["set_attempts"].get(progress_key, 0)
-            last_acc = mock_progress["set_last_accuracy"].get(progress_key)
-            if attempts:
-                st.caption(f"这个范围完整做过 {attempts} 次，上次正确率 {last_acc:.0%}")
-            else:
-                st.caption("这个范围还没完整做过")
-
-            if st.session_state.get("mock_active_key") != progress_key:
-                st.session_state.mock_active_key = progress_key
-                st.session_state.mock_queue = [q["id"] for q in pool]
-                st.session_state.mock_pos = 0
-                st.session_state.mock_wrong = []
-                st.session_state.mock_correct_count = 0
-                st.session_state.mock_counted = False
-
-            mqueue = st.session_state.mock_queue
-            mpos = st.session_state.mock_pos
-            mock_by_id = {q["id"]: q for q in mset["questions"]}
-
-            if mpos >= len(mqueue):
-                total = len(mqueue)
-                correct_n = st.session_state.mock_correct_count
-                if not st.session_state.mock_counted:
-                    mock_progress["set_attempts"][progress_key] = attempts + 1
-                    mock_progress["set_last_accuracy"][progress_key] = correct_n / total if total else 0
-                    save_mock_progress(mock_progress)
-                    st.session_state.mock_counted = True
-
-                st.success(f"这个范围（{mondai_pick}）做完了：共 {total} 题，答对 {correct_n}，答错 {total - correct_n}。")
-                if st.session_state.mock_wrong:
-                    st.write("**这次答错的题**：")
-                    for qid in st.session_state.mock_wrong:
-                        wq = mock_by_id[qid]
-                        st.write(f"- 問題{wq['mondai']} 第{wq['question_no']}题：{wq['sentence'][:40]}")
-                if st.button("再做一遍", key="mock_restart"):
-                    st.session_state.mock_queue = [q["id"] for q in pool]
-                    st.session_state.mock_pos = 0
-                    st.session_state.mock_wrong = []
-                    st.session_state.mock_correct_count = 0
-                    st.session_state.mock_counted = False
-                    st.rerun()
-            else:
-                st.caption(f"第 {mpos + 1} / {len(mqueue)} 题")
-                q = mock_by_id[mqueue[mpos]]
-                correct, next_clicked = render_mock_question(q, key_prefix=f"mock_{q['id']}")
-                if correct is not None:
-                    if correct:
-                        st.session_state.mock_correct_count += 1
-                    else:
-                        st.session_state.mock_wrong.append(q["id"])
-                if next_clicked:
-                    st.session_state.mock_pos += 1
-                    st.rerun()
-
-        else:  # 错题复习
-            all_mock_qids = {q["id"] for s in mock_sets for q in s["questions"]}
-            mock_wrong_qids = [
-                qid for qid, prog in mock_progress["questions"].items()
-                if prog.get("wrong", 0) > 0 and qid in all_mock_qids
-            ]
-
-            if not mock_wrong_qids:
-                st.success("目前没有模拟题错题记录，太棒了。")
-            elif st.session_state.get("mock_review_queue") is None:
-                st.write(f"目前累计有 **{len(mock_wrong_qids)}** 道错题（按错的次数从多到少排列）。")
-                if st.button("开始复习错题", key="mock_review_start"):
-                    st.session_state.mock_review_queue = sorted(
-                        mock_wrong_qids,
-                        key=lambda qid: mock_progress["questions"][qid].get("wrong", 0),
-                        reverse=True,
-                    )
-                    st.session_state.mock_review_pos = 0
-                    st.session_state.mock_review_correct = 0
-                    st.rerun()
-            else:
-                mrqueue = st.session_state.mock_review_queue
-                mrpos = st.session_state.mock_review_pos
-                all_mock_by_id = {q["id"]: q for s in mock_sets for q in s["questions"]}
-
-                if mrpos >= len(mrqueue):
-                    st.success(f"错题复习完成：共 {len(mrqueue)} 题，答对 {st.session_state.mock_review_correct} 题。")
-                    if st.button("关闭本轮复习", key="mock_review_close"):
-                        st.session_state.mock_review_queue = None
-                        st.rerun()
-                else:
-                    st.caption(f"复习第 {mrpos + 1} / {len(mrqueue)} 题")
-                    rq = all_mock_by_id[mrqueue[mrpos]]
-                    correct, next_clicked = render_mock_question(rq, key_prefix=f"mock_review_{rq['id']}")
-                    if correct is not None and correct:
-                        st.session_state.mock_review_correct += 1
-                    if next_clicked:
-                        st.session_state.mock_review_pos += 1
                         st.rerun()
 
 # ---------------- 検索 ----------------
