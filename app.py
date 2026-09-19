@@ -31,20 +31,40 @@ from common import (
 )
 
 _AUTOPLAY_PLAYER_HTML = """
-<div style="font-family: -apple-system, sans-serif;">
-  <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:8px;">
-    <span id="pos-label" style="color:#888; font-size:14px;"></span>
-    <label style="font-size:14px;"><input type="checkbox" id="hide-toggle"> 隐藏文字（默写/精听）</label>
-  </div>
-  <div id="jp-text" style="font-size:22px; font-weight:600; margin-bottom:6px; min-height:36px; line-height:1.4;"></div>
-  <div id="zh-text" style="color:#666; margin-bottom:12px;"></div>
-  <audio id="audio-el" controls style="width:100%;"></audio>
-  <div style="margin-top:10px; display:flex; gap:8px; align-items:center;">
-    <button id="prev-btn">⬅️ 上一句</button>
-    <button id="play-btn">▶️ 开始连续播放</button>
-    <button id="next-btn">下一句 ➡️</button>
-    <label style="margin-left:auto; font-size:14px;"><input type="checkbox" id="loop-toggle"> 循环整套</label>
-  </div>
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="color-scheme" content="light only">
+<style>
+  /* 强制固定成浅色配色，不跟随系统/浏览器的深色模式反色，
+     不然手机上深色模式会把未显式设色的文字和背景都翻成深色，文字就糊在背景里看不见了。 */
+  html { color-scheme: light only; }
+  body {
+    margin: 0; padding: 12px; background: #ffffff; color: #1a1a1a;
+    font-family: -apple-system, "Hiragino Sans", "Yu Gothic", sans-serif;
+  }
+  button { font-size: 14px; padding: 6px 10px; }
+  #resume-banner {
+    display: none; background: #fff3cd; color: #7a5b00; border: 1px solid #f0d47a;
+    border-radius: 6px; padding: 8px 10px; margin-bottom: 10px; font-size: 14px; cursor: pointer;
+  }
+</style>
+</head>
+<body>
+<div id="resume-banner">⚠️ 浏览器拦截了自动连播，点这里继续播放 ▶️</div>
+<div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:8px;">
+  <span id="pos-label" style="color:#888; font-size:14px;"></span>
+  <label style="font-size:14px; color:#1a1a1a;"><input type="checkbox" id="hide-toggle"> 隐藏文字（默写/精听）</label>
+</div>
+<div id="jp-text" style="font-size:22px; font-weight:600; margin-bottom:6px; min-height:36px; line-height:1.4; color:#1a1a1a;"></div>
+<div id="zh-text" style="color:#666; margin-bottom:12px;"></div>
+<audio id="audio-el" controls playsinline style="width:100%;"></audio>
+<div style="margin-top:10px; display:flex; gap:8px; align-items:center;">
+  <button id="prev-btn">⬅️ 上一句</button>
+  <button id="play-btn">▶️ 开始连续播放</button>
+  <button id="next-btn">下一句 ➡️</button>
+  <label style="margin-left:auto; font-size:14px; color:#1a1a1a;"><input type="checkbox" id="loop-toggle"> 循环整套</label>
 </div>
 <script>
 const items = __ITEMS_JSON__;
@@ -58,6 +78,7 @@ const posLabel = document.getElementById('pos-label');
 const hideToggle = document.getElementById('hide-toggle');
 const loopToggle = document.getElementById('loop-toggle');
 const playBtn = document.getElementById('play-btn');
+const resumeBanner = document.getElementById('resume-banner');
 
 function render() {
   const item = items[pos];
@@ -72,12 +93,26 @@ function render() {
   audioEl.src = "data:audio/mp3;base64," + item.audio;
 }
 
+// 手机浏览器（尤其移动端 Chrome/Safari）有时会拦截"非用户直接点击触发"的自动连播，
+// play() 的 Promise 会被拒绝。这里捕获住失败，弹一个明显的提示条，
+// 点一下就能用一次真正的用户点击把播放接回去，不然用户只会看到"卡住了"、莫名其妙多点几次。
 function loadAndPlay(autoplayIt) {
   render();
+  resumeBanner.style.display = 'none';
   if (autoplayIt) {
-    audioEl.play().catch(() => {});
+    const p = audioEl.play();
+    if (p && p.catch) {
+      p.catch(() => {
+        resumeBanner.style.display = 'block';
+      });
+    }
   }
 }
+
+resumeBanner.addEventListener('click', () => {
+  resumeBanner.style.display = 'none';
+  audioEl.play().catch(() => {});
+});
 
 audioEl.addEventListener('ended', () => {
   if (!playing) return;
@@ -101,6 +136,7 @@ playBtn.addEventListener('click', () => {
   } else {
     playing = false;
     playBtn.textContent = '▶️ 开始连续播放';
+    resumeBanner.style.display = 'none';
     audioEl.pause();
   }
 });
@@ -119,6 +155,8 @@ hideToggle.addEventListener('change', render);
 
 render();
 </script>
+</body>
+</html>
 """
 
 
