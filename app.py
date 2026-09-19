@@ -1,3 +1,5 @@
+import base64
+import json
 from pathlib import Path
 
 import streamlit as st
@@ -27,6 +29,105 @@ from common import (
     synthesize_ja,
     update_exam_question_progress,
 )
+
+_AUTOPLAY_PLAYER_HTML = """
+<div style="font-family: -apple-system, sans-serif;">
+  <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:8px;">
+    <span id="pos-label" style="color:#888; font-size:14px;"></span>
+    <label style="font-size:14px;"><input type="checkbox" id="hide-toggle"> 隐藏文字（默写/精听）</label>
+  </div>
+  <div id="jp-text" style="font-size:22px; font-weight:600; margin-bottom:6px; min-height:36px; line-height:1.4;"></div>
+  <div id="zh-text" style="color:#666; margin-bottom:12px;"></div>
+  <audio id="audio-el" controls style="width:100%;"></audio>
+  <div style="margin-top:10px; display:flex; gap:8px; align-items:center;">
+    <button id="prev-btn">⬅️ 上一句</button>
+    <button id="play-btn">▶️ 开始连续播放</button>
+    <button id="next-btn">下一句 ➡️</button>
+    <label style="margin-left:auto; font-size:14px;"><input type="checkbox" id="loop-toggle"> 循环整套</label>
+  </div>
+</div>
+<script>
+const items = __ITEMS_JSON__;
+let pos = 0;
+let playing = false;
+
+const audioEl = document.getElementById('audio-el');
+const jpText = document.getElementById('jp-text');
+const zhText = document.getElementById('zh-text');
+const posLabel = document.getElementById('pos-label');
+const hideToggle = document.getElementById('hide-toggle');
+const loopToggle = document.getElementById('loop-toggle');
+const playBtn = document.getElementById('play-btn');
+
+function render() {
+  const item = items[pos];
+  posLabel.textContent = "第 " + (pos + 1) + " / " + items.length + " 句 · " + item.label;
+  if (hideToggle.checked) {
+    jpText.textContent = "🔊 （文字已隐藏，专心听）";
+    zhText.textContent = "";
+  } else {
+    jpText.textContent = item.jp;
+    zhText.textContent = item.zh;
+  }
+  audioEl.src = "data:audio/mp3;base64," + item.audio;
+}
+
+function loadAndPlay(autoplayIt) {
+  render();
+  if (autoplayIt) {
+    audioEl.play().catch(() => {});
+  }
+}
+
+audioEl.addEventListener('ended', () => {
+  if (!playing) return;
+  if (pos < items.length - 1) {
+    pos += 1;
+    loadAndPlay(true);
+  } else if (loopToggle.checked) {
+    pos = 0;
+    loadAndPlay(true);
+  } else {
+    playing = false;
+    playBtn.textContent = '▶️ 开始连续播放';
+  }
+});
+
+playBtn.addEventListener('click', () => {
+  if (!playing) {
+    playing = true;
+    playBtn.textContent = '⏸️ 停止连续播放';
+    loadAndPlay(true);
+  } else {
+    playing = false;
+    playBtn.textContent = '▶️ 开始连续播放';
+    audioEl.pause();
+  }
+});
+
+document.getElementById('prev-btn').addEventListener('click', () => {
+  pos = Math.max(0, pos - 1);
+  loadAndPlay(playing);
+});
+
+document.getElementById('next-btn').addEventListener('click', () => {
+  pos = Math.min(items.length - 1, pos + 1);
+  loadAndPlay(playing);
+});
+
+hideToggle.addEventListener('change', render);
+
+render();
+</script>
+"""
+
+
+def render_autoplay_player(items, height=280):
+    """渲染一个自包含的 HTML/JS 连续播放器：一句放完自动接下一句，
+    不依赖 Streamlit 的 rerun（rerun 会打断音频播放），所以整个播放列表和音频都直接内嵌在这段 HTML 里。"""
+    html = _AUTOPLAY_PLAYER_HTML.replace("__ITEMS_JSON__", json.dumps(items, ensure_ascii=False))
+    st.iframe(html, height=height)
+
 
 st.set_page_config(page_title="N2特训 · 真题 / 蓝宝书", page_icon="🈶", layout="wide")
 data = load_grammar()
@@ -157,7 +258,7 @@ with tab_quiz:
                         f"错 {prog['wrong']} 次 / 对 {prog.get('correct', 0)} 次 — {wq['sentence'][:30]}…"
                     )
 
-        mode = st.radio("练习模式", ["按套刷题", "错题复习"], horizontal=True, key="quiz_mode")
+        mode = st.radio("练习模式", ["按套刷题", "错题复习", "🎧 精听模式"], horizontal=True, key="quiz_mode")
 
         if mode == "按套刷题":
             selected_year = st.selectbox("选择一套真题", set_years, key="quiz_set_year")
@@ -283,6 +384,90 @@ with tab_quiz:
                     st.session_state.quiz_set_submitted = False
                     st.session_state.quiz_set_results = None
                     st.rerun()
+
+        elif mode == "🎧 精听模式":
+            st.caption("只播放正确答案拼成的完整句子，不用做题，专心精听练耳朵。")
+
+            scope_options = ["全部真题（顺序）"] + set_years
+            if weak:
+                scope_options.append(f"常错题（{len(weak)} 题，按错次排序）")
+            listen_scope = st.selectbox("选择听力范围", scope_options, key="quiz_listen_scope")
+
+            if st.session_state.get("quiz_listen_scope_active") != listen_scope:
+                st.session_state.quiz_listen_scope_active = listen_scope
+                if listen_scope == "全部真题（顺序）":
+                    lqueue = [q["id"] for y in set_years for q in exam_sets[y]]
+                elif listen_scope.startswith("常错题"):
+                    lqueue = [qid for qid, _ in weak]
+                else:
+                    lqueue = [q["id"] for q in exam_sets[listen_scope]]
+                st.session_state.quiz_listen_queue = lqueue
+                st.session_state.quiz_listen_pos = 0
+                st.session_state.quiz_listen_last_played = -1
+
+            lqueue = st.session_state.quiz_listen_queue
+            auto_mode = st.checkbox(
+                "🔁 连续自动播放（一句放完自动接下一句，不用手动点）", key="quiz_listen_auto"
+            )
+
+            if not lqueue:
+                st.write("这个范围里没有题目。")
+            elif auto_mode:
+                cache_key = f"quiz_listen_items_{listen_scope}"
+                if st.session_state.get(cache_key) is None:
+                    with st.spinner(f"正在生成 {len(lqueue)} 句语音…"):
+                        listen_items = []
+                        for qid in lqueue:
+                            qi = next(item for item in questions if item["id"] == qid)
+                            sentence = complete_sentence(qi)
+                            audio_b64 = base64.b64encode(synthesize_ja(sentence)).decode("ascii")
+                            listen_items.append({
+                                "label": f"{qi['year']} 問題{qi['question_no']}",
+                                "jp": sentence,
+                                "zh": qi["translation_zh"],
+                                "audio": audio_b64,
+                            })
+                    st.session_state[cache_key] = listen_items
+                render_autoplay_player(st.session_state[cache_key])
+            else:
+                hide_text = st.checkbox("隐藏文字，只听音频（默写/精听模式）", key="quiz_listen_hide")
+                lpos = max(0, min(st.session_state.quiz_listen_pos, len(lqueue) - 1))
+                st.session_state.quiz_listen_pos = lpos
+                lq_item = next(item for item in questions if item["id"] == lqueue[lpos])
+
+                st.caption(f"第 {lpos + 1} / {len(lqueue)} 句 · {lq_item['year']}　問題{lq_item['question_no']}")
+                full_sentence = complete_sentence(lq_item)
+                if hide_text:
+                    st.write("### 🔊 （文字已隐藏，专心听）")
+                else:
+                    st.write(f"### {full_sentence}")
+                    st.caption(lq_item["translation_zh"])
+
+                audio_bytes = synthesize_ja(full_sentence)
+                autoplay = st.session_state.quiz_listen_last_played != lpos
+                st.audio(audio_bytes, format="audio/mp3", autoplay=autoplay)
+                st.session_state.quiz_listen_last_played = lpos
+
+                if hide_text:
+                    with st.expander("查看文字 / 译文"):
+                        st.write(full_sentence)
+                        st.caption(lq_item["translation_zh"])
+
+                col_prev, col_replay, col_next = st.columns(3)
+                with col_prev:
+                    if st.button("⬅️ 上一句", disabled=lpos == 0, key="quiz_listen_prev"):
+                        st.session_state.quiz_listen_pos = lpos - 1
+                        st.session_state.quiz_listen_last_played = -1
+                        st.rerun()
+                with col_replay:
+                    if st.button("🔁 重播", key="quiz_listen_replay"):
+                        st.session_state.quiz_listen_last_played = -1
+                        st.rerun()
+                with col_next:
+                    if st.button("下一句 ➡️", disabled=lpos == len(lqueue) - 1, key="quiz_listen_next"):
+                        st.session_state.quiz_listen_pos = lpos + 1
+                        st.session_state.quiz_listen_last_played = -1
+                        st.rerun()
 
         else:  # 错题复习
             wrong_qids = [
