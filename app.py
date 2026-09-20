@@ -17,6 +17,7 @@ from common import (
     load_bluebook_log,
     load_exam_progress,
     load_exam_questions,
+    load_exam_set_draft,
     load_grammar,
     load_listening_questions,
     load_log,
@@ -25,6 +26,7 @@ from common import (
     record_exam_answer,
     save_bluebook_group_stats,
     save_exam_progress,
+    save_exam_set_draft,
     shuffled_question_options,
     synthesize_ja,
     update_exam_question_progress,
@@ -308,48 +310,71 @@ with tab_quiz:
             else:
                 st.caption("这一套还没完整做过")
 
+            # 草稿：免费托管容器随时可能重启把内存 session 清空，这一套没做完的
+            # 选择要落盘（并同步到 GitHub），重启重连后才能从草稿里还原回来，
+            # 而不是变成"未作答"。
+            all_drafts = load_exam_set_draft()
+
             if st.session_state.get("quiz_set_year_active") != selected_year:
                 st.session_state.quiz_set_year_active = selected_year
                 st.session_state.quiz_set_submitted = False
                 st.session_state.quiz_set_results = None
-                st.session_state.quiz_set_attempt = st.session_state.get("quiz_set_attempt", 0) + 1
+                year_draft = all_drafts.get(selected_year)
+                if year_draft and not year_draft.get("submitted"):
+                    st.session_state.quiz_set_attempt = year_draft.get("attempt", 1)
+                else:
+                    st.session_state.quiz_set_attempt = st.session_state.get("quiz_set_attempt", 0) + 1
 
             attempt = st.session_state.setdefault("quiz_set_attempt", 1)
             radio_prefix = f"quiz_set_{selected_year}_{attempt}"
 
+            year_draft = all_drafts.get(selected_year) or {}
+            if year_draft.get("attempt") == attempt and not year_draft.get("submitted"):
+                draft_picks = year_draft.get("picks", {})
+                draft_orders = year_draft.get("orders", {})
+            else:
+                draft_picks, draft_orders = {}, {}
+
             if not st.session_state.get("quiz_set_submitted"):
                 st.write(f"共 {len(set_qs)} 题，全部选完后点击最下面的「提交答案」一起判分。")
-                # 用 st.form 把这一套题包起来：选项只在浏览器本地保存，
-                # 点「提交答案」时才一次性发给服务器，避免中途每选一题都
-                # 触发一次网络往返（连接抖动/断线会导致中间选的题被判成
-                # 未作答）。
-                with st.form(key=f"{radio_prefix}_form"):
-                    picks = {}
-                    for i, q in enumerate(set_qs):
-                        st.divider()
-                        is_reorder = q.get("type") == "reorder"
-                        st.caption(
-                            f"第 {i + 1} / {len(set_qs)} 题　{q['year']}　問題{q['question_no']}"
-                            + ("　排序题" if is_reorder else "")
-                        )
-                        if is_reorder:
-                            st.caption("四个选项按顺序能拼成一句完整的话，请判断 ★ 处应该填哪个选项")
-                        st.write(f"### {q['sentence']}")
-                        order_key = f"{radio_prefix}_{q['id']}_order"
-                        if order_key not in st.session_state:
-                            st.session_state[order_key] = random_option_order(len(q["options"]))
-                        shuffled = shuffled_question_options(q, st.session_state[order_key])
-                        option_labels = [f"{j + 1}. {opt}" for j, opt in enumerate(shuffled["options"])]
-                        picked = st.radio(
-                            "选择最合适的选项", option_labels, index=None,
-                            key=f"{radio_prefix}_{q['id']}_radio",
-                        )
-                        picks[q["id"]] = option_labels.index(picked) if picked is not None else None
-
+                picks = {}
+                for i, q in enumerate(set_qs):
                     st.divider()
-                    submit_clicked = st.form_submit_button("提交答案")
+                    is_reorder = q.get("type") == "reorder"
+                    st.caption(
+                        f"第 {i + 1} / {len(set_qs)} 题　{q['year']}　問題{q['question_no']}"
+                        + ("　排序题" if is_reorder else "")
+                    )
+                    if is_reorder:
+                        st.caption("四个选项按顺序能拼成一句完整的话，请判断 ★ 处应该填哪个选项")
+                    st.write(f"### {q['sentence']}")
+                    order_key = f"{radio_prefix}_{q['id']}_order"
+                    if order_key not in st.session_state:
+                        saved_order = draft_orders.get(q["id"])
+                        st.session_state[order_key] = (
+                            saved_order if saved_order is not None else random_option_order(len(q["options"]))
+                        )
+                    shuffled = shuffled_question_options(q, st.session_state[order_key])
+                    option_labels = [f"{j + 1}. {opt}" for j, opt in enumerate(shuffled["options"])]
+                    picked = st.radio(
+                        "选择最合适的选项", option_labels, index=draft_picks.get(q["id"]),
+                        key=f"{radio_prefix}_{q['id']}_radio",
+                    )
+                    picks[q["id"]] = option_labels.index(picked) if picked is not None else None
 
-                if submit_clicked:
+                st.divider()
+                unanswered = sum(1 for v in picks.values() if v is None)
+                if unanswered:
+                    st.caption(f"还有 {unanswered} 题没作答（已自动存草稿，中途断线也不会丢）。")
+
+                current_orders = {q["id"]: st.session_state[f"{radio_prefix}_{q['id']}_order"] for q in set_qs}
+                if picks != draft_picks or current_orders != draft_orders:
+                    all_drafts[selected_year] = {
+                        "attempt": attempt, "picks": picks, "orders": current_orders, "submitted": False,
+                    }
+                    save_exam_set_draft(all_drafts)
+
+                if st.button("提交答案", key=f"{radio_prefix}_submit_all"):
                     results = []
                     correct_n = 0
                     for q in set_qs:
@@ -370,6 +395,9 @@ with tab_quiz:
                     )
                     exam_progress["set_last_accuracy"][selected_year] = correct_n / total if total else 0
                     save_exam_progress(exam_progress)
+
+                    all_drafts.pop(selected_year, None)
+                    save_exam_set_draft(all_drafts)
 
                     st.session_state.quiz_set_submitted = True
                     st.session_state.quiz_set_results = results

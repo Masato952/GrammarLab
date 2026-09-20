@@ -19,6 +19,7 @@ BLUEBOOK_FILE = DATA_DIR / "bluebook.json"
 BLUEBOOK_LOG_FILE = DATA_DIR / "bluebook_log.json"
 BLUEBOOK_GROUP_FILE = DATA_DIR / "bluebook_group_stats.json"
 EXAM_PROGRESS_FILE = DATA_DIR / "exam_progress.json"
+EXAM_SET_DRAFT_FILE = DATA_DIR / "exam_set_draft.json"
 LISTENING_FILE = DATA_DIR / "listening_questions.json"
 
 # 简化版莱特纳盒子：答对进下一箱（复习间隔变长），答错打回第0箱（明天重考）
@@ -208,6 +209,19 @@ def save_exam_progress(data):
     with open(EXAM_PROGRESS_FILE, "w", encoding="utf-8", newline="\n") as f:
         json.dump(data, f, ensure_ascii=False, indent=2)
     github_commit_file(EXAM_PROGRESS_FILE, "data/exam_progress.json", "更新 exam_progress.json")
+
+
+def load_exam_set_draft():
+    """加载「按套刷题」进行到一半的草稿（已选但还没点提交的答案）。
+    免费托管环境的容器随时可能重启、把内存中的 session 清空，这份草稿落盘
+    （并同步到 GitHub）后，重启重连时能把已经选过的选项还原回界面，不用重做。"""
+    return _safe_json_load(EXAM_SET_DRAFT_FILE, {}, "data/exam_set_draft.json")
+
+
+def save_exam_set_draft(draft):
+    with open(EXAM_SET_DRAFT_FILE, "w", encoding="utf-8", newline="\n") as f:
+        json.dump(draft, f, ensure_ascii=False, indent=2)
+    github_commit_file(EXAM_SET_DRAFT_FILE, "data/exam_set_draft.json", "更新做题草稿")
 
 
 def update_exam_question_progress(progress_data, qid, correct):
