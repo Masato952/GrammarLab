@@ -319,33 +319,37 @@ with tab_quiz:
 
             if not st.session_state.get("quiz_set_submitted"):
                 st.write(f"共 {len(set_qs)} 题，全部选完后点击最下面的「提交答案」一起判分。")
-                picks = {}
-                for i, q in enumerate(set_qs):
-                    st.divider()
-                    is_reorder = q.get("type") == "reorder"
-                    st.caption(
-                        f"第 {i + 1} / {len(set_qs)} 题　{q['year']}　問題{q['question_no']}"
-                        + ("　排序题" if is_reorder else "")
-                    )
-                    if is_reorder:
-                        st.caption("四个选项按顺序能拼成一句完整的话，请判断 ★ 处应该填哪个选项")
-                    st.write(f"### {q['sentence']}")
-                    order_key = f"{radio_prefix}_{q['id']}_order"
-                    if order_key not in st.session_state:
-                        st.session_state[order_key] = random_option_order(len(q["options"]))
-                    shuffled = shuffled_question_options(q, st.session_state[order_key])
-                    option_labels = [f"{j + 1}. {opt}" for j, opt in enumerate(shuffled["options"])]
-                    picked = st.radio(
-                        "选择最合适的选项", option_labels, index=None,
-                        key=f"{radio_prefix}_{q['id']}_radio",
-                    )
-                    picks[q["id"]] = option_labels.index(picked) if picked is not None else None
+                # 用 st.form 把这一套题包起来：选项只在浏览器本地保存，
+                # 点「提交答案」时才一次性发给服务器，避免中途每选一题都
+                # 触发一次网络往返（连接抖动/断线会导致中间选的题被判成
+                # 未作答）。
+                with st.form(key=f"{radio_prefix}_form"):
+                    picks = {}
+                    for i, q in enumerate(set_qs):
+                        st.divider()
+                        is_reorder = q.get("type") == "reorder"
+                        st.caption(
+                            f"第 {i + 1} / {len(set_qs)} 题　{q['year']}　問題{q['question_no']}"
+                            + ("　排序题" if is_reorder else "")
+                        )
+                        if is_reorder:
+                            st.caption("四个选项按顺序能拼成一句完整的话，请判断 ★ 处应该填哪个选项")
+                        st.write(f"### {q['sentence']}")
+                        order_key = f"{radio_prefix}_{q['id']}_order"
+                        if order_key not in st.session_state:
+                            st.session_state[order_key] = random_option_order(len(q["options"]))
+                        shuffled = shuffled_question_options(q, st.session_state[order_key])
+                        option_labels = [f"{j + 1}. {opt}" for j, opt in enumerate(shuffled["options"])]
+                        picked = st.radio(
+                            "选择最合适的选项", option_labels, index=None,
+                            key=f"{radio_prefix}_{q['id']}_radio",
+                        )
+                        picks[q["id"]] = option_labels.index(picked) if picked is not None else None
 
-                st.divider()
-                unanswered = sum(1 for v in picks.values() if v is None)
-                if unanswered:
-                    st.caption(f"还有 {unanswered} 题没作答。")
-                if st.button("提交答案", key=f"{radio_prefix}_submit_all"):
+                    st.divider()
+                    submit_clicked = st.form_submit_button("提交答案")
+
+                if submit_clicked:
                     results = []
                     correct_n = 0
                     for q in set_qs:
