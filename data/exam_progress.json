@@ -475,6 +475,125 @@
       "box": 0,
       "attempted": true,
       "next_review": "2026-09-21"
+    },
+    "2012-12-q33": {
+      "correct": 1,
+      "wrong": 0,
+      "box": 1,
+      "attempted": true,
+      "next_review": "2026-09-23"
+    },
+    "2012-12-q34": {
+      "correct": 0,
+      "wrong": 1,
+      "box": 0,
+      "attempted": true,
+      "next_review": "2026-09-22"
+    },
+    "2012-12-q35": {
+      "correct": 0,
+      "wrong": 1,
+      "box": 0,
+      "attempted": true,
+      "next_review": "2026-09-22"
+    },
+    "2012-12-q36": {
+      "correct": 0,
+      "wrong": 1,
+      "box": 0,
+      "attempted": true,
+      "next_review": "2026-09-22"
+    },
+    "2012-12-q37": {
+      "correct": 0,
+      "wrong": 1,
+      "box": 0,
+      "attempted": true,
+      "next_review": "2026-09-22"
+    },
+    "2012-12-q38": {
+      "correct": 1,
+      "wrong": 0,
+      "box": 1,
+      "attempted": true,
+      "next_review": "2026-09-23"
+    },
+    "2012-12-q39": {
+      "correct": 0,
+      "wrong": 1,
+      "box": 0,
+      "attempted": true,
+      "next_review": "2026-09-22"
+    },
+    "2012-12-q40": {
+      "correct": 1,
+      "wrong": 0,
+      "box": 1,
+      "attempted": true,
+      "next_review": "2026-09-23"
+    },
+    "2012-12-q41": {
+      "correct": 1,
+      "wrong": 0,
+      "box": 1,
+      "attempted": true,
+      "next_review": "2026-09-23"
+    },
+    "2012-12-q42": {
+      "correct": 0,
+      "wrong": 1,
+      "box": 0,
+      "attempted": true,
+      "next_review": "2026-09-22"
+    },
+    "2012-12-q43": {
+      "correct": 1,
+      "wrong": 0,
+      "box": 1,
+      "attempted": true,
+      "next_review": "2026-09-23"
+    },
+    "2012-12-q44": {
+      "correct": 0,
+      "wrong": 1,
+      "box": 0,
+      "attempted": true,
+      "next_review": "2026-09-22"
+    },
+    "2012-12-q45": {
+      "correct": 1,
+      "wrong": 0,
+      "box": 1,
+      "attempted": true,
+      "next_review": "2026-09-23"
+    },
+    "2012-12-q46": {
+      "correct": 0,
+      "wrong": 1,
+      "box": 0,
+      "attempted": true,
+      "next_review": "2026-09-22"
+    },
+    "2012-12-q47": {
+      "correct": 0,
+      "wrong": 1,
+      "box": 0,
+      "attempted": true,
+      "next_review": "2026-09-22"
+    },
+    "2012-12-q48": {
+      "correct": 0,
+      "wrong": 1,
+      "box": 0,
+      "attempted": true,
+      "next_review": "2026-09-22"
+    },
+    "2012-12-q49": {
+      "correct": 0,
+      "wrong": 1,
+      "box": 0,
+      "attempted": true,
+      "next_review": "2026-09-22"
     }
   },
   "daily": {
@@ -526,12 +645,14 @@
     "2010-12": 3,
     "2011-07": 5,
     "2011-12": 3,
-    "2012-07": 1
+    "2012-07": 1,
+    "2012-12": 1
   },
   "set_last_accuracy": {
     "2010-12": 0.9411764705882353,
     "2011-07": 0.8823529411764706,
     "2011-12": 0.8235294117647058,
-    "2012-07": 0.8235294117647058
+    "2012-07": 0.8235294117647058,
+    "2012-12": 0.35294117647058826
   }
 }
