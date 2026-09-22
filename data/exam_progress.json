@@ -358,123 +358,123 @@
       "next_review": "2026-09-26"
     },
     "2012-07-q33": {
-      "correct": 1,
+      "correct": 2,
       "wrong": 0,
-      "box": 1,
+      "box": 2,
       "attempted": true,
-      "next_review": "2026-09-22"
+      "next_review": "2026-09-26"
     },
     "2012-07-q34": {
-      "correct": 1,
+      "correct": 2,
       "wrong": 0,
-      "box": 1,
+      "box": 2,
       "attempted": true,
-      "next_review": "2026-09-22"
+      "next_review": "2026-09-26"
     },
     "2012-07-q35": {
-      "correct": 1,
+      "correct": 2,
       "wrong": 0,
-      "box": 1,
+      "box": 2,
       "attempted": true,
-      "next_review": "2026-09-22"
+      "next_review": "2026-09-26"
     },
     "2012-07-q36": {
-      "correct": 1,
+      "correct": 2,
       "wrong": 0,
-      "box": 1,
+      "box": 2,
       "attempted": true,
-      "next_review": "2026-09-22"
+      "next_review": "2026-09-26"
     },
     "2012-07-q37": {
-      "correct": 1,
+      "correct": 2,
       "wrong": 0,
-      "box": 1,
+      "box": 2,
       "attempted": true,
-      "next_review": "2026-09-22"
+      "next_review": "2026-09-26"
     },
     "2012-07-q38": {
-      "correct": 1,
+      "correct": 2,
       "wrong": 0,
-      "box": 1,
+      "box": 2,
       "attempted": true,
-      "next_review": "2026-09-22"
+      "next_review": "2026-09-26"
     },
     "2012-07-q39": {
-      "correct": 1,
+      "correct": 2,
       "wrong": 0,
-      "box": 1,
+      "box": 2,
       "attempted": true,
-      "next_review": "2026-09-22"
+      "next_review": "2026-09-26"
     },
     "2012-07-q40": {
-      "correct": 1,
+      "correct": 2,
       "wrong": 0,
-      "box": 1,
+      "box": 2,
       "attempted": true,
-      "next_review": "2026-09-22"
+      "next_review": "2026-09-26"
     },
     "2012-07-q41": {
-      "correct": 0,
-      "wrong": 1,
-      "box": 0,
-      "attempted": true,
-      "next_review": "2026-09-21"
-    },
-    "2012-07-q42": {
       "correct": 1,
-      "wrong": 0,
+      "wrong": 1,
       "box": 1,
       "attempted": true,
-      "next_review": "2026-09-22"
+      "next_review": "2026-09-24"
+    },
+    "2012-07-q42": {
+      "correct": 2,
+      "wrong": 0,
+      "box": 2,
+      "attempted": true,
+      "next_review": "2026-09-26"
     },
     "2012-07-q43": {
       "correct": 1,
-      "wrong": 0,
-      "box": 1,
+      "wrong": 1,
+      "box": 0,
       "attempted": true,
-      "next_review": "2026-09-22"
+      "next_review": "2026-09-23"
     },
     "2012-07-q44": {
       "correct": 0,
-      "wrong": 1,
+      "wrong": 2,
       "box": 0,
       "attempted": true,
-      "next_review": "2026-09-21"
+      "next_review": "2026-09-23"
     },
     "2012-07-q45": {
-      "correct": 1,
+      "correct": 2,
       "wrong": 0,
-      "box": 1,
+      "box": 2,
       "attempted": true,
-      "next_review": "2026-09-22"
+      "next_review": "2026-09-26"
     },
     "2012-07-q46": {
-      "correct": 1,
+      "correct": 2,
       "wrong": 0,
-      "box": 1,
+      "box": 2,
       "attempted": true,
-      "next_review": "2026-09-22"
+      "next_review": "2026-09-26"
     },
     "2012-07-q47": {
       "correct": 1,
-      "wrong": 0,
-      "box": 1,
-      "attempted": true,
-      "next_review": "2026-09-22"
-    },
-    "2012-07-q48": {
-      "correct": 1,
-      "wrong": 0,
-      "box": 1,
-      "attempted": true,
-      "next_review": "2026-09-22"
-    },
-    "2012-07-q49": {
-      "correct": 0,
       "wrong": 1,
       "box": 0,
       "attempted": true,
-      "next_review": "2026-09-21"
+      "next_review": "2026-09-23"
+    },
+    "2012-07-q48": {
+      "correct": 2,
+      "wrong": 0,
+      "box": 2,
+      "attempted": true,
+      "next_review": "2026-09-26"
+    },
+    "2012-07-q49": {
+      "correct": 1,
+      "wrong": 1,
+      "box": 1,
+      "attempted": true,
+      "next_review": "2026-09-24"
     },
     "2012-12-q33": {
       "correct": 1,
@@ -645,7 +645,7 @@
     "2010-12": 3,
     "2011-07": 5,
     "2011-12": 3,
-    "2012-07": 1,
+    "2012-07": 2,
     "2012-12": 1
   },
   "set_last_accuracy": {
