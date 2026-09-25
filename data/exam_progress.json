@@ -233,10 +233,10 @@
     },
     "2011-07-q49": {
       "correct": 4,
-      "wrong": 1,
-      "box": 3,
+      "wrong": 2,
+      "box": 0,
       "attempted": true,
-      "next_review": "2026-09-23"
+      "next_review": "2026-09-26"
     },
     "2011-12-q33": {
       "correct": 2,
