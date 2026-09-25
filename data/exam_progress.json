@@ -184,10 +184,10 @@
     },
     "2011-07-q42": {
       "correct": 3,
-      "wrong": 2,
-      "box": 2,
+      "wrong": 3,
+      "box": 0,
       "attempted": true,
-      "next_review": "2026-09-20"
+      "next_review": "2026-09-26"
     },
     "2011-07-q43": {
       "correct": 5,
