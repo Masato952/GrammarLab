@@ -78,11 +78,11 @@
       "next_review": "2026-09-18"
     },
     "2010-12-q44": {
-      "correct": 1,
+      "correct": 2,
       "wrong": 5,
-      "box": 0,
+      "box": 1,
       "attempted": true,
-      "next_review": "2026-09-15"
+      "next_review": "2026-09-27"
     },
     "2010-12-q45": {
       "correct": 3,
