@@ -582,11 +582,11 @@
       "next_review": "2026-09-29"
     },
     "2012-12-q48": {
-      "correct": 1,
+      "correct": 2,
       "wrong": 2,
-      "box": 1,
+      "box": 2,
       "attempted": true,
-      "next_review": "2026-09-27"
+      "next_review": "2026-09-29"
     },
     "2012-12-q49": {
       "correct": 1,
