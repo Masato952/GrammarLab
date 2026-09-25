@@ -302,11 +302,11 @@
       "next_review": "2026-09-26"
     },
     "2011-12-q42": {
-      "correct": 1,
+      "correct": 2,
       "wrong": 2,
-      "box": 0,
+      "box": 1,
       "attempted": true,
-      "next_review": "2026-09-20"
+      "next_review": "2026-09-27"
     },
     "2011-12-q43": {
       "correct": 3,
