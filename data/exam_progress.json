@@ -331,10 +331,10 @@
     },
     "2011-12-q46": {
       "correct": 1,
-      "wrong": 2,
-      "box": 1,
+      "wrong": 3,
+      "box": 0,
       "attempted": true,
-      "next_review": "2026-09-21"
+      "next_review": "2026-09-26"
     },
     "2011-12-q47": {
       "correct": 0,
