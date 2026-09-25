@@ -338,10 +338,10 @@
     },
     "2011-12-q47": {
       "correct": 0,
-      "wrong": 3,
+      "wrong": 4,
       "box": 0,
       "attempted": true,
-      "next_review": "2026-09-20"
+      "next_review": "2026-09-26"
     },
     "2011-12-q48": {
       "correct": 2,
