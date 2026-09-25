@@ -205,10 +205,10 @@
     },
     "2011-07-q45": {
       "correct": 3,
-      "wrong": 2,
-      "box": 3,
+      "wrong": 3,
+      "box": 0,
       "attempted": true,
-      "next_review": "2026-09-23"
+      "next_review": "2026-09-26"
     },
     "2011-07-q46": {
       "correct": 5,
