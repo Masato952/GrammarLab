@@ -246,11 +246,11 @@
       "next_review": "2026-10-02"
     },
     "2011-12-q34": {
-      "correct": 2,
+      "correct": 3,
       "wrong": 1,
-      "box": 1,
+      "box": 2,
       "attempted": true,
-      "next_review": "2026-09-21"
+      "next_review": "2026-09-29"
     },
     "2011-12-q35": {
       "correct": 3,
